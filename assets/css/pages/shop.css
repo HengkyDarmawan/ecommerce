@@ -1,0 +1,746 @@
+/**
+ * ============================================================
+ * JAYA PC — PAGES/SHOP.CSS
+ * Template Version : 1.0.0
+ * Description      : Style khusus halaman shop / product
+ *                    listing. Sidebar filter, toolbar sort,
+ *                    grid & list view toggle, active filter
+ *                    tags, empty state, dan pagination.
+ * Dependency       : variables.css, base.css, components.css,
+ *                    layout.css (load sebelum file ini)
+ * ============================================================
+ */
+
+
+/* ══════════════════════════════════════════
+ * 1. SHOP PAGE HEADER
+ * Breadcrumb + judul + deskripsi kategori
+ * ══════════════════════════════════════════ */
+
+.jp-shop-header {
+  background-color : var(--jp-bg-surface);
+  padding          : var(--jp-space-8) 0;
+  border-bottom    : var(--jp-border-width) solid var(--jp-border-color);
+}
+
+.jp-shop-header-inner {
+  display        : flex;
+  align-items    : flex-end;
+  justify-content: space-between;
+  gap            : var(--jp-space-6);
+  flex-wrap      : wrap;
+}
+
+.jp-shop-page-title {
+  font-size    : var(--jp-text-2xl);
+  font-weight  : var(--jp-fw-extrabold);
+  color        : var(--jp-gray-900);
+  text-transform: uppercase;
+  letter-spacing: var(--jp-ls-tight);
+  margin-bottom: var(--jp-space-2);
+}
+
+.jp-shop-page-desc {
+  font-size  : var(--jp-text-sm);
+  color      : var(--jp-gray-500);
+  margin     : 0;
+}
+
+/* Kategori chip di header */
+.jp-shop-cat-chips {
+  display   : flex;
+  flex-wrap : wrap;
+  gap       : var(--jp-space-2);
+  margin-top: var(--jp-space-4);
+}
+
+.jp-shop-cat-chip {
+  display         : inline-flex;
+  align-items     : center;
+  gap             : var(--jp-space-1);
+  padding         : var(--jp-space-2) var(--jp-space-4);
+  background-color: var(--jp-white);
+  border          : var(--jp-border-width) solid var(--jp-border-color);
+  border-radius   : var(--jp-radius-full);
+  font-size       : var(--jp-text-sm);
+  font-weight     : var(--jp-fw-medium);
+  color           : var(--jp-gray-700);
+  text-decoration : none;
+  transition      : all var(--jp-transition-fast);
+  white-space     : nowrap;
+}
+
+.jp-shop-cat-chip:hover,
+.jp-shop-cat-chip.active {
+  background-color: var(--jp-primary);
+  border-color    : var(--jp-primary);
+  color           : var(--jp-white);
+}
+
+.jp-shop-cat-chip i {
+  font-size : var(--jp-text-xs);
+}
+
+
+/* ══════════════════════════════════════════
+ * 2. SHOP TOOLBAR
+ * Sort, view toggle, hasil count
+ * ══════════════════════════════════════════ */
+
+.jp-shop-toolbar {
+  display         : flex;
+  align-items     : center;
+  justify-content : space-between;
+  gap             : var(--jp-space-4);
+  padding         : var(--jp-space-4) 0;
+  border-bottom   : var(--jp-border-width) solid var(--jp-border-color);
+  margin-bottom   : var(--jp-space-6);
+  flex-wrap       : wrap;
+}
+
+/* Kiri toolbar */
+.jp-toolbar-left {
+  display    : flex;
+  align-items: center;
+  gap        : var(--jp-space-3);
+  flex-wrap  : wrap;
+}
+
+/* Kanan toolbar */
+.jp-toolbar-right {
+  display    : flex;
+  align-items: center;
+  gap        : var(--jp-space-3);
+  flex-wrap  : wrap;
+}
+
+/* Jumlah hasil */
+.jp-toolbar-count {
+  font-size  : var(--jp-text-sm);
+  color      : var(--jp-gray-500);
+  white-space: nowrap;
+}
+
+.jp-toolbar-count strong {
+  color      : var(--jp-gray-900);
+  font-weight: var(--jp-fw-semibold);
+}
+
+/* Sort select */
+.jp-sort-select {
+  height          : 38px;
+  padding         : 0 var(--jp-space-8) 0 var(--jp-space-3);
+  border          : var(--jp-border-width) solid var(--jp-border-color);
+  border-radius   : var(--jp-radius-md);
+  font-size       : var(--jp-text-sm);
+  font-family     : var(--jp-font-primary);
+  color           : var(--jp-gray-700);
+  background-color: var(--jp-white);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%2364748B' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat  : no-repeat;
+  background-position: right 12px center;
+  appearance         : none;
+  cursor             : pointer;
+  transition         : border-color var(--jp-transition-fast);
+}
+
+.jp-sort-select:focus {
+  border-color : var(--jp-primary);
+  outline      : none;
+  box-shadow   : 0 0 0 3px rgba(30, 58, 138, 0.10);
+}
+
+/* View toggle buttons */
+.jp-view-toggle {
+  display : flex;
+  gap     : var(--jp-space-1);
+}
+
+.jp-view-btn {
+  width           : 36px;
+  height          : 36px;
+  border          : var(--jp-border-width) solid var(--jp-border-color);
+  background-color: var(--jp-white);
+  border-radius   : var(--jp-radius-md);
+  display         : flex;
+  align-items     : center;
+  justify-content : center;
+  color           : var(--jp-gray-500);
+  font-size       : var(--jp-text-sm);
+  cursor          : pointer;
+  transition      : all var(--jp-transition-fast);
+}
+
+.jp-view-btn:hover {
+  border-color    : var(--jp-primary);
+  color           : var(--jp-primary);
+}
+
+.jp-view-btn.active {
+  background-color: var(--jp-primary);
+  border-color    : var(--jp-primary);
+  color           : var(--jp-white);
+}
+
+/* Mobile filter button */
+.jp-mobile-filter-btn {
+  display         : none;
+  align-items     : center;
+  gap             : var(--jp-space-2);
+  height          : 38px;
+  padding         : 0 var(--jp-space-4);
+  border          : var(--jp-border-width) solid var(--jp-border-color);
+  border-radius   : var(--jp-radius-md);
+  background      : var(--jp-white);
+  font-size       : var(--jp-text-sm);
+  font-weight     : var(--jp-fw-medium);
+  color           : var(--jp-gray-700);
+  cursor          : pointer;
+  transition      : all var(--jp-transition-fast);
+  font-family     : var(--jp-font-primary);
+}
+
+.jp-mobile-filter-btn:hover {
+  border-color : var(--jp-primary);
+  color        : var(--jp-primary);
+}
+
+/* Badge jumlah filter aktif di tombol mobile */
+.jp-filter-badge {
+  display         : inline-flex;
+  align-items     : center;
+  justify-content : center;
+  min-width       : 18px;
+  height          : 18px;
+  background-color: var(--jp-primary);
+  color           : var(--jp-white);
+  font-size       : 10px;
+  font-weight     : var(--jp-fw-bold);
+  border-radius   : var(--jp-radius-full);
+  padding         : 0 4px;
+}
+
+
+/* ══════════════════════════════════════════
+ * 3. ACTIVE FILTER TAGS
+ * Tag filter yang sedang aktif
+ * ══════════════════════════════════════════ */
+
+#jpActiveFilters {
+  margin-bottom : var(--jp-space-5);
+}
+
+.jp-active-filter-list {
+  display     : flex;
+  align-items : center;
+  flex-wrap   : wrap;
+  gap         : var(--jp-space-2);
+}
+
+.jp-active-filter-tag {
+  display         : inline-flex;
+  align-items     : center;
+  gap             : var(--jp-space-2);
+  padding         : var(--jp-space-1) var(--jp-space-3);
+  background-color: var(--jp-primary-subtle);
+  border          : var(--jp-border-width) solid var(--jp-primary);
+  border-radius   : var(--jp-radius-full);
+  font-size       : var(--jp-text-xs);
+  font-weight     : var(--jp-fw-semibold);
+  color           : var(--jp-primary);
+}
+
+.jp-active-filter-tag button {
+  background  : none;
+  border      : none;
+  padding     : 0;
+  color       : var(--jp-primary);
+  cursor      : pointer;
+  font-size   : var(--jp-text-xs);
+  line-height : 1;
+  opacity     : 0.7;
+  transition  : opacity var(--jp-transition-fast);
+  display     : flex;
+  align-items : center;
+}
+
+.jp-active-filter-tag button:hover {
+  opacity : 1;
+}
+
+
+/* ══════════════════════════════════════════
+ * 4. SIDEBAR FILTER
+ * Style detail komponen filter
+ * ══════════════════════════════════════════ */
+
+/* Judul sidebar */
+.jp-sidebar-title {
+  font-size     : var(--jp-text-sm);
+  font-weight   : var(--jp-fw-bold);
+  color         : var(--jp-gray-900);
+  text-transform: uppercase;
+  letter-spacing: var(--jp-ls-wider);
+  margin-bottom : var(--jp-space-4);
+  display       : flex;
+  align-items   : center;
+  justify-content: space-between;
+}
+
+/* Reset link di sidebar */
+.jp-sidebar-reset {
+  font-size   : var(--jp-text-xs);
+  font-weight : var(--jp-fw-medium);
+  color       : var(--jp-primary);
+  text-transform: none;
+  letter-spacing: 0;
+  cursor      : pointer;
+  text-decoration: none;
+}
+
+.jp-sidebar-reset:hover {
+  color           : var(--jp-primary-dark);
+  text-decoration : underline;
+}
+
+/* Filter toggle icon */
+.jp-filter-toggle-icon {
+  font-size  : 10px;
+  color      : var(--jp-gray-400);
+  transition : transform var(--jp-transition-base);
+}
+
+/* Custom checkbox filter */
+.jp-filter-checkbox-wrap {
+  display    : flex;
+  align-items: center;
+  gap        : var(--jp-space-3);
+  padding    : var(--jp-space-2) 0;
+  cursor     : pointer;
+  user-select: none;
+}
+
+.jp-filter-checkbox-wrap input[type="checkbox"] {
+  width           : 16px;
+  height          : 16px;
+  border          : 1.5px solid var(--jp-border-color);
+  border-radius   : var(--jp-radius-sm);
+  appearance      : none;
+  cursor          : pointer;
+  background-color: var(--jp-white);
+  flex-shrink     : 0;
+  transition      : all var(--jp-transition-fast);
+  position        : relative;
+}
+
+.jp-filter-checkbox-wrap input[type="checkbox"]:checked {
+  background-color: var(--jp-primary);
+  border-color    : var(--jp-primary);
+}
+
+.jp-filter-checkbox-wrap input[type="checkbox"]:checked::after {
+  content    : '';
+  position   : absolute;
+  top        : 2px;
+  left       : 4px;
+  width      : 5px;
+  height     : 8px;
+  border     : 2px solid var(--jp-white);
+  border-top : none;
+  border-left: none;
+  transform  : rotate(45deg);
+}
+
+.jp-filter-checkbox-wrap label {
+  font-size  : var(--jp-text-sm);
+  color      : var(--jp-gray-700);
+  cursor     : pointer;
+  flex       : 1;
+  margin     : 0;
+}
+
+.jp-filter-checkbox-wrap:hover label {
+  color : var(--jp-primary);
+}
+
+/* Price range inputs */
+.jp-price-range {
+  display : flex;
+  gap     : var(--jp-space-2);
+  align-items: center;
+}
+
+.jp-price-range-input {
+  flex            : 1;
+  height          : 36px;
+  padding         : 0 var(--jp-space-3);
+  border          : var(--jp-border-width) solid var(--jp-border-color);
+  border-radius   : var(--jp-radius-md);
+  font-size       : var(--jp-text-sm);
+  color           : var(--jp-gray-700);
+  background-color: var(--jp-white);
+  font-family     : var(--jp-font-primary);
+  transition      : border-color var(--jp-transition-fast);
+  width           : 100%;
+}
+
+.jp-price-range-input:focus {
+  border-color : var(--jp-primary);
+  outline      : none;
+}
+
+.jp-price-range-sep {
+  font-size   : var(--jp-text-xs);
+  color       : var(--jp-gray-400);
+  white-space : nowrap;
+  flex-shrink : 0;
+}
+
+/* Rating filter */
+.jp-rating-filter-item {
+  display    : flex;
+  align-items: center;
+  gap        : var(--jp-space-3);
+  padding    : var(--jp-space-2) 0;
+  cursor     : pointer;
+}
+
+.jp-rating-filter-item input[type="radio"] {
+  width           : 16px;
+  height          : 16px;
+  appearance      : none;
+  border          : 1.5px solid var(--jp-border-color);
+  border-radius   : 50%;
+  cursor          : pointer;
+  flex-shrink     : 0;
+  transition      : all var(--jp-transition-fast);
+  position        : relative;
+  background      : var(--jp-white);
+}
+
+.jp-rating-filter-item input[type="radio"]:checked {
+  border-color : var(--jp-primary);
+  border-width : 4px;
+  background   : var(--jp-white);
+}
+
+.jp-rating-filter-item label {
+  display    : flex;
+  align-items: center;
+  gap        : var(--jp-space-2);
+  font-size  : var(--jp-text-sm);
+  color      : var(--jp-gray-700);
+  cursor     : pointer;
+  margin     : 0;
+}
+
+.jp-rating-filter-item .jp-rating-stars i {
+  font-size : 12px;
+}
+
+.jp-rating-filter-item label span {
+  font-size : var(--jp-text-xs);
+  color     : var(--jp-gray-500);
+}
+
+
+/* ══════════════════════════════════════════
+ * 5. PRODUCT LIST VIEW
+ * Style produk saat tampilan list (bukan grid)
+ * ══════════════════════════════════════════ */
+
+.jp-product-list {
+  display       : flex;
+  flex-direction: column;
+  gap           : var(--jp-space-4);
+}
+
+.jp-product-list .jp-product-card {
+  flex-direction: row;
+  height        : auto;
+}
+
+.jp-product-list .jp-product-card-img {
+  width        : 200px;
+  flex-shrink  : 0;
+  border-bottom: none;
+  border-right : var(--jp-border-width) solid var(--jp-border-color);
+}
+
+.jp-product-list .jp-product-card-img img {
+  aspect-ratio : auto;
+  height       : 100%;
+  min-height   : 160px;
+}
+
+.jp-product-list .jp-product-card-body {
+  flex          : 1;
+  padding       : var(--jp-space-5);
+  gap           : var(--jp-space-3);
+}
+
+.jp-product-list .jp-product-card-name {
+  font-size         : var(--jp-text-base);
+  -webkit-line-clamp: 1;
+}
+
+.jp-product-list .jp-product-card-specs {
+  display : flex;
+}
+
+.jp-product-list .jp-product-card-footer {
+  flex-direction: column;
+  align-items   : flex-end;
+  justify-content: center;
+  padding       : var(--jp-space-5);
+  background    : transparent;
+  border-top    : none;
+  border-left   : var(--jp-border-width) solid var(--jp-border-color);
+  min-width     : 160px;
+}
+
+.jp-product-list .jp-price {
+  font-size    : var(--jp-text-xl);
+  margin-bottom: var(--jp-space-3);
+  display      : block;
+}
+
+.jp-product-list .jp-product-card-price {
+  border-top : none;
+  padding-top: 0;
+}
+
+
+/* ══════════════════════════════════════════
+ * 6. EMPTY STATE FILTER
+ * Saat tidak ada produk yang cocok
+ * ══════════════════════════════════════════ */
+
+.jp-filter-empty {
+  padding         : var(--jp-space-16) var(--jp-space-8);
+  text-align      : center;
+  background-color: var(--jp-bg-surface);
+  border-radius   : var(--jp-radius-xl);
+  border          : var(--jp-border-width) dashed var(--jp-border-color);
+}
+
+.jp-filter-empty i {
+  font-size    : 3rem;
+  color        : var(--jp-gray-300);
+  margin-bottom: var(--jp-space-4);
+  display      : block;
+}
+
+.jp-filter-empty h5 {
+  font-size    : var(--jp-text-lg);
+  font-weight  : var(--jp-fw-bold);
+  color        : var(--jp-gray-700);
+  margin-bottom: var(--jp-space-2);
+}
+
+.jp-filter-empty p {
+  font-size    : var(--jp-text-sm);
+  color        : var(--jp-gray-500);
+  margin-bottom: var(--jp-space-5);
+}
+
+
+/* ══════════════════════════════════════════
+ * 7. SHOP SEARCH BAR
+ * Search bar di atas grid (halaman shop)
+ * ══════════════════════════════════════════ */
+
+.jp-shop-search-bar {
+  position     : relative;
+  margin-bottom: var(--jp-space-5);
+}
+
+.jp-shop-search-bar input {
+  width           : 100%;
+  height          : 48px;
+  padding         : 0 var(--jp-space-12) 0 var(--jp-space-5);
+  border          : var(--jp-border-width-2) solid var(--jp-border-color);
+  border-radius   : var(--jp-radius-lg);
+  font-size       : var(--jp-text-base);
+  color           : var(--jp-gray-900);
+  background-color: var(--jp-white);
+  font-family     : var(--jp-font-primary);
+  transition      : border-color var(--jp-transition-fast),
+                    box-shadow var(--jp-transition-fast);
+}
+
+.jp-shop-search-bar input:focus {
+  border-color : var(--jp-primary);
+  box-shadow   : 0 0 0 3px rgba(30, 58, 138, 0.10);
+  outline      : none;
+}
+
+.jp-shop-search-bar input::placeholder {
+  color : var(--jp-gray-400);
+}
+
+.jp-shop-search-bar-icon {
+  position       : absolute;
+  right          : var(--jp-space-4);
+  top            : 50%;
+  transform      : translateY(-50%);
+  color          : var(--jp-gray-400);
+  font-size      : var(--jp-text-lg);
+  cursor         : pointer;
+  transition     : color var(--jp-transition-fast);
+}
+
+.jp-shop-search-bar-icon:hover {
+  color : var(--jp-primary);
+}
+
+
+/* ══════════════════════════════════════════
+ * 8. FILTER OFFCANVAS — MOBILE
+ * ══════════════════════════════════════════ */
+
+#jpFilterOffcanvas .offcanvas-header {
+  border-bottom : var(--jp-border-width) solid var(--jp-border-color);
+  padding       : var(--jp-space-4) var(--jp-space-5);
+}
+
+#jpFilterOffcanvas .offcanvas-title {
+  font-size  : var(--jp-text-base);
+  font-weight: var(--jp-fw-bold);
+  color      : var(--jp-gray-900);
+}
+
+#jpFilterOffcanvas .offcanvas-body {
+  padding : var(--jp-space-4) var(--jp-space-5);
+}
+
+#jpFilterOffcanvas .jp-filter-card {
+  border     : none;
+  box-shadow : none;
+  margin-bottom: var(--jp-space-4);
+}
+
+#jpFilterOffcanvas .jp-filter-header {
+  padding      : var(--jp-space-3) 0;
+  border-bottom: var(--jp-border-width) solid var(--jp-border-color);
+  border-top   : none;
+  border-left  : none;
+  border-right : none;
+}
+
+#jpApplyMobileFilter {
+  position   : sticky;
+  bottom     : var(--jp-space-4);
+  width      : 100%;
+  margin-top : var(--jp-space-4);
+}
+
+
+/* ══════════════════════════════════════════
+ * 9. PRODUK CARD — SHOP SPECIFIC TWEAKS
+ * ══════════════════════════════════════════ */
+
+/* Loading skeleton saat produk sedang di-filter */
+.jp-product-card-wrap.jp-loading {
+  pointer-events : none;
+}
+
+.jp-product-card-wrap.jp-loading .jp-product-card {
+  opacity : 0.4;
+}
+
+/* Animasi masuk card setelah filter */
+.jp-product-card-wrap {
+  transition : opacity 200ms ease, transform 200ms ease;
+}
+
+.jp-product-card-wrap.jp-filter-hide {
+  opacity   : 0;
+  transform : scale(0.96);
+}
+
+
+/* ══════════════════════════════════════════
+ * 10. PAGINATION — SHOP
+ * ══════════════════════════════════════════ */
+
+.jp-shop-pagination {
+  display         : flex;
+  justify-content : center;
+  margin-top      : var(--jp-space-10);
+  padding-top     : var(--jp-space-8);
+  border-top      : var(--jp-border-width) solid var(--jp-border-color);
+}
+
+
+/* ══════════════════════════════════════════
+ * 11. RESPONSIVE — SHOP PAGE
+ * ══════════════════════════════════════════ */
+
+@media (max-width: 991px) {
+  .jp-mobile-filter-btn {
+    display : inline-flex;
+  }
+
+  .jp-shop-toolbar {
+    flex-wrap : wrap;
+  }
+}
+
+@media (max-width: 767px) {
+  .jp-shop-header-inner {
+    flex-direction : column;
+    align-items    : flex-start;
+  }
+
+  .jp-toolbar-left,
+  .jp-toolbar-right {
+    width     : 100%;
+    flex-wrap : wrap;
+  }
+
+  .jp-sort-select {
+    flex : 1;
+  }
+
+  /* List view di mobile — kembali ke layout card */
+  .jp-product-list .jp-product-card {
+    flex-direction : column;
+  }
+
+  .jp-product-list .jp-product-card-img {
+    width        : 100%;
+    border-right : none;
+    border-bottom: var(--jp-border-width) solid var(--jp-border-color);
+  }
+
+  .jp-product-list .jp-product-card-footer {
+    flex-direction : row;
+    border-left    : none;
+    border-top     : var(--jp-border-width) solid var(--jp-border-color);
+    align-items    : center;
+    min-width      : auto;
+    width          : 100%;
+  }
+
+  .jp-product-list .jp-price {
+    margin-bottom : 0;
+    font-size     : var(--jp-text-lg);
+  }
+}
+
+@media (max-width: 575px) {
+  .jp-shop-cat-chips {
+    gap : var(--jp-space-2);
+  }
+
+  .jp-shop-cat-chip {
+    font-size : var(--jp-text-xs);
+    padding   : var(--jp-space-1) var(--jp-space-3);
+  }
+
+  .jp-shop-pagination {
+    margin-top  : var(--jp-space-8);
+    padding-top : var(--jp-space-6);
+  }
+}

@@ -1,0 +1,793 @@
+/**
+ * ============================================================
+ * JAYA PC — PAGES/CART.CSS
+ * Template Version : 1.0.0
+ * Description      : Style khusus halaman cart & checkout.
+ *                    Cart item list, order summary,
+ *                    coupon input, checkout steps,
+ *                    form billing, payment methods,
+ *                    dan empty cart state.
+ * Dependency       : variables.css, base.css, components.css,
+ *                    layout.css (load sebelum file ini)
+ * ============================================================
+ */
+
+
+/* ══════════════════════════════════════════
+ * 1. CART PAGE LAYOUT
+ * 2 kolom: cart items kiri + order summary kanan
+ * ══════════════════════════════════════════ */
+
+.jp-cart-layout {
+  display               : grid;
+  grid-template-columns : 1fr 380px;
+  gap                   : var(--jp-space-8);
+  align-items           : start;
+}
+
+.jp-cart-main {
+  min-width : 0;
+}
+
+.jp-cart-sidebar {
+  position : sticky;
+  top      : calc(var(--jp-navbar-height) + var(--jp-space-6));
+}
+
+
+/* ══════════════════════════════════════════
+ * 2. CART ITEMS LIST
+ * ══════════════════════════════════════════ */
+
+.jp-cart-card {
+  background-color: var(--jp-white);
+  border          : var(--jp-border-width) solid var(--jp-border-color);
+  border-radius   : var(--jp-radius-xl);
+  overflow        : hidden;
+  margin-bottom   : var(--jp-space-4);
+}
+
+/* Header cart card */
+.jp-cart-card-header {
+  display         : flex;
+  align-items     : center;
+  justify-content : space-between;
+  padding         : var(--jp-space-4) var(--jp-space-5);
+  border-bottom   : var(--jp-border-width) solid var(--jp-border-color);
+  background-color: var(--jp-bg-surface);
+}
+
+.jp-cart-card-title {
+  font-size  : var(--jp-text-sm);
+  font-weight: var(--jp-fw-bold);
+  color      : var(--jp-gray-900);
+  margin     : 0;
+}
+
+.jp-cart-select-all {
+  display    : flex;
+  align-items: center;
+  gap        : var(--jp-space-2);
+  font-size  : var(--jp-text-sm);
+  color      : var(--jp-gray-600);
+  cursor     : pointer;
+  user-select: none;
+}
+
+/* Satu baris cart item */
+.jp-cart-item {
+  display        : flex;
+  align-items    : flex-start;
+  gap            : var(--jp-space-4);
+  padding        : var(--jp-space-5);
+  border-bottom  : var(--jp-border-width) solid var(--jp-border-color);
+  transition     : background-color var(--jp-transition-fast);
+  position       : relative;
+}
+
+.jp-cart-item:last-child {
+  border-bottom : none;
+}
+
+.jp-cart-item:hover {
+  background-color: var(--jp-gray-50);
+}
+
+/* Checkbox pilih item */
+.jp-cart-item-check {
+  flex-shrink : 0;
+  margin-top  : var(--jp-space-1);
+}
+
+.jp-cart-item-check input[type="checkbox"] {
+  width           : 18px;
+  height          : 18px;
+  border          : 1.5px solid var(--jp-border-color);
+  border-radius   : var(--jp-radius-sm);
+  appearance      : none;
+  cursor          : pointer;
+  background-color: var(--jp-white);
+  flex-shrink     : 0;
+  transition      : all var(--jp-transition-fast);
+  position        : relative;
+}
+
+.jp-cart-item-check input[type="checkbox"]:checked {
+  background-color: var(--jp-primary);
+  border-color    : var(--jp-primary);
+}
+
+.jp-cart-item-check input[type="checkbox"]:checked::after {
+  content   : '';
+  position  : absolute;
+  top       : 2px;
+  left      : 5px;
+  width     : 5px;
+  height    : 9px;
+  border    : 2px solid var(--jp-white);
+  border-top: none;
+  border-left: none;
+  transform : rotate(45deg);
+}
+
+/* Gambar produk */
+.jp-cart-item-img {
+  width           : 80px;
+  height          : 80px;
+  border-radius   : var(--jp-radius-md);
+  background-color: var(--jp-gray-50);
+  border          : var(--jp-border-width) solid var(--jp-border-color);
+  overflow        : hidden;
+  flex-shrink     : 0;
+}
+
+.jp-cart-item-img img {
+  width      : 100%;
+  height     : 100%;
+  object-fit : contain;
+  padding    : var(--jp-space-2);
+}
+
+/* Info produk */
+.jp-cart-item-info {
+  flex : 1;
+  min-width: 0;
+}
+
+.jp-cart-item-brand {
+  font-size     : var(--jp-text-xs);
+  font-weight   : var(--jp-fw-semibold);
+  color         : var(--jp-primary);
+  text-transform: uppercase;
+  letter-spacing: var(--jp-ls-wider);
+  margin-bottom : var(--jp-space-1);
+}
+
+.jp-cart-item-name {
+  font-size     : var(--jp-text-sm);
+  font-weight   : var(--jp-fw-semibold);
+  color         : var(--jp-gray-900);
+  line-height   : var(--jp-lh-snug);
+  margin-bottom : var(--jp-space-2);
+  display       : -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow      : hidden;
+}
+
+.jp-cart-item-name a {
+  color       : var(--jp-gray-900);
+  text-decoration: none;
+}
+
+.jp-cart-item-name a:hover {
+  color : var(--jp-primary);
+}
+
+.jp-cart-item-variant {
+  font-size  : var(--jp-text-xs);
+  color      : var(--jp-gray-500);
+  margin-bottom: var(--jp-space-3);
+}
+
+/* Harga + qty + hapus */
+.jp-cart-item-actions {
+  display        : flex;
+  align-items    : center;
+  justify-content: space-between;
+  gap            : var(--jp-space-3);
+  flex-wrap      : wrap;
+}
+
+.jp-cart-item-price {
+  font-size  : var(--jp-text-base);
+  font-weight: var(--jp-fw-bold);
+  color      : var(--jp-price-sale);
+  white-space: nowrap;
+}
+
+.jp-cart-item-price-original {
+  font-size      : var(--jp-text-xs);
+  color          : var(--jp-price-original);
+  text-decoration: line-through;
+  font-weight    : var(--jp-fw-normal);
+}
+
+/* Tombol hapus item */
+.jp-cart-item-remove {
+  background  : none;
+  border      : none;
+  color       : var(--jp-gray-400);
+  font-size   : var(--jp-text-sm);
+  cursor      : pointer;
+  padding     : var(--jp-space-1);
+  transition  : color var(--jp-transition-fast);
+  flex-shrink : 0;
+}
+
+.jp-cart-item-remove:hover {
+  color : var(--jp-danger);
+}
+
+/* Sub total per item */
+.jp-cart-item-subtotal {
+  text-align : right;
+  flex-shrink: 0;
+}
+
+.jp-cart-item-subtotal-label {
+  font-size : var(--jp-text-xs);
+  color     : var(--jp-gray-400);
+  display   : block;
+  margin-bottom: 2px;
+}
+
+.jp-cart-item-subtotal-price {
+  font-size  : var(--jp-text-base);
+  font-weight: var(--jp-fw-bold);
+  color      : var(--jp-gray-900);
+  white-space: nowrap;
+}
+
+/* Item yang sedang dihapus */
+.jp-cart-item.removing {
+  opacity        : 0;
+  max-height     : 0;
+  padding-top    : 0;
+  padding-bottom : 0;
+  overflow       : hidden;
+  transition     : opacity 200ms ease, max-height 300ms ease,
+                   padding 300ms ease;
+}
+
+
+/* ══════════════════════════════════════════
+ * 3. COUPON / VOUCHER
+ * ══════════════════════════════════════════ */
+
+.jp-coupon-wrap {
+  background-color: var(--jp-white);
+  border          : var(--jp-border-width) solid var(--jp-border-color);
+  border-radius   : var(--jp-radius-xl);
+  padding         : var(--jp-space-5);
+  margin-bottom   : var(--jp-space-4);
+}
+
+.jp-coupon-title {
+  font-size    : var(--jp-text-sm);
+  font-weight  : var(--jp-fw-semibold);
+  color        : var(--jp-gray-900);
+  margin-bottom: var(--jp-space-4);
+  display      : flex;
+  align-items  : center;
+  gap          : var(--jp-space-2);
+}
+
+.jp-coupon-title i {
+  color : var(--jp-accent);
+}
+
+.jp-coupon-input-wrap {
+  display : flex;
+  gap     : var(--jp-space-2);
+}
+
+.jp-coupon-input {
+  flex            : 1;
+  height          : 42px;
+  padding         : 0 var(--jp-space-4);
+  border          : var(--jp-border-width) solid var(--jp-border-color);
+  border-radius   : var(--jp-radius-md);
+  font-family     : var(--jp-font-primary);
+  font-size       : var(--jp-text-sm);
+  color           : var(--jp-gray-900);
+  background-color: var(--jp-white);
+  text-transform  : uppercase;
+  letter-spacing  : var(--jp-ls-wider);
+  transition      : border-color var(--jp-transition-fast);
+}
+
+.jp-coupon-input:focus {
+  border-color : var(--jp-primary);
+  outline      : none;
+  box-shadow   : 0 0 0 3px rgba(30, 58, 138, 0.10);
+}
+
+.jp-coupon-input::placeholder {
+  text-transform: none;
+  letter-spacing: 0;
+  color         : var(--jp-gray-400);
+}
+
+/* Coupon terapasang */
+.jp-coupon-applied {
+  display         : flex;
+  align-items     : center;
+  justify-content : space-between;
+  padding         : var(--jp-space-3) var(--jp-space-4);
+  background-color: var(--jp-success-subtle);
+  border          : var(--jp-border-width) solid var(--jp-success);
+  border-radius   : var(--jp-radius-md);
+  margin-top      : var(--jp-space-3);
+}
+
+.jp-coupon-applied-code {
+  display    : flex;
+  align-items: center;
+  gap        : var(--jp-space-2);
+  font-size  : var(--jp-text-sm);
+  font-weight: var(--jp-fw-semibold);
+  color      : var(--jp-success-dark);
+}
+
+.jp-coupon-remove-btn {
+  background : none;
+  border     : none;
+  color      : var(--jp-gray-500);
+  cursor     : pointer;
+  font-size  : var(--jp-text-sm);
+  transition : color var(--jp-transition-fast);
+}
+
+.jp-coupon-remove-btn:hover {
+  color : var(--jp-danger);
+}
+
+
+/* ══════════════════════════════════════════
+ * 4. ORDER SUMMARY SIDEBAR
+ * ══════════════════════════════════════════ */
+
+.jp-order-summary {
+  background-color: var(--jp-white);
+  border          : var(--jp-border-width) solid var(--jp-border-color);
+  border-radius   : var(--jp-radius-xl);
+  overflow        : hidden;
+}
+
+.jp-order-summary-header {
+  padding         : var(--jp-space-4) var(--jp-space-5);
+  border-bottom   : var(--jp-border-width) solid var(--jp-border-color);
+  background-color: var(--jp-bg-surface);
+}
+
+.jp-order-summary-title {
+  font-size  : var(--jp-text-sm);
+  font-weight: var(--jp-fw-bold);
+  color      : var(--jp-gray-900);
+  margin     : 0;
+  text-transform: uppercase;
+  letter-spacing: var(--jp-ls-wider);
+}
+
+.jp-order-summary-body {
+  padding : var(--jp-space-5);
+}
+
+/* Baris kalkulasi harga */
+.jp-summary-row {
+  display        : flex;
+  align-items    : flex-start;
+  justify-content: space-between;
+  gap            : var(--jp-space-4);
+  margin-bottom  : var(--jp-space-4);
+  font-size      : var(--jp-text-sm);
+}
+
+.jp-summary-row:last-child {
+  margin-bottom : 0;
+}
+
+.jp-summary-label {
+  color : var(--jp-gray-600);
+  flex  : 1;
+}
+
+.jp-summary-value {
+  font-weight: var(--jp-fw-semibold);
+  color      : var(--jp-gray-900);
+  text-align : right;
+  white-space: nowrap;
+}
+
+.jp-summary-value.discount {
+  color : var(--jp-success);
+}
+
+.jp-summary-value.free {
+  color       : var(--jp-success);
+  font-weight : var(--jp-fw-semibold);
+}
+
+/* Divider sebelum total */
+.jp-summary-divider {
+  border     : none;
+  border-top : var(--jp-border-width) solid var(--jp-border-color);
+  margin     : var(--jp-space-4) 0;
+}
+
+/* Baris total */
+.jp-summary-total-row {
+  display        : flex;
+  align-items    : center;
+  justify-content: space-between;
+  gap            : var(--jp-space-4);
+}
+
+.jp-summary-total-label {
+  font-size  : var(--jp-text-base);
+  font-weight: var(--jp-fw-bold);
+  color      : var(--jp-gray-900);
+  text-transform: uppercase;
+  letter-spacing: var(--jp-ls-wide);
+}
+
+.jp-summary-total-price {
+  font-size  : var(--jp-text-2xl);
+  font-weight: var(--jp-fw-extrabold);
+  color      : var(--jp-price-sale);
+  line-height: 1;
+}
+
+/* Checkout button area */
+.jp-order-summary-footer {
+  padding     : var(--jp-space-5);
+  border-top  : var(--jp-border-width) solid var(--jp-border-color);
+  background-color: var(--jp-bg-surface);
+}
+
+/* Trust badges di summary */
+.jp-summary-trust {
+  display       : flex;
+  flex-direction: column;
+  gap           : var(--jp-space-2);
+  margin-top    : var(--jp-space-4);
+}
+
+.jp-summary-trust-item {
+  display    : flex;
+  align-items: center;
+  gap        : var(--jp-space-2);
+  font-size  : var(--jp-text-xs);
+  color      : var(--jp-gray-500);
+}
+
+.jp-summary-trust-item i {
+  color     : var(--jp-success);
+  font-size : var(--jp-text-sm);
+  flex-shrink: 0;
+}
+
+
+/* ══════════════════════════════════════════
+ * 5. EMPTY CART STATE
+ * ══════════════════════════════════════════ */
+
+.jp-cart-empty {
+  text-align      : center;
+  padding         : var(--jp-space-20) var(--jp-space-8);
+  background-color: var(--jp-white);
+  border          : var(--jp-border-width) solid var(--jp-border-color);
+  border-radius   : var(--jp-radius-xl);
+}
+
+.jp-cart-empty-icon {
+  font-size    : 4rem;
+  color        : var(--jp-gray-200);
+  margin-bottom: var(--jp-space-5);
+  display      : block;
+}
+
+.jp-cart-empty-title {
+  font-size    : var(--jp-text-xl);
+  font-weight  : var(--jp-fw-bold);
+  color        : var(--jp-gray-700);
+  margin-bottom: var(--jp-space-3);
+}
+
+.jp-cart-empty-desc {
+  font-size    : var(--jp-text-sm);
+  color        : var(--jp-gray-500);
+  margin-bottom: var(--jp-space-6);
+  max-width    : 360px;
+  margin-left  : auto;
+  margin-right : auto;
+}
+
+
+/* ══════════════════════════════════════════
+ * 6. CHECKOUT PAGE — STEPS INDICATOR
+ * ══════════════════════════════════════════ */
+
+.jp-checkout-steps {
+  display         : flex;
+  align-items     : center;
+  justify-content : center;
+  gap             : 0;
+  margin-bottom   : var(--jp-space-10);
+  overflow        : hidden;
+}
+
+.jp-checkout-step {
+  display    : flex;
+  align-items: center;
+  gap        : var(--jp-space-2);
+  font-size  : var(--jp-text-sm);
+  font-weight: var(--jp-fw-medium);
+  color      : var(--jp-gray-400);
+  white-space: nowrap;
+}
+
+.jp-checkout-step.active {
+  color : var(--jp-primary);
+}
+
+.jp-checkout-step.completed {
+  color : var(--jp-success);
+}
+
+.jp-checkout-step-num {
+  width           : 28px;
+  height          : 28px;
+  border-radius   : var(--jp-radius-full);
+  background-color: var(--jp-gray-200);
+  color           : var(--jp-gray-500);
+  display         : flex;
+  align-items     : center;
+  justify-content : center;
+  font-size       : var(--jp-text-xs);
+  font-weight     : var(--jp-fw-bold);
+  flex-shrink     : 0;
+  transition      : all var(--jp-transition-base);
+}
+
+.jp-checkout-step.active .jp-checkout-step-num {
+  background-color: var(--jp-primary);
+  color           : var(--jp-white);
+}
+
+.jp-checkout-step.completed .jp-checkout-step-num {
+  background-color: var(--jp-success);
+  color           : var(--jp-white);
+}
+
+.jp-checkout-step-divider {
+  flex        : 1;
+  height      : 2px;
+  background  : var(--jp-border-color);
+  min-width   : 40px;
+  max-width   : 80px;
+}
+
+.jp-checkout-step.completed + .jp-checkout-step-divider {
+  background : var(--jp-success);
+}
+
+
+/* ══════════════════════════════════════════
+ * 7. CHECKOUT FORM
+ * ══════════════════════════════════════════ */
+
+.jp-checkout-layout {
+  display               : grid;
+  grid-template-columns : 1fr 380px;
+  gap                   : var(--jp-space-8);
+  align-items           : start;
+}
+
+.jp-checkout-form-card {
+  background-color: var(--jp-white);
+  border          : var(--jp-border-width) solid var(--jp-border-color);
+  border-radius   : var(--jp-radius-xl);
+  overflow        : hidden;
+  margin-bottom   : var(--jp-space-5);
+}
+
+.jp-checkout-form-header {
+  padding         : var(--jp-space-4) var(--jp-space-5);
+  border-bottom   : var(--jp-border-width) solid var(--jp-border-color);
+  background-color: var(--jp-bg-surface);
+  display         : flex;
+  align-items     : center;
+  gap             : var(--jp-space-3);
+}
+
+.jp-checkout-form-step-num {
+  width           : 24px;
+  height          : 24px;
+  border-radius   : var(--jp-radius-full);
+  background-color: var(--jp-primary);
+  color           : var(--jp-white);
+  display         : flex;
+  align-items     : center;
+  justify-content : center;
+  font-size       : var(--jp-text-xs);
+  font-weight     : var(--jp-fw-bold);
+  flex-shrink     : 0;
+}
+
+.jp-checkout-form-title {
+  font-size  : var(--jp-text-sm);
+  font-weight: var(--jp-fw-bold);
+  color      : var(--jp-gray-900);
+  margin     : 0;
+}
+
+.jp-checkout-form-body {
+  padding : var(--jp-space-5);
+}
+
+/* Form grid 2 kolom */
+.jp-form-grid-2 {
+  display               : grid;
+  grid-template-columns : repeat(2, 1fr);
+  gap                   : var(--jp-space-4);
+}
+
+.jp-form-grid-full {
+  grid-column : 1 / -1;
+}
+
+
+/* ══════════════════════════════════════════
+ * 8. PAYMENT METHOD SELECTOR
+ * ══════════════════════════════════════════ */
+
+.jp-payment-options {
+  display       : flex;
+  flex-direction: column;
+  gap           : var(--jp-space-3);
+}
+
+.jp-payment-option {
+  display         : flex;
+  align-items     : center;
+  gap             : var(--jp-space-4);
+  padding         : var(--jp-space-4);
+  border          : var(--jp-border-width-2) solid var(--jp-border-color);
+  border-radius   : var(--jp-radius-lg);
+  cursor          : pointer;
+  transition      : all var(--jp-transition-fast);
+  user-select     : none;
+}
+
+.jp-payment-option:hover {
+  border-color     : var(--jp-primary);
+  background-color : var(--jp-primary-subtle);
+}
+
+.jp-payment-option.selected {
+  border-color     : var(--jp-primary);
+  background-color : var(--jp-primary-subtle);
+}
+
+.jp-payment-option input[type="radio"] {
+  width        : 18px;
+  height       : 18px;
+  appearance   : none;
+  border       : 2px solid var(--jp-border-color);
+  border-radius: 50%;
+  flex-shrink  : 0;
+  cursor       : pointer;
+  transition   : all var(--jp-transition-fast);
+  position     : relative;
+  background   : var(--jp-white);
+}
+
+.jp-payment-option input[type="radio"]:checked {
+  border-color : var(--jp-primary);
+  border-width : 5px;
+}
+
+.jp-payment-option-icon {
+  width           : 40px;
+  height          : 28px;
+  border-radius   : var(--jp-radius-sm);
+  background-color: var(--jp-gray-100);
+  display         : flex;
+  align-items     : center;
+  justify-content : center;
+  font-size       : var(--jp-text-xs);
+  font-weight     : var(--jp-fw-bold);
+  color           : var(--jp-gray-700);
+  flex-shrink     : 0;
+  overflow        : hidden;
+}
+
+.jp-payment-option-info {
+  flex : 1;
+}
+
+.jp-payment-option-name {
+  font-size  : var(--jp-text-sm);
+  font-weight: var(--jp-fw-semibold);
+  color      : var(--jp-gray-900);
+}
+
+.jp-payment-option-desc {
+  font-size : var(--jp-text-xs);
+  color     : var(--jp-gray-500);
+  margin-top: 2px;
+}
+
+
+/* ══════════════════════════════════════════
+ * 9. RESPONSIVE — CART & CHECKOUT
+ * ══════════════════════════════════════════ */
+
+@media (max-width: 991px) {
+  .jp-cart-layout,
+  .jp-checkout-layout {
+    grid-template-columns : 1fr;
+  }
+
+  .jp-cart-sidebar {
+    position : static;
+    order    : -1;
+  }
+
+  .jp-checkout-steps {
+    margin-bottom : var(--jp-space-8);
+  }
+
+  .jp-checkout-step-label {
+    display : none;
+  }
+}
+
+@media (max-width: 575px) {
+  .jp-cart-item {
+    flex-wrap : wrap;
+    gap       : var(--jp-space-3);
+  }
+
+  .jp-cart-item-img {
+    width  : 64px;
+    height : 64px;
+  }
+
+  .jp-cart-item-actions {
+    width     : 100%;
+    flex-wrap : wrap;
+  }
+
+  .jp-cart-item-subtotal {
+    text-align : left;
+  }
+
+  .jp-summary-total-price {
+    font-size : var(--jp-text-xl);
+  }
+
+  .jp-form-grid-2 {
+    grid-template-columns : 1fr;
+  }
+
+  .jp-checkout-step-divider {
+    min-width : 20px;
+  }
+
+  .jp-cart-empty {
+    padding : var(--jp-space-12) var(--jp-space-5);
+  }
+}

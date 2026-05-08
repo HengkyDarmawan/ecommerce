@@ -1,0 +1,576 @@
+/**
+ * ============================================================
+ * JAYA PC — MOBILE CSS
+ * Template Version : 1.0.0
+ * Description      : Responsive overrides untuk layar mobile.
+ *                    Breakpoint: max-width 575px (xs)
+ *                    Selalu load SETELAH semua CSS lainnya.
+ * Dependency       : variables.css, base.css, components.css,
+ *                    layout.css, pages/*.css
+ * ============================================================
+ */
+
+@media (max-width: 575px) {
+
+  /* ──────────────────────────────────────────
+   * 📐 GLOBAL SPACING
+   * ────────────────────────────────────────── */
+
+  .jp-container,
+  .jp-container-fluid,
+  .jp-container-narrow {
+    padding-left  : var(--jp-space-4);
+    padding-right : var(--jp-space-4);
+  }
+
+  .jp-section {
+    padding-top    : var(--jp-space-12);
+    padding-bottom : var(--jp-space-12);
+  }
+
+  .jp-section-surface {
+    padding-top    : var(--jp-space-12);
+    padding-bottom : var(--jp-space-12);
+  }
+
+  .jp-section-sm {
+    padding-top    : var(--jp-space-8);
+    padding-bottom : var(--jp-space-8);
+  }
+
+  /* Section header stack vertikal */
+  .jp-section-header {
+    flex-direction : column;
+    align-items    : flex-start;
+    gap            : var(--jp-space-3);
+    margin-bottom  : var(--jp-space-6);
+  }
+
+  .jp-section-title {
+    font-size : var(--jp-text-2xl);
+  }
+
+
+  /* ──────────────────────────────────────────
+   * 🔝 TOPBAR
+   * ────────────────────────────────────────── */
+
+  /* Sembunyikan info kontak kanan di mobile */
+  .jp-topbar-right {
+    display : none;
+  }
+
+  /* Marquee full width */
+  .jp-topbar-marquee {
+    flex : 1 1 100%;
+  }
+
+
+  /* ──────────────────────────────────────────
+   * 🧭 NAVBAR
+   * ────────────────────────────────────────── */
+
+  .jp-navbar-inner {
+    gap : var(--jp-space-3);
+  }
+
+  /* Sembunyikan nav menu desktop di mobile */
+  .jp-nav-menu {
+    display : none;
+  }
+
+  /* Sembunyikan search bar di mobile — ada di offcanvas */
+  .jp-navbar-search {
+    display : none;
+  }
+
+  /* Tombol rakit PC lebih kecil */
+  .jp-btn-rakit {
+    padding   : var(--jp-space-2) var(--jp-space-3);
+    font-size : var(--jp-text-xs);
+  }
+
+  /* Icon btn lebih rapat */
+  .jp-navbar-actions {
+    gap : var(--jp-space-1);
+  }
+
+  .jp-nav-icon-btn {
+    width  : 34px;
+    height : 34px;
+  }
+
+
+  /* ──────────────────────────────────────────
+   * 🖼️ HERO
+   * ────────────────────────────────────────── */
+
+  .jp-hero-slide {
+    min-height : 420px;
+    align-items: flex-end;
+  }
+
+  /* Overlay lebih gelap di mobile agar teks terbaca */
+  .jp-hero-slide-overlay {
+    background : linear-gradient(
+      to top,
+      rgba(10, 20, 60, 0.95) 0%,
+      rgba(10, 20, 60, 0.70) 50%,
+      rgba(10, 20, 60, 0.30) 100%
+    );
+  }
+
+  .jp-hero-content {
+    padding    : var(--jp-space-8) 0;
+    max-width  : 100%;
+    text-align : center;
+  }
+
+  .jp-hero-title {
+    font-size : var(--jp-text-3xl);
+  }
+
+  .jp-hero-desc {
+    font-size : var(--jp-text-sm);
+    max-width : 100%;
+  }
+
+  .jp-hero-actions {
+    flex-direction  : column;
+    align-items     : stretch;
+    gap             : var(--jp-space-3);
+  }
+
+  .jp-hero-actions .jp-btn {
+    width           : 100%;
+    justify-content : center;
+  }
+
+  /* Stat bar — 2 kolom di mobile */
+  .jp-hero-stats-inner {
+    grid-template-columns : repeat(2, 1fr);
+  }
+
+  .jp-hero-stat-item {
+    padding      : var(--jp-space-4);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .jp-hero-stat-item:nth-child(odd) {
+    border-right : 1px solid rgba(255,255,255,0.08);
+  }
+
+  .jp-hero-stat-item:nth-child(3),
+  .jp-hero-stat-item:nth-child(4) {
+    border-bottom : none;
+  }
+
+  .jp-hero-stat-number {
+    font-size : var(--jp-text-xl);
+  }
+
+  /* Sembunyikan tombol prev/next di mobile */
+  .jp-hero-prev,
+  .jp-hero-next {
+    display : none;
+  }
+
+  .jp-hero-indicators {
+    bottom : var(--jp-space-4);
+  }
+
+
+  /* ──────────────────────────────────────────
+   * ✅ TRUST BAR
+   * ────────────────────────────────────────── */
+
+  .jp-trust-bar-inner {
+    grid-template-columns : repeat(2, 1fr);
+  }
+
+  .jp-trust-item + .jp-trust-item {
+    border-left : none;
+  }
+
+  .jp-trust-item:nth-child(odd) {
+    border-right  : var(--jp-border-width) solid var(--jp-border-color);
+  }
+
+  .jp-trust-item {
+    padding : var(--jp-space-4) var(--jp-space-3);
+    gap     : var(--jp-space-2);
+  }
+
+  .jp-trust-icon {
+    width  : 36px;
+    height : 36px;
+  }
+
+  .jp-trust-icon i {
+    font-size : var(--jp-text-base);
+  }
+
+
+  /* ──────────────────────────────────────────
+   * 🗂️ CATEGORY GRID
+   * ────────────────────────────────────────── */
+
+  /* Grid 8 kolom → 4 kolom di mobile */
+  .jp-category-grid {
+    grid-template-columns : repeat(4, 1fr);
+    gap                   : var(--jp-space-3);
+  }
+
+  .jp-category-card {
+    padding   : var(--jp-space-3) var(--jp-space-2);
+    gap       : var(--jp-space-2);
+    border-radius: var(--jp-radius-lg);
+  }
+
+  .jp-category-card-img {
+    width  : 40px;
+    height : 40px;
+  }
+
+  .jp-category-card-name {
+    font-size : var(--jp-text-xs);
+  }
+
+  .jp-category-card-count {
+    display : none;
+  }
+
+  /* Grid kategori main → stack */
+  .jp-category-grid-main {
+    grid-template-columns : 1fr;
+    grid-template-rows    : auto;
+  }
+
+  .jp-category-grid-main .jp-cat-featured {
+    grid-row    : auto;
+    grid-column : auto;
+  }
+
+
+  /* ──────────────────────────────────────────
+   * 🛍️ PRODUCT GRID
+   * ────────────────────────────────────────── */
+
+  /* 4 kolom → 2 kolom di mobile */
+  .jp-product-grid,
+  .jp-product-grid-3,
+  .jp-product-grid-5 {
+    grid-template-columns : repeat(2, 1fr);
+    gap                   : var(--jp-space-3);
+  }
+
+  .jp-product-card-body {
+    padding : var(--jp-space-3);
+    gap     : var(--jp-space-1);
+  }
+
+  .jp-product-card-img img {
+    padding : var(--jp-space-3);
+  }
+
+  .jp-product-card-footer {
+    padding : var(--jp-space-2) var(--jp-space-3);
+  }
+
+  .jp-price {
+    font-size : var(--jp-text-base);
+  }
+
+  /* Spec chips — sembunyikan di mobile untuk hemat ruang */
+  .jp-product-card-specs {
+    display : none;
+  }
+
+
+  /* ──────────────────────────────────────────
+   * 🎯 BANNER PROMO GRID
+   * ────────────────────────────────────────── */
+
+  .jp-banner-grid {
+    grid-template-columns : 1fr;
+    grid-template-rows    : auto;
+    gap                   : var(--jp-space-3);
+    min-height            : auto;
+  }
+
+  .jp-banner-main {
+    grid-row : auto;
+  }
+
+  .jp-banner-card {
+    min-height : 160px;
+  }
+
+  .jp-banner-main .jp-banner-title {
+    font-size : var(--jp-text-xl);
+  }
+
+  .jp-banner-title {
+    font-size : var(--jp-text-base);
+  }
+
+  .jp-banner-card-content {
+    padding : var(--jp-space-4);
+  }
+
+
+  /* ──────────────────────────────────────────
+   * 🔧 PC CONFIGURATOR
+   * ────────────────────────────────────────── */
+
+  .jp-configurator-wrap {
+    grid-template-columns : 1fr;
+    gap                   : var(--jp-space-8);
+  }
+
+  .jp-configurator-steps {
+    gap : var(--jp-space-6);
+  }
+
+  .jp-config-step-number {
+    width  : 40px;
+    height : 40px;
+  }
+
+  .jp-configurator-widget {
+    padding : var(--jp-space-5);
+  }
+
+
+  /* ──────────────────────────────────────────
+   * 💪 WHY US
+   * ────────────────────────────────────────── */
+
+  /* 4 kolom → 2 kolom di mobile */
+  .jp-why-grid {
+    grid-template-columns : repeat(2, 1fr);
+    gap                   : var(--jp-space-3);
+  }
+
+  .jp-why-card {
+    padding : var(--jp-space-4);
+  }
+
+  .jp-why-icon {
+    width  : 40px;
+    height : 40px;
+  }
+
+  .jp-why-icon i {
+    font-size : var(--jp-text-base);
+  }
+
+  .jp-why-title {
+    font-size : var(--jp-text-sm);
+  }
+
+  .jp-why-desc {
+    font-size : var(--jp-text-xs);
+  }
+
+
+  /* ──────────────────────────────────────────
+   * ⭐ TESTIMONIAL
+   * ────────────────────────────────────────── */
+
+  /* 3 kolom → 1 kolom di mobile */
+  .jp-testimonial-grid {
+    grid-template-columns : 1fr;
+    gap                   : var(--jp-space-4);
+  }
+
+  .jp-testimonial-card {
+    padding : var(--jp-space-5);
+  }
+
+
+  /* ──────────────────────────────────────────
+   * 📝 BLOG GRID
+   * ────────────────────────────────────────── */
+
+  /* 3 kolom → 1 kolom di mobile */
+  .jp-blog-grid {
+    grid-template-columns : 1fr;
+    gap                   : var(--jp-space-4);
+  }
+
+
+  /* ──────────────────────────────────────────
+   * 📧 NEWSLETTER
+   * ────────────────────────────────────────── */
+
+  .jp-newsletter {
+    padding : var(--jp-space-10) 0;
+  }
+
+  .jp-newsletter-inner {
+    flex-direction : column;
+    gap            : var(--jp-space-6);
+    text-align     : center;
+  }
+
+  .jp-newsletter-title {
+    font-size : var(--jp-text-2xl);
+  }
+
+  .jp-newsletter-form {
+    width : 100%;
+  }
+
+  .jp-newsletter-input-wrap {
+    flex-direction : column;
+    gap            : var(--jp-space-2);
+  }
+
+  .jp-newsletter-input {
+    text-align : center;
+  }
+
+
+  /* ──────────────────────────────────────────
+   * 🔗 FOOTER
+   * ────────────────────────────────────────── */
+
+  .jp-footer-grid {
+    grid-template-columns : 1fr;
+    gap                   : var(--jp-space-8);
+  }
+
+  .jp-footer-top {
+    padding : var(--jp-space-10) 0 var(--jp-space-8);
+  }
+
+  .jp-footer-bottom {
+    flex-direction : column;
+    align-items    : center;
+    text-align     : center;
+    gap            : var(--jp-space-4);
+  }
+
+  .jp-payment-badges {
+    justify-content : center;
+  }
+
+
+  /* ──────────────────────────────────────────
+   * 🛒 SHOP LAYOUT
+   * ────────────────────────────────────────── */
+
+  /* Sidebar jadi offcanvas di mobile */
+  .jp-shop-layout {
+    grid-template-columns : 1fr;
+  }
+
+  .jp-shop-sidebar {
+    display  : none; /* diganti offcanvas Bootstrap */
+    position : static;
+  }
+
+
+  /* ──────────────────────────────────────────
+   * 📦 PRODUCT DETAIL
+   * ────────────────────────────────────────── */
+
+  .jp-product-detail-wrap {
+    grid-template-columns : 1fr;
+    gap                   : var(--jp-space-6);
+  }
+
+  .jp-product-gallery {
+    position : static;
+  }
+
+  .jp-gallery-thumbs {
+    grid-template-columns : repeat(5, 1fr);
+    gap                   : var(--jp-space-2);
+  }
+
+
+  /* ──────────────────────────────────────────
+   * 🔢 BRAND MARQUEE
+   * ────────────────────────────────────────── */
+
+  .jp-brand-track {
+    gap : var(--jp-space-8);
+  }
+
+  .jp-brand-item span {
+    font-size : var(--jp-text-base);
+  }
+
+
+  /* ──────────────────────────────────────────
+   * 🧭 BREADCRUMB
+   * ────────────────────────────────────────── */
+
+  .jp-breadcrumb-list {
+    gap : var(--jp-space-1);
+  }
+
+  .jp-breadcrumb-item {
+    font-size : var(--jp-text-xs);
+  }
+
+
+  /* ──────────────────────────────────────────
+   * 📄 PAGINATION
+   * ────────────────────────────────────────── */
+
+  .jp-pagination {
+    flex-wrap       : wrap;
+    justify-content : center;
+  }
+
+  .jp-page-item .jp-page-link {
+    width  : 34px;
+    height : 34px;
+  }
+
+
+  /* ──────────────────────────────────────────
+   * 🖱️ FLOATING BUTTONS
+   * ────────────────────────────────────────── */
+
+  .jp-back-to-top,
+  .jp-wa-float {
+    width  : 40px;
+    height : 40px;
+    right  : var(--jp-space-4);
+  }
+
+  .jp-back-to-top {
+    bottom : var(--jp-space-4);
+  }
+
+  .jp-wa-float {
+    bottom : calc(var(--jp-space-4) + 40px + var(--jp-space-2));
+  }
+
+
+  /* ──────────────────────────────────────────
+   * 🧩 BUTTONS
+   * ────────────────────────────────────────── */
+
+  .jp-btn-xl {
+    padding   : var(--jp-space-4) var(--jp-space-6);
+    font-size : var(--jp-text-sm);
+  }
+
+
+  /* ──────────────────────────────────────────
+   * 🔔 TOAST
+   * ────────────────────────────────────────── */
+
+  .jp-toast-container {
+    bottom    : var(--jp-space-4);
+    right     : var(--jp-space-4);
+    left      : var(--jp-space-4);
+    max-width : 100%;
+  }
+
+} /* end @media max-width: 575px */

@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="id" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>Checkout — Jaya PC Jakarta</title>
+  <meta name="description" content="Selesaikan pembelian produk PC gaming & komponen di Jaya PC. Pembayaran aman, garansi resmi distributor.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="https://jayapc.com/favicon.ico" type="image/x-icon">
+  <meta name="theme-color" content="#1E3A8A">
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- CSS Vendors -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- CSS Template -->
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/pages/cart.css">
+  <link rel="stylesheet" href="assets/css/pages/home.css">
+
+  <!-- CSS Responsive -->
+  <link rel="stylesheet" href="assets/css/responsive/desktop.css">
+  <link rel="stylesheet" href="assets/css/responsive/tablet.css">
+  <link rel="stylesheet" href="assets/css/responsive/mobile.css">
+</head>
+
+<body>
+
+  <a href="#jp-main-content" class="skip-to-content">Langsung ke Konten</a>
+  <div class="jp-toast-container" role="region" aria-label="Notifikasi" aria-live="polite"></div>
+
+
+  <!-- ════════════════════════════════════════
+       NAVBAR RINGKAS
+  ════════════════════════════════════════ -->
+  <nav class="jp-navbar" role="navigation" aria-label="Navigasi" id="jpNavbar">
+    <div class="jp-container">
+      <div class="jp-navbar-inner">
+
+        <a href="index.html" class="jp-navbar-brand" aria-label="Jaya PC">
+          <img src="https://jayapc.com/wp-content/uploads/2024/12/logo-color-1.png"
+               alt="Jaya PC" width="120" height="36" loading="eager">
+        </a>
+
+        <!-- Checkout step indicator di navbar -->
+        <div class="jp-checkout-steps" style="flex:1;max-width:480px;margin:0 auto;">
+          <div class="jp-checkout-step completed" aria-label="Keranjang — selesai">
+            <div class="jp-checkout-step-num">
+              <i class="fa-solid fa-check" style="font-size:10px;" aria-hidden="true"></i>
+            </div>
+            <span class="jp-checkout-step-label">Keranjang</span>
+          </div>
+          <div class="jp-checkout-step-divider"></div>
+          <div class="jp-checkout-step active" aria-label="Data Diri — sedang diproses" aria-current="step">
+            <div class="jp-checkout-step-num">2</div>
+            <span class="jp-checkout-step-label">Data Diri</span>
+          </div>
+          <div class="jp-checkout-step-divider"></div>
+          <div class="jp-checkout-step" aria-label="Pembayaran — belum">
+            <div class="jp-checkout-step-num">3</div>
+            <span class="jp-checkout-step-label">Pembayaran</span>
+          </div>
+          <div class="jp-checkout-step-divider"></div>
+          <div class="jp-checkout-step" aria-label="Selesai — belum">
+            <div class="jp-checkout-step-num">4</div>
+            <span class="jp-checkout-step-label">Selesai</span>
+          </div>
+        </div>
+
+        <div class="jp-navbar-actions">
+          <a href="cart.html" class="jp-btn jp-btn-ghost jp-btn-sm" aria-label="Kembali ke keranjang">
+            <i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Keranjang
+          </a>
+          <a href="cart.html" class="jp-nav-icon-btn" aria-label="Keranjang">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="jp-nav-badge" data-cart-badge style="display:none">0</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- ════════════════════════════════════════
+       MAIN CONTENT
+  ════════════════════════════════════════ -->
+  <main id="jp-main-content" class="jp-page-main">
+
+    <!-- Breadcrumb -->
+    <div class="jp-breadcrumb-wrap">
+      <div class="jp-container">
+        <ol class="jp-breadcrumb-list">
+          <li class="jp-breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="jp-breadcrumb-item"><a href="cart.html">Keranjang</a></li>
+          <li class="jp-breadcrumb-item active" aria-current="page">Checkout</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Page Header -->
+    <div class="jp-shop-header">
+      <div class="jp-container">
+        <h1 class="jp-shop-page-title">
+          <i class="fa-solid fa-lock" aria-hidden="true"
+             style="color:var(--jp-primary);margin-right:.5rem;"></i>
+          Checkout Aman
+        </h1>
+        <p class="jp-shop-page-desc">Lengkapi informasi di bawah untuk menyelesaikan pesananmu</p>
+      </div>
+    </div>
+
+
+    <!-- Checkout Content -->
+    <section class="jp-section jp-section-sm" aria-label="Form checkout">
+      <div class="jp-container">
+        <div class="jp-checkout-layout">
+
+          <!-- ── KIRI: Form ── -->
+          <div>
+            <form id="jpCheckoutForm" novalidate aria-label="Form pemesanan">
+
+              <!-- ════ PANEL 1: Data Diri ════ -->
+              <div class="jp-checkout-form-card jp-checkout-panel" id="jpPanel1">
+                <div class="jp-checkout-form-header">
+                  <div class="jp-checkout-form-step-num" aria-hidden="true">1</div>
+                  <h2 class="jp-checkout-form-title">Data Diri</h2>
+                </div>
+                <div class="jp-checkout-form-body">
+                  <div class="jp-form-grid-2">
+                    <div class="jp-form-group">
+                      <label class="jp-form-label" for="firstName">
+                        Nama Depan <span class="required" aria-label="wajib diisi">*</span>
+                      </label>
+                      <input type="text" id="firstName" name="first_name"
+                             class="jp-form-control" placeholder="Budi" required
+                             autocomplete="given-name">
+                    </div>
+                    <div class="jp-form-group">
+                      <label class="jp-form-label" for="lastName">
+                        Nama Belakang <span class="required">*</span>
+                      </label>
+                      <input type="text" id="lastName" name="last_name"
+                             class="jp-form-control" placeholder="Santoso" required
+                             autocomplete="family-name">
+                    </div>
+                    <div class="jp-form-group">
+                      <label class="jp-form-label" for="email">
+                        Email <span class="required">*</span>
+                      </label>
+                      <input type="email" id="email" name="email"
+                             class="jp-form-control" placeholder="budi@email.com" required
+                             autocomplete="email">
+                    </div>
+                    <div class="jp-form-group">
+                      <label class="jp-form-label" for="phone">
+                        No. WhatsApp <span class="required">*</span>
+                      </label>
+                      <input type="tel" id="phone" name="phone"
+                             class="jp-form-control" placeholder="08123456789" required
+                             autocomplete="tel" pattern="[0-9+\s-]{10,15}">
+                      <small style="font-size:var(--jp-text-xs);color:var(--jp-gray-400);margin-top:4px;display:block;">
+                        Digunakan untuk konfirmasi & tracking pesanan
+                      </small>
+                    </div>
+                  </div>
+                </div>
+                <!-- Next button -->
+                <div class="jp-checkout-form-body" style="padding-top:0;">
+                  <button type="button" class="jp-btn jp-btn-primary jp-checkout-next"
+                          aria-label="Lanjut ke alamat pengiriman">
+                    Lanjut ke Alamat <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+
+
+              <!-- ════ PANEL 2: Alamat Pengiriman ════ -->
+              <div class="jp-checkout-form-card jp-checkout-panel" id="jpPanel2" style="display:none;">
+                <div class="jp-checkout-form-header">
+                  <div class="jp-checkout-form-step-num" aria-hidden="true">2</div>
+                  <h2 class="jp-checkout-form-title">Alamat Pengiriman</h2>
+                </div>
+                <div class="jp-checkout-form-body">
+                  <div class="jp-form-grid-2">
+                    <div class="jp-form-group jp-form-grid-full">
+                      <label class="jp-form-label" for="address">
+                        Alamat Lengkap <span class="required">*</span>
+                      </label>
+                      <input type="text" id="address" name="address"
+                             class="jp-form-control" required
+                             placeholder="Jl. Merdeka No. 123, RT 01/RW 02"
+                             autocomplete="street-address">
+                    </div>
+                    <div class="jp-form-group jp-form-grid-full">
+                      <label class="jp-form-label" for="addressNote">
+                        Catatan Tambahan
+                      </label>
+                      <input type="text" id="addressNote" name="address_note"
+                             class="jp-form-control"
+                             placeholder="Patokan, nomor apartemen, dll (opsional)">
+                    </div>
+                    <div class="jp-form-group">
+                      <label class="jp-form-label" for="province">
+                        Provinsi <span class="required">*</span>
+                      </label>
+                      <select id="province" name="province"
+                              class="jp-form-control jp-form-select" required>
+                        <option value="">Pilih Provinsi</option>
+                        <option value="DKI Jakarta" selected>DKI Jakarta</option>
+                        <option value="Jawa Barat">Jawa Barat</option>
+                        <option value="Jawa Tengah">Jawa Tengah</option>
+                        <option value="Jawa Timur">Jawa Timur</option>
+                        <option value="Banten">Banten</option>
+                        <option value="Bali">Bali</option>
+                        <option value="Sumatera Utara">Sumatera Utara</option>
+                        <option value="Sumatera Selatan">Sumatera Selatan</option>
+                        <option value="Kalimantan Timur">Kalimantan Timur</option>
+                        <option value="Sulawesi Selatan">Sulawesi Selatan</option>
+                      </select>
+                    </div>
+                    <div class="jp-form-group">
+                      <label class="jp-form-label" for="city">
+                        Kota / Kabupaten <span class="required">*</span>
+                      </label>
+                      <input type="text" id="city" name="city"
+                             class="jp-form-control" required
+                             placeholder="Jakarta Selatan"
+                             autocomplete="address-level2">
+                    </div>
+                    <div class="jp-form-group">
+                      <label class="jp-form-label" for="district">
+                        Kecamatan
+                      </label>
+                      <input type="text" id="district" name="district"
+                             class="jp-form-control"
+                             placeholder="Kebayoran Baru">
+                    </div>
+                    <div class="jp-form-group">
+                      <label class="jp-form-label" for="postal_code">
+                        Kode Pos <span class="required">*</span>
+                      </label>
+                      <input type="text" id="postal_code" name="postal_code"
+                             class="jp-form-control" required
+                             placeholder="12160" maxlength="5" pattern="\d{5}"
+                             autocomplete="postal-code">
+                    </div>
+                  </div>
+
+                  <!-- Opsi pengiriman -->
+                  <div style="margin-top:var(--jp-space-4);">
+                    <label class="jp-form-label">Metode Pengiriman</label>
+                    <div style="display:flex;flex-direction:column;gap:var(--jp-space-3);">
+
+                      <label class="jp-payment-option selected" style="cursor:pointer;">
+                        <input type="radio" name="shipping_method" value="same_day" checked>
+                        <div class="jp-payment-option-icon" style="background:var(--jp-primary-subtle);">
+                          <i class="fa-solid fa-bolt" style="color:var(--jp-primary);"></i>
+                        </div>
+                        <div class="jp-payment-option-info">
+                          <div class="jp-payment-option-name">Same-Day Delivery</div>
+                          <div class="jp-payment-option-desc">Tiba hari ini (order sebelum 14.00 WIB — area Jakarta)</div>
+                        </div>
+                        <span style="font-size:var(--jp-text-sm);font-weight:var(--jp-fw-semibold);color:var(--jp-success);white-space:nowrap;">GRATIS*</span>
+                      </label>
+
+                      <label class="jp-payment-option" style="cursor:pointer;">
+                        <input type="radio" name="shipping_method" value="reguler">
+                        <div class="jp-payment-option-icon" style="background:var(--jp-primary-subtle);">
+                          <i class="fa-solid fa-truck" style="color:var(--jp-primary);"></i>
+                        </div>
+                        <div class="jp-payment-option-info">
+                          <div class="jp-payment-option-name">JNE REG / TIKI REG</div>
+                          <div class="jp-payment-option-desc">Estimasi 2–3 hari kerja ke seluruh Indonesia</div>
+                        </div>
+                        <span style="font-size:var(--jp-text-sm);font-weight:var(--jp-fw-semibold);color:var(--jp-gray-700);white-space:nowrap;">Rp 25.000</span>
+                      </label>
+
+                      <label class="jp-payment-option" style="cursor:pointer;">
+                        <input type="radio" name="shipping_method" value="pickup">
+                        <div class="jp-payment-option-icon" style="background:var(--jp-primary-subtle);">
+                          <i class="fa-solid fa-store" style="color:var(--jp-primary);"></i>
+                        </div>
+                        <div class="jp-payment-option-info">
+                          <div class="jp-payment-option-name">Ambil di Toko</div>
+                          <div class="jp-payment-option-desc">Jakarta — Senin–Sabtu 09.00–18.00 WIB</div>
+                        </div>
+                        <span style="font-size:var(--jp-text-sm);font-weight:var(--jp-fw-semibold);color:var(--jp-success);white-space:nowrap;">GRATIS</span>
+                      </label>
+
+                    </div>
+                    <p style="font-size:var(--jp-text-xs);color:var(--jp-gray-400);margin-top:var(--jp-space-2);">
+                      *Same-Day gratis untuk pembelian ≥ Rp 500.000 di area Jakarta
+                    </p>
+                  </div>
+
+                </div>
+                <!-- Prev + Next -->
+                <div class="jp-checkout-form-body" style="padding-top:0;display:flex;gap:var(--jp-space-3);">
+                  <button type="button" class="jp-btn jp-btn-ghost jp-checkout-prev"
+                          aria-label="Kembali ke data diri">
+                    <i class="fa-solid fa-arrow-left"></i> Kembali
+                  </button>
+                  <button type="button" class="jp-btn jp-btn-primary jp-checkout-next"
+                          aria-label="Lanjut ke pembayaran">
+                    Lanjut ke Pembayaran <i class="fa-solid fa-arrow-right"></i>
+                  </button>
+                </div>
+              </div>
+
+
+              <!-- ════ PANEL 3: Pembayaran ════ -->
+              <div class="jp-checkout-form-card jp-checkout-panel" id="jpPanel3" style="display:none;">
+                <div class="jp-checkout-form-header">
+                  <div class="jp-checkout-form-step-num" aria-hidden="true">3</div>
+                  <h2 class="jp-checkout-form-title">Metode Pembayaran</h2>
+                </div>
+                <div class="jp-checkout-form-body">
+
+                  <div class="jp-payment-options" role="radiogroup" aria-label="Pilih metode pembayaran">
+
+                    <!-- Transfer BCA -->
+                    <label class="jp-payment-option selected" style="cursor:pointer;">
+                      <input type="radio" name="payment_method" value="bank_bca" checked>
+                      <div class="jp-payment-option-icon" style="background:#004b87;color:#fff;font-size:10px;font-weight:800;">BCA</div>
+                      <div class="jp-payment-option-info">
+                        <div class="jp-payment-option-name">Transfer BCA</div>
+                        <div class="jp-payment-option-desc">1234567890 a.n. PT Jaya PC Indonesia</div>
+                      </div>
+                    </label>
+
+                    <!-- Transfer Mandiri -->
+                    <label class="jp-payment-option" style="cursor:pointer;">
+                      <input type="radio" name="payment_method" value="bank_mandiri">
+                      <div class="jp-payment-option-icon" style="background:#003d7a;color:#f9a12e;font-size:9px;font-weight:800;">MDR</div>
+                      <div class="jp-payment-option-info">
+                        <div class="jp-payment-option-name">Transfer Mandiri</div>
+                        <div class="jp-payment-option-desc">0987654321 a.n. PT Jaya PC Indonesia</div>
+                      </div>
+                    </label>
+
+                    <!-- GoPay -->
+                    <label class="jp-payment-option" style="cursor:pointer;">
+                      <input type="radio" name="payment_method" value="gopay">
+                      <div class="jp-payment-option-icon" style="background:#00aed6;color:#fff;font-size:9px;font-weight:800;">GO</div>
+                      <div class="jp-payment-option-info">
+                        <div class="jp-payment-option-name">GoPay</div>
+                        <div class="jp-payment-option-desc">Scan QR atau link ke aplikasi GoPay</div>
+                      </div>
+                    </label>
+
+                    <!-- OVO -->
+                    <label class="jp-payment-option" style="cursor:pointer;">
+                      <input type="radio" name="payment_method" value="ovo">
+                      <div class="jp-payment-option-icon" style="background:#4c3494;color:#fff;font-size:9px;font-weight:800;">OVO</div>
+                      <div class="jp-payment-option-info">
+                        <div class="jp-payment-option-name">OVO</div>
+                        <div class="jp-payment-option-desc">Link ke aplikasi OVO setelah konfirmasi</div>
+                      </div>
+                    </label>
+
+                    <!-- COD -->
+                    <label class="jp-payment-option" style="cursor:pointer;">
+                      <input type="radio" name="payment_method" value="cod">
+                      <div class="jp-payment-option-icon" style="background:var(--jp-success-subtle);">
+                        <i class="fa-solid fa-money-bill-wave" style="color:var(--jp-success);font-size:14px;"></i>
+                      </div>
+                      <div class="jp-payment-option-info">
+                        <div class="jp-payment-option-name">Bayar di Tempat (COD)</div>
+                        <div class="jp-payment-option-desc">Bayar tunai saat produk tiba — area Jakarta saja</div>
+                      </div>
+                    </label>
+
+                    <!-- Cicilan 0% -->
+                    <label class="jp-payment-option" style="cursor:pointer;">
+                      <input type="radio" name="payment_method" value="cicilan">
+                      <div class="jp-payment-option-icon" style="background:var(--jp-primary-subtle);">
+                        <i class="fa-solid fa-credit-card" style="color:var(--jp-primary);font-size:14px;"></i>
+                      </div>
+                      <div class="jp-payment-option-info">
+                        <div class="jp-payment-option-name">Cicilan 0%</div>
+                        <div class="jp-payment-option-desc">BCA, Mandiri, BNI, BRI — hingga 24 bulan tanpa bunga</div>
+                      </div>
+                    </label>
+
+                  </div>
+
+                  <!-- Instruksi pembayaran dinamis -->
+                  <div id="jpPaymentInstruction" aria-live="polite" aria-label="Instruksi pembayaran"></div>
+
+                  <!-- Catatan pesanan -->
+                  <div class="jp-form-group" style="margin-top:var(--jp-space-5);">
+                    <label class="jp-form-label" for="orderNote">
+                      Catatan Pesanan (Opsional)
+                    </label>
+                    <textarea id="orderNote" name="order_note" class="jp-form-control" rows="3"
+                              placeholder="Instruksi khusus, waktu pengiriman yang diinginkan, dll..."></textarea>
+                  </div>
+
+                  <!-- Syarat & ketentuan -->
+                  <div style="display:flex;align-items:flex-start;gap:var(--jp-space-3);margin-top:var(--jp-space-4);padding:var(--jp-space-4);background:var(--jp-bg-surface);border-radius:var(--jp-radius-lg);">
+                    <input type="checkbox" id="agreeTerms" name="agree_terms" required
+                           style="width:18px;height:18px;margin-top:2px;flex-shrink:0;cursor:pointer;">
+                    <label for="agreeTerms" style="font-size:var(--jp-text-sm);color:var(--jp-gray-600);cursor:pointer;line-height:var(--jp-lh-relaxed);">
+                      Saya menyetujui
+                      <a href="#" style="color:var(--jp-primary);">Syarat &amp; Ketentuan</a>
+                      dan
+                      <a href="#" style="color:var(--jp-primary);">Kebijakan Privasi</a>
+                      Jaya PC. Saya memahami bahwa pesanan yang sudah dibayar tidak dapat dibatalkan.
+                    </label>
+                  </div>
+
+                </div>
+
+                <!-- Prev + Submit -->
+                <div class="jp-checkout-form-body" style="padding-top:0;display:flex;gap:var(--jp-space-3);flex-wrap:wrap;">
+                  <button type="button" class="jp-btn jp-btn-ghost jp-checkout-prev"
+                          aria-label="Kembali ke alamat pengiriman">
+                    <i class="fa-solid fa-arrow-left"></i> Kembali
+                  </button>
+                  <button type="submit" class="jp-btn jp-btn-accent jp-btn-lg"
+                          style="flex:1;" aria-label="Konfirmasi dan bayar pesanan">
+                    <i class="fa-solid fa-lock" aria-hidden="true"></i>
+                    Konfirmasi &amp; Bayar
+                  </button>
+                </div>
+
+              </div>
+
+            </form><!-- /checkout form -->
+          </div><!-- /form kiri -->
+
+
+          <!-- ── KANAN: Order Summary ── -->
+          <div>
+            <div class="jp-order-summary">
+              <div class="jp-order-summary-header">
+                <h2 class="jp-order-summary-title">Ringkasan Pesanan</h2>
+              </div>
+
+              <!-- Items dari cart -->
+              <div class="jp-order-summary-body">
+                <div id="jpCheckoutItems" aria-live="polite" aria-label="Produk yang dipesan">
+                  <!-- Diisi oleh checkout.js renderCheckoutReview() -->
+                  <div class="jp-summary-row" style="justify-content:center;padding:1rem;">
+                    <i class="fa-solid fa-spinner fa-spin" aria-hidden="true"
+                       style="color:var(--jp-gray-400);"></i>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Kalkulasi harga -->
+              <div class="jp-order-summary-body" style="padding-top:0;">
+                <hr class="jp-summary-divider" style="margin-top:0;">
+
+                <!-- Coupon di checkout -->
+                <div style="margin-bottom:var(--jp-space-4);">
+                  <div class="jp-coupon-input-wrap" style="gap:var(--jp-space-2);">
+                    <input type="text" id="jpCouponInput" class="jp-coupon-input"
+                           placeholder="Kode voucher" maxlength="20" style="height:38px;"
+                           aria-label="Kode voucher">
+                    <button class="jp-btn jp-btn-outline-primary jp-btn-sm"
+                            id="jpApplyCoupon" type="button">
+                      Pakai
+                    </button>
+                  </div>
+                  <div id="jpCouponFeedback" aria-live="polite"></div>
+                </div>
+
+                <div class="jp-summary-row">
+                  <span class="jp-summary-label">Subtotal</span>
+                  <span class="jp-summary-value" data-summary-subtotal>Rp 0</span>
+                </div>
+                <div class="jp-summary-row">
+                  <span class="jp-summary-label">Diskon Voucher</span>
+                  <span class="jp-summary-value discount" data-summary-discount>-</span>
+                </div>
+                <div class="jp-summary-row">
+                  <span class="jp-summary-label">Ongkos Kirim</span>
+                  <span class="jp-summary-value" data-summary-shipping>Rp 25.000</span>
+                </div>
+
+                <hr class="jp-summary-divider">
+
+                <div class="jp-summary-total-row">
+                  <span class="jp-summary-total-label">Total</span>
+                  <span class="jp-summary-total-price" data-summary-total>Rp 0</span>
+                </div>
+                <p style="font-size:var(--jp-text-xs);color:var(--jp-gray-400);margin-top:var(--jp-space-2);margin-bottom:0;">
+                  Sudah termasuk PPN 11%
+                </p>
+              </div>
+
+              <!-- Trust -->
+              <div class="jp-order-summary-body" style="padding-top:0;">
+                <div class="jp-summary-trust">
+                  <div class="jp-summary-trust-item">
+                    <i class="fa-solid fa-lock" aria-hidden="true"></i>
+                    Pembayaran 100% aman &amp; terenkripsi
+                  </div>
+                  <div class="jp-summary-trust-item">
+                    <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+                    Garansi resmi distributor
+                  </div>
+                  <div class="jp-summary-trust-item">
+                    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+                    Support via WhatsApp 09.00–18.00
+                  </div>
+                </div>
+              </div>
+
+              <!-- Payment badges -->
+              <div class="jp-order-summary-footer">
+                <p style="font-size:var(--jp-text-xs);color:var(--jp-gray-400);text-align:center;margin-bottom:var(--jp-space-3);">
+                  Metode Pembayaran yang Diterima
+                </p>
+                <div class="jp-payment-badges" style="justify-content:center;flex-wrap:wrap;">
+                  <span class="jp-payment-badge">BCA</span>
+                  <span class="jp-payment-badge">Mandiri</span>
+                  <span class="jp-payment-badge">BNI</span>
+                  <span class="jp-payment-badge">BRI</span>
+                  <span class="jp-payment-badge">GoPay</span>
+                  <span class="jp-payment-badge">OVO</span>
+                  <span class="jp-payment-badge">DANA</span>
+                  <span class="jp-payment-badge">ShopeePay</span>
+                  <span class="jp-payment-badge">COD</span>
+                  <span class="jp-payment-badge">0% Cicilan</span>
+                </div>
+
+                <!-- Need help -->
+                <div style="margin-top:var(--jp-space-5);text-align:center;">
+                  <p style="font-size:var(--jp-text-xs);color:var(--jp-gray-500);margin-bottom:var(--jp-space-2);">
+                    Butuh bantuan? Hubungi kami
+                  </p>
+                  <a href="https://wa.me/6281280097479" class="jp-btn jp-btn-wa jp-btn-sm jp-btn-block"
+                     target="_blank" rel="noopener" aria-label="Chat WhatsApp support">
+                    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+                    Chat WhatsApp Support
+                  </a>
+                </div>
+
+              </div>
+            </div><!-- /order summary -->
+          </div><!-- /kanan -->
+
+        </div><!-- /checkout layout -->
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ════════════════════════════════════════
+       FOOTER MINIMAL
+  ════════════════════════════════════════ -->
+  <footer style="background:var(--jp-bg-footer);padding:var(--jp-space-6) 0;" role="contentinfo">
+    <div class="jp-container">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+        <a href="index.html" aria-label="Jaya PC">
+          <img src="https://jayapc.com/wp-content/uploads/2024/12/logo-color-1.png"
+               alt="Jaya PC" style="height:28px;width:auto;filter:brightness(0) invert(1);">
+        </a>
+        <p style="font-size:var(--jp-text-xs);color:rgba(255,255,255,0.4);margin:0;">
+          &copy; 2025 Jaya PC. Pembayaran aman &amp; terenkripsi.
+          <a href="#" style="color:rgba(255,255,255,0.5);">Kebijakan Privasi</a>
+        </p>
+        <div style="display:flex;align-items:center;gap:var(--jp-space-3);">
+          <i class="fa-solid fa-lock" style="color:rgba(255,255,255,0.4);font-size:var(--jp-text-sm);"></i>
+          <span style="font-size:var(--jp-text-xs);color:rgba(255,255,255,0.4);">SSL Secured</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WA -->
+  <a href="https://wa.me/6281280097479" class="jp-wa-float" target="_blank" rel="noopener" aria-label="Chat WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+
+  <!-- ════════════════════════════════════════
+       JAVASCRIPT
+  ════════════════════════════════════════ -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+
+  <script src="assets/js/components/toast.js"></script>
+  <script src="assets/js/components/cart.js"></script>
+  <script src="assets/js/components/navbar.js"></script>
+
+  <script src="assets/js/pages/checkout.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  <!-- Payment option toggle styling -->
+  <script>
+  (function($) {
+    $(document).ready(function() {
+      // Highlight selected payment option
+      $(document).on('change', '.jp-payment-option input[type="radio"]', function() {
+        $(this).closest('.jp-payment-options, form').find('.jp-payment-option').removeClass('selected');
+        $(this).closest('.jp-payment-option').addClass('selected');
+      });
+    });
+  })(jQuery);
+  </script>
+
+</body>
+</html>

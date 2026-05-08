@@ -1,0 +1,128 @@
+jayapc-template/
+│
+├── index.html                    # Homepage
+├── shop.html                     # Halaman toko / product listing
+├── product-detail.html           # Detail produk
+├── pc-builder.html               # PC Configurator
+├── blog.html                     # Daftar artikel
+├── blog-detail.html              # Detail artikel
+├── about.html                    # Tentang kami
+├── contact.html                  # Kontak
+├── cart.html                     # Keranjang belanja
+├── checkout.html                 # Checkout
+│
+├── assets/
+│   │
+│   ├── css/
+│   │   ├── variables.css         # CSS custom properties (warna, font, spacing)
+│   │   ├── base.css              # Reset, typography, utility classes
+│   │   ├── components.css        # Navbar, card, badge, btn, toast, dll
+│   │   ├── layout.css            # Section layout, grid, spacing antar section
+│   │   ├── pages/
+│   │   │   ├── home.css          # Style khusus homepage
+│   │   │   ├── shop.css          # Style khusus shop & filter
+│   │   │   ├── product.css       # Style khusus product detail
+│   │   │   ├── pc-builder.css    # Style khusus PC configurator
+│   │   │   ├── blog.css          # Style khusus blog
+│   │   │   ├── cart.css          # Style khusus cart & checkout
+│   │   │   └── about.css         # Style khusus about & contact
+│   │   └── responsive/
+│   │       ├── mobile.css        # max-width: 575px
+│   │       ├── tablet.css        # 576px – 991px
+│   │       └── desktop.css       # 992px ke atas (large tweaks)
+│   │
+│   ├── js/
+│   │   ├── main.js               # Init global, navbar scroll, back-to-top
+│   │   ├── components/
+│   │   │   ├── navbar.js         # Mega dropdown, sticky, mobile offcanvas
+│   │   │   ├── carousel.js       # Hero slider logic
+│   │   │   ├── cart.js           # Cart add/remove/update, localStorage
+│   │   │   ├── wishlist.js       # Wishlist toggle & storage
+│   │   │   ├── product-filter.js # Filter & sort produk (shop page)
+│   │   │   ├── pc-builder.js     # PC Configurator step logic
+│   │   │   ├── search.js         # Live search / autocomplete
+│   │   │   └── toast.js          # Notifikasi toast pop-up
+│   │   └── pages/
+│   │       ├── home.js           # Script khusus homepage (tab produk, dll)
+│   │       ├── shop.js           # Script khusus shop page
+│   │       ├── product.js        # Gallery zoom, qty, tabs specs
+│   │       └── checkout.js       # Form validation, payment logic
+│   │
+│   ├── images/
+│   │   ├── logo/
+│   │   │   ├── logo-color.png
+│   │   │   ├── logo-white.png
+│   │   │   └── favicon.ico
+│   │   ├── hero/                 # Banner hero carousel
+│   │   ├── categories/           # Thumbnail kategori produk
+│   │   ├── products/             # Foto produk
+│   │   ├── brands/               # Logo brand (NVIDIA, AMD, Intel, dll)
+│   │   ├── banners/              # Banner promo section
+│   │   └── blog/                 # Thumbnail artikel
+│   │
+│   └── vendors/                  # Library pihak ketiga (local copy)
+│       ├── bootstrap/
+│       │   ├── bootstrap.min.css
+│       │   └── bootstrap.bundle.min.js
+│       └── swiper/               # Opsional: untuk carousel produk
+│           ├── swiper-bundle.min.css
+│           └── swiper-bundle.min.js
+│
+└── docs/
+    ├── README.md                 # Dokumentasi template
+    ├── CHANGELOG.md              # Catatan versi
+    └── color-guide.png           # Panduan warna untuk end user
+
+
+📋 Urutan Eksekusi File (Priority Queue)
+🔴 FASE 1 — Fondasi (Token: Ringan)
+1. variables.css        ~ 80–120 baris    ✅ aman 1x generate
+2. base.css             ~ 150–200 baris   ✅ aman 1x generate
+🟠 FASE 2 — Komponen Global (Token: Sedang)
+3. components.css       ~ 400–600 baris   ⚠️ perlu dipecah jadi 2 sesi
+   └── 3a. components-navbar.css
+   └── 3b. components-cards-buttons.css
+   
+4. layout.css           ~ 200–300 baris   ✅ aman 1x generate
+🟡 FASE 3 — Responsive (Token: Sedang)
+5. mobile.css           ~ 200–300 baris   ✅ aman 1x generate
+6. tablet.css           ~ 150–200 baris   ✅ aman 1x generate
+7. desktop.css          ~ 100–150 baris   ✅ aman 1x generate
+🟢 FASE 4 — JavaScript (Token: Sedang-Berat)
+8.  main.js             ~ 100–150 baris   ✅ aman 1x generate
+9.  navbar.js           ~ 150–200 baris   ✅ aman 1x generate
+10. carousel.js         ~ 100–150 baris   ✅ aman 1x generate
+11. cart.js             ~ 200–300 baris   ✅ aman 1x generate
+12. wishlist.js         ~ 100–150 baris   ✅ aman 1x generate
+13. toast.js            ~ 80–100 baris    ✅ aman 1x generate
+14. search.js           ~ 150–200 baris   ✅ aman 1x generate
+15. product-filter.js   ~ 200–250 baris   ✅ aman 1x generate
+16. pc-builder.js       ~ 250–300 baris   ✅ aman 1x generate
+🔵 FASE 5 — Halaman HTML (Token: BERAT)
+17. index.html          ~ 800–1200 baris  🔴 WAJIB dipecah 3–4 sesi
+    └── Sesi 1: <head> + topbar + navbar
+    └── Sesi 2: hero + trust bar + brand section + kategori
+    └── Sesi 3: produk unggulan + banner promo + PC configurator
+    └── Sesi 4: why us + testimonial + blog + newsletter + footer
+
+18. shop.html           ~ 600–800 baris   🔴 dipecah 2 sesi
+19. product-detail.html ~ 700–900 baris   🔴 dipecah 2–3 sesi
+20. pc-builder.html     ~ 500–600 baris   ⚠️ dipecah 2 sesi
+21. blog.html           ~ 400–500 baris   ✅ aman 1x generate
+22. blog-detail.html    ~ 400–500 baris   ✅ aman 1x generate
+23. cart.html           ~ 400–500 baris   ✅ aman 1x generate
+24. checkout.html       ~ 500–600 baris   ⚠️ dipecah 2 sesi
+25. about.html          ~ 300–400 baris   ✅ aman 1x generate
+26. contact.html        ~ 300–350 baris   ✅ aman 1x generate
+⚫ FASE 6 — Page CSS & JS (Token: Ringan-Sedang)
+27. pages/home.css         ~ 150–200 baris   ✅
+28. pages/shop.css         ~ 200–250 baris   ✅
+29. pages/product.css      ~ 200–250 baris   ✅
+30. pages/pc-builder.css   ~ 150–200 baris   ✅
+31. pages/blog.css         ~ 100–150 baris   ✅
+32. pages/cart.css         ~ 150–200 baris   ✅
+33. pages/about.css        ~ 100–150 baris   ✅
+34. pages/home.js          ~ 150–200 baris   ✅
+35. pages/shop.js          ~ 200–250 baris   ✅
+36. pages/product.js       ~ 200–250 baris   ✅
+37. pages/checkout.js      ~ 250–300 baris   ✅

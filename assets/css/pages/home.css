@@ -1,0 +1,521 @@
+/**
+ * ============================================================
+ * JAYA PC — PAGES/HOME.CSS
+ * Template Version : 1.0.0
+ * Description      : Override dan style tambahan khusus
+ *                    untuk halaman homepage (index.html).
+ *                    Semua style di sini bersifat page-specific
+ *                    dan tidak mempengaruhi halaman lain.
+ * Dependency       : variables.css, base.css, components.css,
+ *                    layout.css (load sebelum file ini)
+ * ============================================================
+ */
+
+
+/* ══════════════════════════════════════════
+ * 1. HERO — HOMEPAGE SPECIFIC
+ * ══════════════════════════════════════════ */
+
+/* Pastikan hero full width tanpa gap */
+#jpHero {
+  margin-top : 0;
+}
+
+/* Animasi masuk konten hero — state awal */
+.jp-hero-content .jp-hero-label,
+.jp-hero-content .jp-hero-title,
+.jp-hero-content .jp-hero-desc,
+.jp-hero-content .jp-hero-actions {
+  opacity    : 0;
+  transform  : translateY(20px);
+  transition : opacity 400ms ease, transform 400ms ease;
+}
+
+/* State setelah animasi berjalan */
+.jp-hero-slide.active .jp-hero-content .jp-hero-label,
+.jp-hero-slide.active .jp-hero-content .jp-hero-title,
+.jp-hero-slide.active .jp-hero-content .jp-hero-desc,
+.jp-hero-slide.active .jp-hero-content .jp-hero-actions {
+  opacity   : 1;
+  transform : translateY(0);
+}
+
+/* Counter angka di stat bar */
+.jp-hero-stat-number[data-jp-counter] {
+  font-variant-numeric : tabular-nums;
+}
+
+
+/* ══════════════════════════════════════════
+ * 2. TRUST BAR — DIVIDER ANTAR ITEM
+ * ══════════════════════════════════════════ */
+
+.jp-trust-bar-inner {
+  divide-x : var(--jp-border-color);
+}
+
+.jp-trust-item {
+  border-right : var(--jp-border-width) solid var(--jp-border-color);
+}
+
+.jp-trust-item:last-child {
+  border-right : none;
+}
+
+
+/* ══════════════════════════════════════════
+ * 3. BRAND SECTION — ASUS ROG
+ * ══════════════════════════════════════════ */
+
+/* Banner brand hover effect */
+.jp-brand-banner {
+  transition : box-shadow var(--jp-transition-base);
+}
+
+.jp-brand-banner:hover {
+  box-shadow : 0 16px 48px rgba(249, 115, 22, 0.20);
+}
+
+/* Dekorasi titik cahaya di belakang banner brand */
+.jp-brand-banner::before {
+  content          : '';
+  position         : absolute;
+  top              : -60px;
+  right            : 200px;
+  width            : 300px;
+  height           : 300px;
+  background       : radial-gradient(circle, rgba(249,115,22,0.12) 0%, transparent 70%);
+  pointer-events   : none;
+  border-radius    : 50%;
+}
+
+.jp-brand-banner::after {
+  content          : '';
+  position         : absolute;
+  bottom           : -40px;
+  left             : 100px;
+  width            : 200px;
+  height           : 200px;
+  background       : radial-gradient(circle, rgba(30,58,138,0.15) 0%, transparent 70%);
+  pointer-events   : none;
+  border-radius    : 50%;
+}
+
+
+/* ══════════════════════════════════════════
+ * 4. KATEGORI — GRID MAIN FEATURED
+ * ══════════════════════════════════════════ */
+
+/* Hover state banner kategori featured */
+.jp-category-grid-main .jp-banner-card {
+  border-radius : var(--jp-radius-2xl);
+}
+
+/* Tinggi banner kategori featured di homepage */
+.jp-cat-featured .jp-banner-card {
+  min-height : 360px;
+}
+
+/* Tinggi banner kategori kecil kanan */
+.jp-category-grid-main > div:not(.jp-cat-featured) .jp-banner-card {
+  min-height : 172px;
+}
+
+
+/* ══════════════════════════════════════════
+ * 5. PRODUK UNGGULAN — TABS
+ * ══════════════════════════════════════════ */
+
+/* Tab button spacing */
+.jp-product-tab-btn {
+  border-radius : var(--jp-radius-full);
+  transition    : all var(--jp-transition-fast);
+}
+
+/* Active tab highlight */
+.jp-product-tab-btn.active {
+  transform  : none;
+  box-shadow : var(--jp-shadow-primary);
+}
+
+/* Tab panel fade transition */
+.jp-product-tab-panel {
+  animation : jp-tab-fade 250ms ease;
+}
+
+@keyframes jp-tab-fade {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+
+/* ══════════════════════════════════════════
+ * 6. BANNER PROMO GRID
+ * ══════════════════════════════════════════ */
+
+/* Border radius lebih besar untuk homepage */
+.jp-banner-grid .jp-banner-card {
+  border-radius : var(--jp-radius-2xl);
+}
+
+/* Glow efek hover banner sale */
+.jp-banner-main .jp-banner-card:hover {
+  box-shadow : 0 16px 48px rgba(249, 115, 22, 0.25);
+}
+
+/* Tinggi minimum banner kanan */
+.jp-banner-grid > *:not(.jp-banner-main) .jp-banner-card {
+  min-height : 190px;
+}
+
+
+/* ══════════════════════════════════════════
+ * 7. PC CONFIGURATOR — WIDGET
+ * ══════════════════════════════════════════ */
+
+/* Highlight border widget saat interaksi */
+.jp-configurator-widget {
+  border : 2px solid var(--jp-border-color);
+  transition: border-color var(--jp-transition-base),
+              box-shadow var(--jp-transition-base);
+}
+
+.jp-configurator-widget:focus-within {
+  border-color : var(--jp-primary);
+  box-shadow   : 0 0 0 4px rgba(30, 58, 138, 0.08);
+}
+
+/* Step number styling khusus homepage */
+.jp-config-step-number {
+  font-size     : var(--jp-text-2xl);
+  letter-spacing: var(--jp-ls-tight);
+}
+
+/* Connector line antara steps */
+.jp-configurator-steps {
+  position : relative;
+}
+
+.jp-configurator-steps::before {
+  content    : '';
+  position   : absolute;
+  left       : 23px;
+  top        : 48px;
+  bottom     : 48px;
+  width      : 2px;
+  background : linear-gradient(
+    to bottom,
+    var(--jp-primary) 0%,
+    var(--jp-primary-subtle) 100%
+  );
+  z-index    : 0;
+}
+
+.jp-config-step {
+  position : relative;
+  z-index  : 1;
+}
+
+.jp-config-step-number {
+  position         : relative;
+  z-index          : 2;
+  background-color : var(--jp-white);
+}
+
+/* Option pills hover */
+.jp-config-option {
+  position : relative;
+  overflow : hidden;
+}
+
+.jp-config-option::after {
+  content    : '';
+  position   : absolute;
+  inset      : 0;
+  background : rgba(30, 58, 138, 0.05);
+  opacity    : 0;
+  transition : opacity var(--jp-transition-fast);
+}
+
+.jp-config-option:hover::after {
+  opacity : 1;
+}
+
+
+/* ══════════════════════════════════════════
+ * 8. WHY US — SCROLL ANIMATION
+ * ══════════════════════════════════════════ */
+
+/* State awal sebelum animasi */
+[data-jp-animate] {
+  opacity   : 0;
+  transform : translateY(24px);
+  transition: opacity 500ms ease, transform 500ms ease;
+}
+
+/* State setelah animasi triggered */
+[data-jp-animate].jp-animated {
+  opacity   : 1;
+  transform : translateY(0);
+}
+
+/* Hover accent line di bawah why-card */
+.jp-why-card {
+  position : relative;
+  overflow : hidden;
+}
+
+.jp-why-card::after {
+  content          : '';
+  position         : absolute;
+  bottom           : 0;
+  left             : 0;
+  width            : 0;
+  height           : 3px;
+  background-color : var(--jp-primary);
+  transition       : width var(--jp-transition-base);
+  border-radius    : 0 0 var(--jp-radius-xl) var(--jp-radius-xl);
+}
+
+.jp-why-card:hover::after {
+  width : 100%;
+}
+
+
+/* ══════════════════════════════════════════
+ * 9. TESTIMONIAL — QUOTE MARK
+ * ══════════════════════════════════════════ */
+
+/* Tanda kutip besar di atas setiap card */
+.jp-testimonial-card {
+  position : relative;
+}
+
+.jp-testimonial-card::before {
+  content     : '\201C';
+  position    : absolute;
+  top         : var(--jp-space-4);
+  right       : var(--jp-space-5);
+  font-size   : 4rem;
+  line-height : 1;
+  color       : var(--jp-primary-subtle);
+  font-family : Georgia, serif;
+  pointer-events: none;
+  user-select : none;
+}
+
+/* Hover lift effect lebih terasa di homepage */
+.jp-testimonial-card:hover {
+  transform : translateY(-4px);
+}
+
+
+/* ══════════════════════════════════════════
+ * 10. BLOG CARDS — HOMEPAGE
+ * ══════════════════════════════════════════ */
+
+/* Read more arrow animasi */
+.jp-blog-read-more i {
+  transition : transform var(--jp-transition-fast);
+}
+
+.jp-blog-read-more:hover i {
+  transform : translateX(4px);
+}
+
+/* Category label warna hover */
+.jp-blog-cat:hover {
+  color            : var(--jp-primary-dark);
+  text-decoration  : underline;
+}
+
+
+/* ══════════════════════════════════════════
+ * 11. NEWSLETTER — FORM
+ * ══════════════════════════════════════════ */
+
+/* Focus glow pada form newsletter */
+.jp-newsletter-input-wrap:focus-within {
+  border-color : rgba(255, 255, 255, 0.50);
+  box-shadow   : 0 0 0 3px rgba(255, 255, 255, 0.10);
+}
+
+/* Subscribe button hover lebih cerah */
+#jpNewsletterSubmit:hover {
+  background-color : var(--jp-accent-dark);
+  transform        : none;
+}
+
+
+/* ══════════════════════════════════════════
+ * 12. SECTION SPACING — HOMEPAGE SPECIFIC
+ * Override section py khusus homepage
+ * ══════════════════════════════════════════ */
+
+/* Brand section lebih compact */
+#jpHero + .jp-section {
+  padding-top    : var(--jp-space-12);
+  padding-bottom : var(--jp-space-8);
+}
+
+/* Gap sebelum footer */
+.jp-newsletter + footer {
+  margin-top : 0;
+}
+
+
+/* ══════════════════════════════════════════
+ * 13. MOBILE OFFCANVAS — STYLE
+ * ══════════════════════════════════════════ */
+
+/* Mobile nav link */
+.jp-mobile-nav-link {
+  display      : flex;
+  align-items  : center;
+  gap          : var(--jp-space-3);
+  width        : 100%;
+  padding      : var(--jp-space-4) var(--jp-space-5);
+  font-size    : var(--jp-text-sm);
+  font-weight  : var(--jp-fw-medium);
+  color        : var(--jp-gray-700);
+  text-decoration : none;
+  border-bottom: var(--jp-border-width) solid var(--jp-border-color);
+  background   : none;
+  border-left  : none;
+  border-right : none;
+  border-top   : none;
+  text-align   : left;
+  transition   : background-color var(--jp-transition-fast),
+                 color var(--jp-transition-fast);
+  cursor       : pointer;
+}
+
+.jp-mobile-nav-link:hover,
+.jp-mobile-nav-link.active {
+  background-color : var(--jp-primary-subtle);
+  color            : var(--jp-primary);
+}
+
+.jp-mobile-nav-link.sale {
+  color : var(--jp-danger);
+}
+
+/* Toggle icon arah */
+.jp-mobile-nav-toggle .fa-chevron-down {
+  margin-left : auto;
+  font-size   : 10px;
+  transition  : transform var(--jp-transition-base);
+}
+
+.jp-mobile-nav-toggle.open .fa-chevron-down {
+  transform : rotate(180deg);
+}
+
+/* Submenu mobile */
+.jp-mobile-submenu {
+  display : none;
+  background-color: var(--jp-gray-50);
+}
+
+.jp-mobile-subnav-link {
+  padding-left : var(--jp-space-8);
+  font-size    : var(--jp-text-sm);
+  color        : var(--jp-gray-600);
+}
+
+.jp-mobile-subnav-link:hover {
+  color : var(--jp-primary);
+}
+
+
+/* ══════════════════════════════════════════
+ * 14. BADGE BOUNCE ANIMATION
+ * Animasi saat item ditambahkan ke cart
+ * ══════════════════════════════════════════ */
+
+@keyframes jp-badge-bounce {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.4); }
+  70%  { transform: scale(0.9); }
+  100% { transform: scale(1); }
+}
+
+.jp-badge-bounce {
+  animation : jp-badge-bounce 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Button added state */
+.jp-btn-added {
+  background-color : var(--jp-success) !important;
+  border-color     : var(--jp-success) !important;
+}
+
+
+/* ══════════════════════════════════════════
+ * 15. UTILITY — HELPERS TAMBAHAN
+ * Pelengkap Bootstrap utility yang sering
+ * dipakai di homepage agar tidak bergantung
+ * pada Bootstrap utility yang mungkin bentrok
+ * ══════════════════════════════════════════ */
+
+/* Spacing */
+.mb-0  { margin-bottom : 0 !important; }
+.mb-2  { margin-bottom : var(--jp-space-2) !important; }
+.mb-3  { margin-bottom : var(--jp-space-3) !important; }
+.mb-4  { margin-bottom : var(--jp-space-4) !important; }
+.mb-5  { margin-bottom : var(--jp-space-8) !important; }
+.mb-6  { margin-bottom : var(--jp-space-6) !important; }
+.mb-8  { margin-bottom : var(--jp-space-8) !important; }
+.mt-0  { margin-top    : 0 !important; }
+.mt-2  { margin-top    : var(--jp-space-2) !important; }
+.mt-3  { margin-top    : var(--jp-space-3) !important; }
+.mt-4  { margin-top    : var(--jp-space-4) !important; }
+.mt-5  { margin-top    : var(--jp-space-8) !important; }
+.me-2  { margin-right  : var(--jp-space-2) !important; }
+.ms-1  { margin-left   : var(--jp-space-1) !important; }
+.ms-auto { margin-left : auto !important; }
+.mx-auto { margin-left : auto !important; margin-right: auto !important; }
+.py-4  { padding-top   : var(--jp-space-4) !important; padding-bottom: var(--jp-space-4) !important; }
+.py-5  { padding-top   : var(--jp-space-8) !important; padding-bottom: var(--jp-space-8) !important; }
+
+/* Display */
+.d-flex        { display: flex !important; }
+.d-inline-flex { display: inline-flex !important; }
+.d-block       { display: block !important; }
+.d-none        { display: none !important; }
+
+/* Flexbox */
+.align-items-center   { align-items     : center !important; }
+.align-items-start    { align-items     : flex-start !important; }
+.justify-content-center { justify-content: center !important; }
+.justify-content-between { justify-content: space-between !important; }
+.flex-wrap            { flex-wrap       : wrap !important; }
+.flex-column          { flex-direction  : column !important; }
+.gap-2 { gap: var(--jp-space-2) !important; }
+.gap-3 { gap: var(--jp-space-3) !important; }
+.gap-4 { gap: var(--jp-space-4) !important; }
+
+/* Text */
+.text-center  { text-align : center !important; }
+.text-start   { text-align : left !important; }
+.text-muted-jp { color     : var(--jp-gray-500) !important; }
+.fw-bold      { font-weight: var(--jp-fw-bold) !important; }
+.fw-semibold  { font-weight: var(--jp-fw-semibold) !important; }
+.small        { font-size  : var(--jp-text-sm) !important; }
+
+/* Sizing */
+.w-100        { width  : 100% !important; }
+.h-100        { height : 100% !important; }
+
+/* Position */
+.position-relative { position: relative !important; }
+
+/* Overflow */
+.overflow-hidden { overflow: hidden !important; }
+
+/* Border */
+.col-span-4   { grid-column: 1 / -1; }
+
+/* Bootstrap d-lg-none compatibility */
+@media (min-width: 992px) { .d-lg-none { display: none !important; } }
+@media (max-width: 991px) { .d-lg-none { display: flex !important; } }

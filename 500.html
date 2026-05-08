@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="id" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>500 — Server Error | Jaya PC</title>
+  <meta name="description" content="Terjadi kesalahan pada server. Tim Jaya PC sedang menangani masalah ini.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="https://jayapc.com/favicon.ico" type="image/x-icon">
+  <meta name="theme-color" content="#1E3A8A">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/pages/home.css">
+  <link rel="stylesheet" href="assets/css/responsive/mobile.css">
+
+  <style>
+    .jp-error-page {
+      min-height       : 100vh;
+      display          : flex;
+      flex-direction   : column;
+      background-color : var(--jp-bg-body);
+    }
+
+    .jp-error-main {
+      flex       : 1;
+      display    : flex;
+      align-items: center;
+      padding    : var(--jp-space-16) 0;
+    }
+
+    .jp-error-wrap {
+      max-width  : 640px;
+      margin     : 0 auto;
+      padding    : 0 var(--jp-space-6);
+      text-align : center;
+    }
+
+    /* Animasi gear berputar */
+    .jp-error-gears {
+      position     : relative;
+      height       : 160px;
+      margin-bottom: var(--jp-space-8);
+      display      : flex;
+      align-items  : center;
+      justify-content: center;
+      gap          : -10px;
+    }
+
+    .jp-gear {
+      font-size : 5rem;
+      color     : var(--jp-primary);
+      opacity   : 0.15;
+      animation : jp-spin-cw 8s linear infinite;
+      position  : relative;
+      z-index   : 1;
+    }
+
+    .jp-gear-2 {
+      font-size  : 3.5rem;
+      margin-left: -20px;
+      margin-top : 30px;
+      opacity    : 0.10;
+      animation  : jp-spin-ccw 6s linear infinite;
+    }
+
+    .jp-gear-3 {
+      font-size  : 2.5rem;
+      margin-left: -15px;
+      margin-top : -20px;
+      opacity    : 0.08;
+      animation  : jp-spin-cw 4s linear infinite;
+    }
+
+    /* Error code overlay */
+    .jp-error-500-code {
+      position      : absolute;
+      font-size     : 5rem;
+      font-weight   : var(--jp-fw-black);
+      background    : linear-gradient(135deg, var(--jp-warning) 0%, var(--jp-accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.05em;
+      z-index       : 2;
+    }
+
+    .jp-error-badge-500 {
+      display         : inline-flex;
+      align-items     : center;
+      gap             : var(--jp-space-2);
+      background-color: var(--jp-warning-subtle);
+      border          : 1px solid var(--jp-warning);
+      color           : var(--jp-warning-dark);
+      padding         : var(--jp-space-1) var(--jp-space-4);
+      border-radius   : var(--jp-radius-full);
+      font-size       : var(--jp-text-xs);
+      font-weight     : var(--jp-fw-bold);
+      text-transform  : uppercase;
+      letter-spacing  : var(--jp-ls-wider);
+      margin-bottom   : var(--jp-space-5);
+    }
+
+    .jp-error-title-500 {
+      font-size     : var(--jp-text-4xl);
+      font-weight   : var(--jp-fw-extrabold);
+      color         : var(--jp-gray-900);
+      text-transform: uppercase;
+      letter-spacing: var(--jp-ls-tight);
+      line-height   : var(--jp-lh-tight);
+      margin-bottom : var(--jp-space-4);
+    }
+
+    .jp-error-title-500 .accent {
+      color : var(--jp-warning);
+    }
+
+    .jp-error-desc-500 {
+      font-size    : var(--jp-text-base);
+      color        : var(--jp-gray-500);
+      line-height  : var(--jp-lh-relaxed);
+      margin-bottom: var(--jp-space-8);
+    }
+
+    /* Status indicator */
+    .jp-status-wrap {
+      background-color: var(--jp-bg-surface);
+      border          : var(--jp-border-width) solid var(--jp-border-color);
+      border-radius   : var(--jp-radius-xl);
+      padding         : var(--jp-space-5) var(--jp-space-6);
+      margin-bottom   : var(--jp-space-8);
+      text-align      : left;
+    }
+
+    .jp-status-title {
+      font-size     : var(--jp-text-sm);
+      font-weight   : var(--jp-fw-semibold);
+      color         : var(--jp-gray-700);
+      margin-bottom : var(--jp-space-4);
+      text-transform: uppercase;
+      letter-spacing: var(--jp-ls-wider);
+    }
+
+    .jp-status-item {
+      display    : flex;
+      align-items: center;
+      justify-content: space-between;
+      gap        : var(--jp-space-3);
+      padding    : var(--jp-space-2) 0;
+      font-size  : var(--jp-text-sm);
+      border-bottom: var(--jp-border-width) solid var(--jp-border-color);
+    }
+
+    .jp-status-item:last-child {
+      border-bottom : none;
+    }
+
+    .jp-status-name {
+      color       : var(--jp-gray-700);
+      font-weight : var(--jp-fw-medium);
+    }
+
+    .jp-status-dot {
+      display      : inline-flex;
+      align-items  : center;
+      gap          : var(--jp-space-1);
+      font-size    : var(--jp-text-xs);
+      font-weight  : var(--jp-fw-semibold);
+    }
+
+    .jp-status-dot.ok {
+      color : var(--jp-success);
+    }
+
+    .jp-status-dot.down {
+      color : var(--jp-danger);
+    }
+
+    .jp-status-dot.checking {
+      color : var(--jp-warning);
+    }
+
+    .jp-status-dot::before {
+      content      : '';
+      display      : inline-block;
+      width        : 8px;
+      height       : 8px;
+      border-radius: 50%;
+      background   : currentColor;
+    }
+
+    .jp-status-dot.ok::before {
+      animation : jp-pulse-green 2s ease-in-out infinite;
+    }
+
+    .jp-status-dot.down::before {
+      animation : jp-pulse-red 1s ease-in-out infinite;
+    }
+
+    /* Countdown retry */
+    .jp-retry-wrap {
+      margin-bottom : var(--jp-space-6);
+    }
+
+    .jp-retry-text {
+      font-size  : var(--jp-text-sm);
+      color      : var(--jp-gray-500);
+      margin-bottom: var(--jp-space-3);
+    }
+
+    .jp-retry-countdown {
+      font-weight : var(--jp-fw-bold);
+      color       : var(--jp-primary);
+    }
+
+    .jp-error-actions-500 {
+      display         : flex;
+      justify-content : center;
+      flex-wrap       : wrap;
+      gap             : var(--jp-space-3);
+      margin-bottom   : var(--jp-space-6);
+    }
+
+    @keyframes jp-spin-cw {
+      from { transform: rotate(0deg);   }
+      to   { transform: rotate(360deg); }
+    }
+
+    @keyframes jp-spin-ccw {
+      from { transform: rotate(0deg);    }
+      to   { transform: rotate(-360deg); }
+    }
+
+    @keyframes jp-pulse-green {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.5; transform: scale(1.2); }
+    }
+
+    @keyframes jp-pulse-red {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.3; }
+    }
+
+    @media (max-width: 575px) {
+      .jp-error-title-500 { font-size: var(--jp-text-2xl); }
+      .jp-error-main      { padding: var(--jp-space-10) 0; }
+      .jp-error-500-code  { font-size: 3.5rem; }
+      .jp-gear            { font-size: 3.5rem; }
+    }
+  </style>
+</head>
+
+<body class="jp-error-page">
+
+  <!-- Navbar -->
+  <nav class="jp-navbar" role="navigation" aria-label="Navigasi" id="jpNavbar">
+    <div class="jp-container">
+      <div class="jp-navbar-inner">
+        <a href="index.html" class="jp-navbar-brand" aria-label="Jaya PC">
+          <img src="https://jayapc.com/wp-content/uploads/2024/12/logo-color-1.png"
+               alt="Jaya PC" width="120" height="36" loading="eager">
+        </a>
+        <div class="jp-navbar-actions">
+          <a href="cart.html" class="jp-nav-icon-btn" aria-label="Keranjang">
+            <i class="fa-solid fa-bag-shopping"></i>
+          </a>
+          <a href="pc-builder.html" class="jp-btn-rakit">
+            <i class="fa-solid fa-screwdriver-wrench"></i> Rakit PC
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Error Content -->
+  <main id="jp-main-content" class="jp-error-main" role="main"
+        aria-label="Halaman error server 500">
+    <div class="jp-error-wrap">
+
+      <!-- Gear Animation -->
+      <div class="jp-error-gears" aria-hidden="true">
+        <i class="jp-gear fa-solid fa-gear"></i>
+        <i class="jp-gear jp-gear-2 fa-solid fa-gear"></i>
+        <i class="jp-gear jp-gear-3 fa-solid fa-gear"></i>
+        <div class="jp-error-500-code">500</div>
+      </div>
+
+      <!-- Badge -->
+      <div class="jp-error-badge-500">
+        <i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
+        Error 500 — Internal Server Error
+      </div>
+
+      <!-- Judul -->
+      <h1 class="jp-error-title-500">
+        Server Sedang<br>
+        <span class="accent">Bermasalah</span>
+      </h1>
+
+      <!-- Deskripsi -->
+      <p class="jp-error-desc-500">
+        Terjadi kesalahan pada server kami. Tim teknis Jaya PC sedang
+        bekerja keras untuk memperbaikinya. Coba refresh halaman dalam
+        beberapa menit, atau hubungi kami via WhatsApp jika masalah berlanjut.
+      </p>
+
+      <!-- Status sistem -->
+      <div class="jp-status-wrap" aria-label="Status sistem Jaya PC">
+        <div class="jp-status-title">Status Sistem</div>
+        <div class="jp-status-item">
+          <span class="jp-status-name">Website Jaya PC</span>
+          <span class="jp-status-dot down">Gangguan Sementara</span>
+        </div>
+        <div class="jp-status-item">
+          <span class="jp-status-name">Database Produk</span>
+          <span class="jp-status-dot ok">Operasional</span>
+        </div>
+        <div class="jp-status-item">
+          <span class="jp-status-name">Sistem Pembayaran</span>
+          <span class="jp-status-dot ok">Operasional</span>
+        </div>
+        <div class="jp-status-item">
+          <span class="jp-status-name">WhatsApp Support</span>
+          <span class="jp-status-dot ok">Online</span>
+        </div>
+      </div>
+
+      <!-- Auto retry countdown -->
+      <div class="jp-retry-wrap" aria-live="polite" aria-label="Countdown refresh otomatis">
+        <p class="jp-retry-text">
+          Halaman akan di-refresh otomatis dalam
+          <span class="jp-retry-countdown" id="jpCountdown">30</span> detik
+        </p>
+        <!-- Progress bar countdown -->
+        <div style="height:4px;background:var(--jp-border-color);border-radius:var(--jp-radius-full);overflow:hidden;">
+          <div id="jpCountdownBar"
+               style="height:100%;background:var(--jp-primary);border-radius:var(--jp-radius-full);width:100%;transition:width 1s linear;"></div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="jp-error-actions-500">
+        <button onclick="location.reload()" class="jp-btn jp-btn-primary jp-btn-lg"
+                type="button" aria-label="Refresh halaman sekarang">
+          <i class="fa-solid fa-rotate-right" aria-hidden="true"></i>
+          Refresh Sekarang
+        </button>
+        <a href="index.html" class="jp-btn jp-btn-outline-primary jp-btn-lg"
+           aria-label="Ke halaman utama">
+          <i class="fa-solid fa-house" aria-hidden="true"></i>
+          Ke Beranda
+        </a>
+        <a href="https://wa.me/6281280097479?text=Halo%20Jaya%20PC%2C%20saya%20mengalami%20error%20pada%20website"
+           class="jp-btn jp-btn-wa jp-btn-lg"
+           target="_blank" rel="noopener"
+           aria-label="Laporkan masalah via WhatsApp">
+          <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+          Laporkan via WA
+        </a>
+      </div>
+
+      <!-- Error ID untuk support -->
+      <p style="font-size:var(--jp-text-xs);color:var(--jp-gray-400);margin-top:var(--jp-space-4);">
+        ID Error: <code id="jpErrorId" style="color:var(--jp-gray-600);">JP-500-XXXXXXXX</code>
+        &nbsp;·&nbsp;
+        <span id="jpErrorTime"></span>
+      </p>
+
+    </div>
+  </main>
+
+  <!-- Footer Minimal -->
+  <footer style="background:var(--jp-bg-footer);padding:var(--jp-space-6) 0;"
+          role="contentinfo">
+    <div class="jp-container">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+        <a href="index.html" aria-label="Jaya PC">
+          <img src="https://jayapc.com/wp-content/uploads/2024/12/logo-color-1.png"
+               alt="Jaya PC"
+               style="height:28px;width:auto;filter:brightness(0) invert(1);">
+        </a>
+        <p style="font-size:var(--jp-text-xs);color:rgba(255,255,255,0.4);margin:0;">
+          &copy; 2025 Jaya PC. Mohon maaf atas ketidaknyamanan ini.
+        </p>
+        <a href="https://wa.me/6281280097479"
+           style="color:rgba(255,255,255,0.6);font-size:var(--jp-text-sm);display:flex;align-items:center;gap:8px;"
+           target="_blank" rel="noopener" aria-label="WhatsApp support">
+          <i class="fa-brands fa-whatsapp"></i>
+          <span style="font-size:var(--jp-text-xs);">0812-8009-7479</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WA -->
+  <a href="https://wa.me/6281280097479" class="jp-wa-float"
+     target="_blank" rel="noopener" aria-label="Chat WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+  <script>
+  (function($) {
+    $(document).ready(function() {
+
+      // Generate error ID unik
+      var chars    = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+      var errorId  = 'JP-500-';
+      for (var i = 0; i < 8; i++) {
+        errorId += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      $('#jpErrorId').text(errorId);
+
+      // Waktu error
+      var now = new Date();
+      var timeStr = now.toLocaleDateString('id-ID', {
+        day: 'numeric', month: 'long', year: 'numeric',
+        hour: '2-digit', minute: '2-digit'
+      }) + ' WIB';
+      $('#jpErrorTime').text(timeStr);
+
+      // Countdown auto-refresh
+      var seconds = 30;
+      var timer = setInterval(function() {
+        seconds--;
+        $('#jpCountdown').text(seconds);
+        var pct = (seconds / 30) * 100;
+        $('#jpCountdownBar').css('width', pct + '%');
+
+        if (seconds <= 0) {
+          clearInterval(timer);
+          location.reload();
+        }
+      }, 1000);
+
+      // Pause countdown on hover
+      $('.jp-retry-wrap').on('mouseenter', function() {
+        clearInterval(timer);
+      });
+    });
+  })(jQuery);
+  </script>
+
+</body>
+</html>

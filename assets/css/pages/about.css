@@ -1,0 +1,766 @@
+/**
+ * ============================================================
+ * JAYA PC — PAGES/ABOUT.CSS
+ * Template Version : 1.0.0
+ * Description      : Style khusus halaman About (Tentang Kami)
+ *                    dan Contact (Kontak). Mencakup hero about,
+ *                    story section, team grid, milestone,
+ *                    contact form, map embed, dan FAQ accordion.
+ * Dependency       : variables.css, base.css, components.css,
+ *                    layout.css (load sebelum file ini)
+ * ============================================================
+ */
+
+
+/* ══════════════════════════════════════════
+ * 1. ABOUT HERO
+ * Hero section halaman about — lebih compact
+ * ══════════════════════════════════════════ */
+
+.jp-about-hero {
+  position        : relative;
+  background-color: var(--jp-gray-900);
+  padding         : var(--jp-space-20) 0;
+  overflow        : hidden;
+}
+
+.jp-about-hero-bg {
+  position   : absolute;
+  inset      : 0;
+  z-index    : 0;
+}
+
+.jp-about-hero-bg img {
+  width      : 100%;
+  height     : 100%;
+  object-fit : cover;
+  opacity    : 0.25;
+}
+
+.jp-about-hero-content {
+  position : relative;
+  z-index  : 1;
+  max-width: 640px;
+}
+
+.jp-about-hero-title {
+  font-size     : var(--jp-text-5xl);
+  font-weight   : var(--jp-fw-extrabold);
+  color         : var(--jp-white);
+  text-transform: uppercase;
+  letter-spacing: var(--jp-ls-tight);
+  line-height   : var(--jp-lh-tight);
+  margin-bottom : var(--jp-space-5);
+}
+
+.jp-about-hero-title .accent {
+  color : var(--jp-accent);
+}
+
+.jp-about-hero-desc {
+  font-size  : var(--jp-text-lg);
+  color      : rgba(255, 255, 255, 0.75);
+  line-height: var(--jp-lh-relaxed);
+  margin     : 0;
+}
+
+/* Stats overlay di bawah hero */
+.jp-about-stats {
+  background-color: var(--jp-primary);
+  padding         : var(--jp-space-8) 0;
+}
+
+.jp-about-stats-grid {
+  display               : grid;
+  grid-template-columns : repeat(4, 1fr);
+  gap                   : 0;
+  divide-x              : rgba(255,255,255,0.15);
+}
+
+.jp-about-stat-item {
+  text-align  : center;
+  padding     : var(--jp-space-4) var(--jp-space-6);
+  border-right: 1px solid rgba(255,255,255,0.15);
+}
+
+.jp-about-stat-item:last-child {
+  border-right : none;
+}
+
+.jp-about-stat-num {
+  font-size    : var(--jp-text-4xl);
+  font-weight  : var(--jp-fw-extrabold);
+  color        : var(--jp-white);
+  line-height  : 1;
+  margin-bottom: var(--jp-space-1);
+}
+
+.jp-about-stat-num .accent {
+  color : var(--jp-accent);
+}
+
+.jp-about-stat-label {
+  font-size     : var(--jp-text-xs);
+  color         : rgba(255,255,255,0.65);
+  text-transform: uppercase;
+  letter-spacing: var(--jp-ls-wider);
+  font-weight   : var(--jp-fw-medium);
+}
+
+
+/* ══════════════════════════════════════════
+ * 2. STORY SECTION — CERITA JAYA PC
+ * ══════════════════════════════════════════ */
+
+.jp-about-story {
+  display               : grid;
+  grid-template-columns : 1fr 1fr;
+  gap                   : var(--jp-space-16);
+  align-items           : center;
+}
+
+.jp-about-story-img {
+  border-radius: var(--jp-radius-2xl);
+  overflow     : hidden;
+  aspect-ratio : 4 / 3;
+  position     : relative;
+}
+
+.jp-about-story-img img {
+  width      : 100%;
+  height     : 100%;
+  object-fit : cover;
+}
+
+/* Badge tahun berdiri overlay */
+.jp-about-story-badge {
+  position        : absolute;
+  bottom          : var(--jp-space-6);
+  left            : var(--jp-space-6);
+  background-color: var(--jp-primary);
+  color           : var(--jp-white);
+  padding         : var(--jp-space-4) var(--jp-space-5);
+  border-radius   : var(--jp-radius-xl);
+  box-shadow      : var(--jp-shadow-xl);
+}
+
+.jp-about-story-badge-year {
+  font-size  : var(--jp-text-3xl);
+  font-weight: var(--jp-fw-extrabold);
+  line-height: 1;
+  display    : block;
+}
+
+.jp-about-story-badge-label {
+  font-size     : var(--jp-text-xs);
+  opacity       : 0.8;
+  text-transform: uppercase;
+  letter-spacing: var(--jp-ls-wider);
+}
+
+.jp-about-story-content {
+  display       : flex;
+  flex-direction: column;
+  gap           : var(--jp-space-5);
+}
+
+.jp-about-story-content p {
+  font-size  : var(--jp-text-base);
+  color      : var(--jp-gray-600);
+  line-height: var(--jp-lh-relaxed);
+  margin     : 0;
+}
+
+/* Value list (bullet dengan icon) */
+.jp-about-values {
+  display       : flex;
+  flex-direction: column;
+  gap           : var(--jp-space-3);
+  margin-top    : var(--jp-space-2);
+}
+
+.jp-about-value-item {
+  display    : flex;
+  align-items: flex-start;
+  gap        : var(--jp-space-3);
+  font-size  : var(--jp-text-sm);
+  color      : var(--jp-gray-700);
+}
+
+.jp-about-value-item i {
+  color      : var(--jp-success);
+  font-size  : var(--jp-text-base);
+  flex-shrink: 0;
+  margin-top : 2px;
+}
+
+
+/* ══════════════════════════════════════════
+ * 3. MILESTONE / TIMELINE
+ * Perjalanan Jaya PC dari tahun ke tahun
+ * ══════════════════════════════════════════ */
+
+.jp-milestone-wrap {
+  position : relative;
+  padding  : var(--jp-space-8) 0;
+}
+
+/* Garis vertikal di tengah */
+.jp-milestone-wrap::before {
+  content          : '';
+  position         : absolute;
+  top              : 0;
+  bottom           : 0;
+  left             : 50%;
+  transform        : translateX(-50%);
+  width            : 2px;
+  background       : linear-gradient(
+    to bottom,
+    transparent,
+    var(--jp-primary) 10%,
+    var(--jp-primary) 90%,
+    transparent
+  );
+}
+
+.jp-milestone-item {
+  display     : flex;
+  align-items : flex-start;
+  gap         : var(--jp-space-8);
+  margin-bottom: var(--jp-space-10);
+  position    : relative;
+}
+
+/* Item ganjil — konten kanan */
+.jp-milestone-item:nth-child(odd) {
+  flex-direction : row;
+}
+
+.jp-milestone-item:nth-child(odd) .jp-milestone-content {
+  order      : 2;
+  text-align : left;
+}
+
+.jp-milestone-item:nth-child(odd) .jp-milestone-year-wrap {
+  order : 1;
+}
+
+/* Item genap — konten kiri */
+.jp-milestone-item:nth-child(even) {
+  flex-direction : row-reverse;
+}
+
+.jp-milestone-item:nth-child(even) .jp-milestone-content {
+  order      : 2;
+  text-align : right;
+}
+
+/* Year badge di tengah */
+.jp-milestone-year-wrap {
+  display        : flex;
+  flex-direction : column;
+  align-items    : center;
+  flex-shrink    : 0;
+  position       : relative;
+  z-index        : 1;
+}
+
+.jp-milestone-year {
+  width           : 72px;
+  height          : 72px;
+  border-radius   : var(--jp-radius-full);
+  background-color: var(--jp-primary);
+  color           : var(--jp-white);
+  display         : flex;
+  align-items     : center;
+  justify-content : center;
+  font-size       : var(--jp-text-base);
+  font-weight     : var(--jp-fw-extrabold);
+  box-shadow      : var(--jp-shadow-primary);
+  flex-shrink     : 0;
+}
+
+.jp-milestone-content {
+  flex     : 1;
+  padding  : var(--jp-space-5);
+  background-color: var(--jp-white);
+  border   : var(--jp-border-width) solid var(--jp-border-color);
+  border-radius: var(--jp-radius-xl);
+  box-shadow: var(--jp-shadow-sm);
+  transition: box-shadow var(--jp-transition-base);
+}
+
+.jp-milestone-content:hover {
+  box-shadow : var(--jp-shadow-card-hover);
+}
+
+.jp-milestone-title {
+  font-size    : var(--jp-text-base);
+  font-weight  : var(--jp-fw-bold);
+  color        : var(--jp-gray-900);
+  margin-bottom: var(--jp-space-2);
+}
+
+.jp-milestone-desc {
+  font-size  : var(--jp-text-sm);
+  color      : var(--jp-gray-500);
+  line-height: var(--jp-lh-relaxed);
+  margin     : 0;
+}
+
+
+/* ══════════════════════════════════════════
+ * 4. TEAM GRID
+ * ══════════════════════════════════════════ */
+
+.jp-team-grid {
+  display               : grid;
+  grid-template-columns : repeat(4, 1fr);
+  gap                   : var(--jp-space-6);
+}
+
+.jp-team-card {
+  background-color: var(--jp-white);
+  border          : var(--jp-border-width) solid var(--jp-border-color);
+  border-radius   : var(--jp-radius-xl);
+  overflow        : hidden;
+  text-align      : center;
+  transition      : all var(--jp-transition-base);
+}
+
+.jp-team-card:hover {
+  box-shadow  : var(--jp-shadow-card-hover);
+  transform   : translateY(-4px);
+}
+
+.jp-team-card-img {
+  aspect-ratio    : 1;
+  overflow        : hidden;
+  background-color: var(--jp-primary-subtle);
+}
+
+.jp-team-card-img img {
+  width      : 100%;
+  height     : 100%;
+  object-fit : cover;
+  transition : transform var(--jp-transition-slow);
+}
+
+.jp-team-card:hover .jp-team-card-img img {
+  transform : scale(1.06);
+}
+
+.jp-team-card-body {
+  padding : var(--jp-space-5);
+}
+
+.jp-team-name {
+  font-size    : var(--jp-text-base);
+  font-weight  : var(--jp-fw-bold);
+  color        : var(--jp-gray-900);
+  margin-bottom: var(--jp-space-1);
+}
+
+.jp-team-role {
+  font-size     : var(--jp-text-xs);
+  color         : var(--jp-primary);
+  font-weight   : var(--jp-fw-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--jp-ls-wider);
+  margin-bottom : var(--jp-space-3);
+}
+
+.jp-team-social {
+  display         : flex;
+  justify-content : center;
+  gap             : var(--jp-space-2);
+}
+
+.jp-team-social-link {
+  width           : 32px;
+  height          : 32px;
+  border-radius   : var(--jp-radius-md);
+  background-color: var(--jp-gray-100);
+  color           : var(--jp-gray-500);
+  display         : flex;
+  align-items     : center;
+  justify-content : center;
+  font-size       : var(--jp-text-sm);
+  text-decoration : none;
+  transition      : all var(--jp-transition-fast);
+}
+
+.jp-team-social-link:hover {
+  background-color: var(--jp-primary);
+  color           : var(--jp-white);
+}
+
+
+/* ══════════════════════════════════════════
+ * 5. CONTACT PAGE
+ * ══════════════════════════════════════════ */
+
+.jp-contact-layout {
+  display               : grid;
+  grid-template-columns : 1fr 420px;
+  gap                   : var(--jp-space-12);
+  align-items           : start;
+}
+
+/* Info kontak kiri */
+.jp-contact-info-card {
+  background-color: var(--jp-primary);
+  border-radius   : var(--jp-radius-2xl);
+  padding         : var(--jp-space-10);
+  color           : var(--jp-white);
+  position        : relative;
+  overflow        : hidden;
+}
+
+.jp-contact-info-card::before {
+  content          : '';
+  position         : absolute;
+  top              : -60px;
+  right            : -60px;
+  width            : 240px;
+  height           : 240px;
+  background       : rgba(255,255,255,0.05);
+  border-radius    : 50%;
+  pointer-events   : none;
+}
+
+.jp-contact-info-card::after {
+  content          : '';
+  position         : absolute;
+  bottom           : -40px;
+  left             : -40px;
+  width            : 180px;
+  height           : 180px;
+  background       : rgba(249,115,22,0.10);
+  border-radius    : 50%;
+  pointer-events   : none;
+}
+
+.jp-contact-info-title {
+  font-size     : var(--jp-text-2xl);
+  font-weight   : var(--jp-fw-extrabold);
+  color         : var(--jp-white);
+  text-transform: uppercase;
+  letter-spacing: var(--jp-ls-tight);
+  margin-bottom : var(--jp-space-2);
+}
+
+.jp-contact-info-desc {
+  font-size  : var(--jp-text-sm);
+  color      : rgba(255,255,255,0.70);
+  margin-bottom: var(--jp-space-8);
+  line-height: var(--jp-lh-relaxed);
+}
+
+.jp-contact-info-list {
+  display       : flex;
+  flex-direction: column;
+  gap           : var(--jp-space-6);
+  position      : relative;
+  z-index       : 1;
+  margin-bottom : var(--jp-space-8);
+}
+
+.jp-contact-info-item {
+  display    : flex;
+  align-items: flex-start;
+  gap        : var(--jp-space-4);
+}
+
+.jp-contact-info-icon {
+  width           : 44px;
+  height          : 44px;
+  border-radius   : var(--jp-radius-lg);
+  background-color: rgba(255,255,255,0.12);
+  display         : flex;
+  align-items     : center;
+  justify-content : center;
+  font-size       : var(--jp-text-lg);
+  flex-shrink     : 0;
+}
+
+.jp-contact-info-label {
+  font-size     : var(--jp-text-xs);
+  color         : rgba(255,255,255,0.60);
+  text-transform: uppercase;
+  letter-spacing: var(--jp-ls-wider);
+  font-weight   : var(--jp-fw-semibold);
+  margin-bottom : var(--jp-space-1);
+}
+
+.jp-contact-info-value {
+  font-size  : var(--jp-text-sm);
+  color      : var(--jp-white);
+  font-weight: var(--jp-fw-medium);
+}
+
+.jp-contact-info-value a {
+  color          : var(--jp-white);
+  text-decoration: none;
+}
+
+.jp-contact-info-value a:hover {
+  color : var(--jp-accent-light);
+}
+
+/* Jam operasional */
+.jp-contact-hours {
+  background-color: rgba(255,255,255,0.08);
+  border-radius   : var(--jp-radius-lg);
+  padding         : var(--jp-space-4);
+  position        : relative;
+  z-index         : 1;
+}
+
+.jp-contact-hours-title {
+  font-size     : var(--jp-text-xs);
+  font-weight   : var(--jp-fw-semibold);
+  color         : rgba(255,255,255,0.60);
+  text-transform: uppercase;
+  letter-spacing: var(--jp-ls-wider);
+  margin-bottom : var(--jp-space-3);
+}
+
+.jp-contact-hours-row {
+  display        : flex;
+  justify-content: space-between;
+  font-size      : var(--jp-text-sm);
+  color          : rgba(255,255,255,0.80);
+  padding        : var(--jp-space-2) 0;
+  border-bottom  : 1px solid rgba(255,255,255,0.08);
+}
+
+.jp-contact-hours-row:last-child {
+  border-bottom : none;
+}
+
+.jp-contact-hours-status {
+  font-size  : var(--jp-text-xs);
+  font-weight: var(--jp-fw-semibold);
+  color      : var(--jp-accent-light);
+}
+
+/* Contact form kanan */
+.jp-contact-form-card {
+  background-color: var(--jp-white);
+  border          : var(--jp-border-width) solid var(--jp-border-color);
+  border-radius   : var(--jp-radius-2xl);
+  padding         : var(--jp-space-8);
+  box-shadow      : var(--jp-shadow-lg);
+}
+
+.jp-contact-form-title {
+  font-size     : var(--jp-text-xl);
+  font-weight   : var(--jp-fw-extrabold);
+  color         : var(--jp-gray-900);
+  text-transform: uppercase;
+  letter-spacing: var(--jp-ls-tight);
+  margin-bottom : var(--jp-space-2);
+}
+
+.jp-contact-form-desc {
+  font-size    : var(--jp-text-sm);
+  color        : var(--jp-gray-500);
+  margin-bottom: var(--jp-space-6);
+}
+
+/* Topik inquiry select */
+.jp-contact-topic {
+  display   : flex;
+  flex-wrap : wrap;
+  gap       : var(--jp-space-2);
+  margin-bottom: var(--jp-space-5);
+}
+
+.jp-contact-topic-btn {
+  padding         : var(--jp-space-2) var(--jp-space-4);
+  border          : var(--jp-border-width) solid var(--jp-border-color);
+  border-radius   : var(--jp-radius-full);
+  background      : var(--jp-white);
+  font-size       : var(--jp-text-xs);
+  font-weight     : var(--jp-fw-medium);
+  color           : var(--jp-gray-600);
+  cursor          : pointer;
+  transition      : all var(--jp-transition-fast);
+  font-family     : var(--jp-font-primary);
+}
+
+.jp-contact-topic-btn:hover,
+.jp-contact-topic-btn.active {
+  background-color: var(--jp-primary);
+  border-color    : var(--jp-primary);
+  color           : var(--jp-white);
+}
+
+
+/* ══════════════════════════════════════════
+ * 6. MAP EMBED
+ * ══════════════════════════════════════════ */
+
+.jp-map-wrap {
+  border-radius: var(--jp-radius-2xl);
+  overflow     : hidden;
+  border       : var(--jp-border-width) solid var(--jp-border-color);
+  margin-top   : var(--jp-space-10);
+  height       : 400px;
+}
+
+.jp-map-wrap iframe {
+  width  : 100%;
+  height : 100%;
+  border : none;
+  display: block;
+}
+
+
+/* ══════════════════════════════════════════
+ * 7. FAQ ACCORDION
+ * ══════════════════════════════════════════ */
+
+.jp-faq-wrap {
+  display       : flex;
+  flex-direction: column;
+  gap           : var(--jp-space-3);
+}
+
+.jp-faq-item {
+  background-color: var(--jp-white);
+  border          : var(--jp-border-width) solid var(--jp-border-color);
+  border-radius   : var(--jp-radius-xl);
+  overflow        : hidden;
+  transition      : border-color var(--jp-transition-fast),
+                    box-shadow var(--jp-transition-fast);
+}
+
+.jp-faq-item.active {
+  border-color : var(--jp-primary);
+  box-shadow   : var(--jp-shadow-card);
+}
+
+.jp-faq-question {
+  display         : flex;
+  align-items     : center;
+  justify-content : space-between;
+  gap             : var(--jp-space-4);
+  padding         : var(--jp-space-5) var(--jp-space-6);
+  cursor          : pointer;
+  font-size       : var(--jp-text-base);
+  font-weight     : var(--jp-fw-semibold);
+  color           : var(--jp-gray-900);
+  user-select     : none;
+  transition      : color var(--jp-transition-fast);
+  background      : none;
+  border          : none;
+  width           : 100%;
+  text-align      : left;
+  font-family     : var(--jp-font-primary);
+}
+
+.jp-faq-question:hover {
+  color : var(--jp-primary);
+}
+
+.jp-faq-item.active .jp-faq-question {
+  color : var(--jp-primary);
+}
+
+.jp-faq-icon {
+  width           : 28px;
+  height          : 28px;
+  border-radius   : var(--jp-radius-full);
+  background-color: var(--jp-primary-subtle);
+  color           : var(--jp-primary);
+  display         : flex;
+  align-items     : center;
+  justify-content : center;
+  font-size       : var(--jp-text-sm);
+  flex-shrink     : 0;
+  transition      : transform var(--jp-transition-base),
+                    background-color var(--jp-transition-base);
+}
+
+.jp-faq-item.active .jp-faq-icon {
+  transform        : rotate(45deg);
+  background-color : var(--jp-primary);
+  color            : var(--jp-white);
+}
+
+.jp-faq-answer {
+  display : none;
+  padding : 0 var(--jp-space-6) var(--jp-space-5);
+  font-size  : var(--jp-text-sm);
+  color      : var(--jp-gray-600);
+  line-height: var(--jp-lh-relaxed);
+}
+
+.jp-faq-answer p {
+  margin : 0;
+}
+
+
+/* ══════════════════════════════════════════
+ * 8. RESPONSIVE — ABOUT & CONTACT
+ * ══════════════════════════════════════════ */
+
+@media (max-width: 991px) {
+  .jp-about-hero-title  { font-size: var(--jp-text-4xl); }
+
+  .jp-about-stats-grid  {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .jp-about-stat-item:nth-child(2) { border-right: none; }
+  .jp-about-stat-item:nth-child(3) {
+    border-top  : 1px solid rgba(255,255,255,0.15);
+    border-right: 1px solid rgba(255,255,255,0.15);
+  }
+  .jp-about-stat-item:nth-child(4) {
+    border-top  : 1px solid rgba(255,255,255,0.15);
+  }
+
+  .jp-about-story       { grid-template-columns: 1fr; gap: var(--jp-space-8); }
+  .jp-team-grid         { grid-template-columns: repeat(2, 1fr); }
+
+  .jp-contact-layout    { grid-template-columns: 1fr; }
+  .jp-contact-info-card { order: 1; }
+  .jp-contact-form-card { order: 0; }
+
+  /* Timeline — simplify ke 1 kolom */
+  .jp-milestone-wrap::before { left: 36px; }
+  .jp-milestone-item,
+  .jp-milestone-item:nth-child(even) { flex-direction: row; }
+  .jp-milestone-item:nth-child(even) .jp-milestone-content { text-align: left; }
+  .jp-milestone-item:nth-child(even) .jp-milestone-year-wrap { order: 1; }
+  .jp-milestone-item:nth-child(even) .jp-milestone-content   { order: 2; }
+}
+
+@media (max-width: 767px) {
+  .jp-about-hero-title  { font-size: var(--jp-text-3xl); }
+  .jp-about-hero        { padding: var(--jp-space-16) 0; }
+  .jp-team-grid         { grid-template-columns: repeat(2, 1fr); gap: var(--jp-space-4); }
+  .jp-map-wrap          { height: 280px; }
+  .jp-contact-form-card { padding: var(--jp-space-6); }
+}
+
+@media (max-width: 575px) {
+  .jp-about-hero-title  { font-size: var(--jp-text-2xl); }
+  .jp-about-hero-desc   { font-size: var(--jp-text-base); }
+
+  .jp-about-stats-grid  { grid-template-columns: repeat(2, 1fr); }
+  .jp-about-stat-num    { font-size: var(--jp-text-3xl); }
+
+  .jp-team-grid         { grid-template-columns: 1fr 1fr; gap: var(--jp-space-3); }
+
+  .jp-faq-question      { font-size: var(--jp-text-sm); padding: var(--jp-space-4) var(--jp-space-4); }
+  .jp-faq-answer        { padding: 0 var(--jp-space-4) var(--jp-space-4); }
+
+  .jp-milestone-year    { width: 56px; height: 56px; font-size: var(--jp-text-sm); }
+
+  .jp-contact-info-card { padding: var(--jp-space-6); }
+  .jp-contact-form-card { padding: var(--jp-space-5); }
+}

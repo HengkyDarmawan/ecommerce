@@ -1,0 +1,1237 @@
+/**
+ * ============================================================
+ * JAYA PC — LAYOUT CSS
+ * Template Version : 1.0.0
+ * Description      : Struktur layout global halaman.
+ *                    Section wrappers, grid system custom,
+ *                    spacing antar section, hero, footer,
+ *                    sidebar, dan pola layout berulang.
+ * Dependency       : variables.css, base.css, components.css
+ * ============================================================
+ */
+
+
+/* ══════════════════════════════════════════
+ * 1. PAGE WRAPPER
+ * Struktur utama halaman
+ * ══════════════════════════════════════════ */
+
+.jp-page {
+  display        : flex;
+  flex-direction : column;
+  min-height     : 100vh;
+}
+
+.jp-page-main {
+  flex : 1;
+}
+
+/* Offset konten agar tidak tertutup sticky navbar
+   (topbar non-sticky, navbar sticky top: 0) */
+.jp-page-main {
+  padding-top : 0;
+}
+
+
+/* ══════════════════════════════════════════
+ * 2. CONTAINER CUSTOM
+ * Extend Bootstrap container dengan gutter jp
+ * ══════════════════════════════════════════ */
+
+.jp-container {
+  width         : 100%;
+  max-width     : var(--jp-container-xxl);
+  margin-left   : auto;
+  margin-right  : auto;
+  padding-left  : var(--jp-space-6);
+  padding-right : var(--jp-space-6);
+}
+
+.jp-container-fluid {
+  width         : 100%;
+  padding-left  : var(--jp-space-6);
+  padding-right : var(--jp-space-6);
+}
+
+.jp-container-narrow {
+  width         : 100%;
+  max-width     : var(--jp-container-lg);
+  margin-left   : auto;
+  margin-right  : auto;
+  padding-left  : var(--jp-space-6);
+  padding-right : var(--jp-space-6);
+}
+
+
+/* ══════════════════════════════════════════
+ * 3. SECTION LAYOUTS
+ * Padding & background tiap section homepage
+ * ══════════════════════════════════════════ */
+
+/* Section default — background putih */
+.jp-section {
+  padding-top    : var(--jp-section-py);
+  padding-bottom : var(--jp-section-py);
+  background-color: var(--jp-bg-body);
+}
+
+/* Section dengan background abu muda */
+.jp-section-surface {
+  padding-top    : var(--jp-section-py);
+  padding-bottom : var(--jp-section-py);
+  background-color: var(--jp-bg-surface);
+}
+
+/* Section compact — padding lebih kecil */
+.jp-section-sm {
+  padding-top    : var(--jp-section-py-sm);
+  padding-bottom : var(--jp-section-py-sm);
+}
+
+/* Section header — label + title + desc + action */
+.jp-section-header {
+  display         : flex;
+  align-items     : flex-end;
+  justify-content : space-between;
+  gap             : var(--jp-space-6);
+  margin-bottom   : var(--jp-space-10);
+}
+
+.jp-section-header-left {
+  flex : 1;
+}
+
+.jp-section-header-right {
+  flex-shrink : 0;
+}
+
+
+/* ══════════════════════════════════════════
+ * 4. HERO SECTION
+ * ══════════════════════════════════════════ */
+
+.jp-hero {
+  position   : relative;
+  overflow   : hidden;
+  background : var(--jp-gray-900);
+}
+
+/* Carousel wrapper */
+.jp-hero-carousel {
+  position : relative;
+}
+
+/* Satu slide hero */
+.jp-hero-slide {
+  position        : relative;
+  min-height      : 520px;
+  display         : flex;
+  align-items     : center;
+  overflow        : hidden;
+}
+
+/* Gambar background slide */
+.jp-hero-slide-bg {
+  position   : absolute;
+  inset      : 0;
+  z-index    : 0;
+}
+
+.jp-hero-slide-bg img {
+  width      : 100%;
+  height     : 100%;
+  object-fit : cover;
+  object-position: center;
+}
+
+/* Gradient overlay di atas gambar */
+.jp-hero-slide-overlay {
+  position   : absolute;
+  inset      : 0;
+  background : linear-gradient(
+    to right,
+    rgba(10, 20, 60, 0.88) 0%,
+    rgba(10, 20, 60, 0.60) 45%,
+    rgba(10, 20, 60, 0.15) 100%
+  );
+  z-index    : 1;
+}
+
+/* Konten teks di dalam slide */
+.jp-hero-content {
+  position   : relative;
+  z-index    : 2;
+  padding    : var(--jp-space-16) 0;
+  max-width  : 600px;
+}
+
+.jp-hero-label {
+  display       : inline-flex;
+  align-items   : center;
+  gap           : var(--jp-space-2);
+  background    : rgba(249, 115, 22, 0.15);
+  border        : 1px solid rgba(249, 115, 22, 0.40);
+  border-radius : var(--jp-radius-full);
+  padding       : var(--jp-space-1) var(--jp-space-4);
+  font-size     : var(--jp-text-xs);
+  font-weight   : var(--jp-fw-semibold);
+  color         : var(--jp-accent-light);
+  letter-spacing: var(--jp-ls-wider);
+  text-transform: uppercase;
+  margin-bottom : var(--jp-space-5);
+}
+
+.jp-hero-label i {
+  font-size : 8px;
+  color     : var(--jp-accent);
+}
+
+.jp-hero-title {
+  font-size     : var(--jp-text-5xl);
+  font-weight   : var(--jp-fw-black);
+  color         : var(--jp-white);
+  line-height   : var(--jp-lh-tight);
+  text-transform: uppercase;
+  letter-spacing: var(--jp-ls-tight);
+  margin-bottom : var(--jp-space-4);
+}
+
+.jp-hero-title .highlight {
+  color : var(--jp-accent);
+}
+
+.jp-hero-desc {
+  font-size     : var(--jp-text-base);
+  color         : rgba(255, 255, 255, 0.75);
+  line-height   : var(--jp-lh-relaxed);
+  margin-bottom : var(--jp-space-8);
+  max-width     : 480px;
+}
+
+.jp-hero-actions {
+  display     : flex;
+  align-items : center;
+  gap         : var(--jp-space-4);
+  flex-wrap   : wrap;
+}
+
+/* Stat bar di bawah hero */
+.jp-hero-stats {
+  position        : relative;
+  z-index         : 3;
+  background-color: rgba(15, 23, 42, 0.85);
+  backdrop-filter : blur(8px);
+  border-top      : 1px solid rgba(255,255,255,0.08);
+}
+
+.jp-hero-stats-inner {
+  display               : grid;
+  grid-template-columns : repeat(4, 1fr);
+}
+
+.jp-hero-stat-item {
+  padding      : var(--jp-space-5) var(--jp-space-6);
+  text-align   : center;
+  border-right : 1px solid rgba(255,255,255,0.08);
+}
+
+.jp-hero-stat-item:last-child {
+  border-right : none;
+}
+
+.jp-hero-stat-number {
+  font-size     : var(--jp-text-2xl);
+  font-weight   : var(--jp-fw-extrabold);
+  color         : var(--jp-white);
+  line-height   : 1;
+  margin-bottom : var(--jp-space-1);
+}
+
+.jp-hero-stat-number span {
+  color : var(--jp-accent);
+}
+
+.jp-hero-stat-label {
+  font-size     : var(--jp-text-xs);
+  color         : rgba(255,255,255,0.55);
+  text-transform: uppercase;
+  letter-spacing: var(--jp-ls-wider);
+  font-weight   : var(--jp-fw-medium);
+}
+
+/* Carousel controls */
+.jp-hero-prev,
+.jp-hero-next {
+  position        : absolute;
+  top             : 50%;
+  transform       : translateY(-50%);
+  width           : 44px;
+  height          : 44px;
+  background-color: rgba(255,255,255,0.12);
+  backdrop-filter : blur(4px);
+  border          : 1px solid rgba(255,255,255,0.20);
+  border-radius   : var(--jp-radius-md);
+  color           : var(--jp-white);
+  display         : flex;
+  align-items     : center;
+  justify-content : center;
+  font-size       : var(--jp-text-sm);
+  cursor          : pointer;
+  z-index         : 4;
+  transition      : all var(--jp-transition-base);
+}
+
+.jp-hero-prev { left : var(--jp-space-6); }
+.jp-hero-next { right: var(--jp-space-6); }
+
+.jp-hero-prev:hover,
+.jp-hero-next:hover {
+  background-color: var(--jp-accent);
+  border-color    : var(--jp-accent);
+}
+
+/* Carousel indicators */
+.jp-hero-indicators {
+  position        : absolute;
+  bottom          : calc(var(--jp-space-6) + 80px);
+  left            : 50%;
+  transform       : translateX(-50%);
+  display         : flex;
+  gap             : var(--jp-space-2);
+  z-index         : 4;
+}
+
+.jp-hero-dot {
+  width           : 8px;
+  height          : 8px;
+  border-radius   : var(--jp-radius-full);
+  background-color: rgba(255,255,255,0.40);
+  border          : none;
+  cursor          : pointer;
+  transition      : all var(--jp-transition-base);
+  padding         : 0;
+}
+
+.jp-hero-dot.active {
+  width           : 24px;
+  background-color: var(--jp-accent);
+}
+
+
+/* ══════════════════════════════════════════
+ * 5. TRUST BAR LAYOUT
+ * ══════════════════════════════════════════ */
+
+.jp-trust-bar {
+  background-color : var(--jp-white);
+  border-bottom    : var(--jp-border-width) solid var(--jp-border-color);
+  box-shadow       : var(--jp-shadow-sm);
+}
+
+.jp-trust-bar-inner {
+  display               : grid;
+  grid-template-columns : repeat(4, 1fr);
+  divide-x              : var(--jp-border-color);
+}
+
+.jp-trust-item + .jp-trust-item {
+  border-left : var(--jp-border-width) solid var(--jp-border-color);
+}
+
+
+/* ══════════════════════════════════════════
+ * 6. PRODUCT GRID LAYOUTS
+ * ══════════════════════════════════════════ */
+
+/* Grid produk — 4 kolom default */
+.jp-product-grid {
+  display               : grid;
+  grid-template-columns : repeat(4, 1fr);
+  gap                   : var(--jp-space-5);
+}
+
+/* Grid produk — 3 kolom */
+.jp-product-grid-3 {
+  display               : grid;
+  grid-template-columns : repeat(3, 1fr);
+  gap                   : var(--jp-space-5);
+}
+
+/* Grid produk — 5 kolom */
+.jp-product-grid-5 {
+  display               : grid;
+  grid-template-columns : repeat(5, 1fr);
+  gap                   : var(--jp-space-4);
+}
+
+/* Grid kategori — 8 kolom */
+.jp-category-grid {
+  display               : grid;
+  grid-template-columns : repeat(8, 1fr);
+  gap                   : var(--jp-space-4);
+}
+
+/* Grid kategori besar — 3 kolom utama */
+.jp-category-grid-main {
+  display : grid;
+  gap     : var(--jp-space-4);
+  /* Layout: 1 besar kiri + 2 kanan + row bawah */
+  grid-template-columns : 2fr 1fr 1fr;
+  grid-template-rows    : auto auto;
+}
+
+.jp-category-grid-main .jp-cat-featured {
+  grid-row    : 1 / 3;
+  grid-column : 1;
+}
+
+
+/* ══════════════════════════════════════════
+ * 7. BANNER PROMO GRID
+ * Section banner 3 kotak (Sale + PC Builder + Office)
+ * ══════════════════════════════════════════ */
+
+.jp-banner-grid {
+  display               : grid;
+  grid-template-columns : 1fr 1fr;
+  grid-template-rows    : 1fr 1fr;
+  gap                   : var(--jp-space-4);
+  min-height            : 400px;
+  position              : relative;
+  z-index               : 1;
+}
+
+/* Banner besar — span 2 baris di kiri */
+.jp-banner-main {
+  grid-row : 1 / 3;
+}
+
+.jp-banner-card {
+  position      : relative;
+  border-radius : var(--jp-radius-xl);
+  overflow      : hidden;
+  display       : flex;
+  align-items   : flex-end;
+  min-height    : 180px;
+  text-decoration: none;
+}
+
+.jp-banner-card-bg {
+  position   : absolute;
+  inset      : 0;
+}
+
+.jp-banner-card-bg img {
+  width      : 100%;
+  height     : 100%;
+  object-fit : cover;
+  transition : transform var(--jp-transition-slow);
+}
+
+.jp-banner-card:hover .jp-banner-card-bg img {
+  transform : scale(1.05);
+}
+
+.jp-banner-card-overlay {
+  position   : absolute;
+  inset      : 0;
+  background : linear-gradient(
+    to top,
+    rgba(10, 20, 60, 0.90) 0%,
+    rgba(10, 20, 60, 0.40) 60%,
+    transparent 100%
+  );
+}
+
+.jp-banner-card-content {
+  position   : relative;
+  z-index    : 2;
+  padding    : var(--jp-space-6);
+  width      : 100%;
+}
+
+.jp-banner-label {
+  display       : inline-flex;
+  align-items   : center;
+  gap           : var(--jp-space-1);
+  font-size     : var(--jp-text-xs);
+  font-weight   : var(--jp-fw-semibold);
+  color         : var(--jp-accent);
+  text-transform: uppercase;
+  letter-spacing: var(--jp-ls-wider);
+  margin-bottom : var(--jp-space-2);
+}
+
+.jp-banner-title {
+  font-size     : var(--jp-text-xl);
+  font-weight   : var(--jp-fw-extrabold);
+  color         : var(--jp-white);
+  line-height   : var(--jp-lh-tight);
+  text-transform: uppercase;
+  margin-bottom : var(--jp-space-4);
+}
+
+.jp-banner-main .jp-banner-title {
+  font-size : var(--jp-text-3xl);
+}
+
+
+/* ══════════════════════════════════════════
+ * 8. PC CONFIGURATOR LAYOUT
+ * ══════════════════════════════════════════ */
+
+.jp-configurator-wrap {
+  display               : grid;
+  grid-template-columns : 1fr 1fr;
+  gap                   : var(--jp-space-16);
+  align-items           : center;
+}
+
+.jp-configurator-steps {
+  display        : flex;
+  flex-direction : column;
+  gap            : var(--jp-space-8);
+}
+
+.jp-config-step {
+  display : flex;
+  gap     : var(--jp-space-5);
+}
+
+.jp-config-step-number {
+  width           : 48px;
+  height          : 48px;
+  border-radius   : var(--jp-radius-lg);
+  background-color: var(--jp-primary-subtle);
+  border          : 2px solid var(--jp-primary);
+  color           : var(--jp-primary);
+  font-size       : var(--jp-text-lg);
+  font-weight     : var(--jp-fw-extrabold);
+  display         : flex;
+  align-items     : center;
+  justify-content : center;
+  flex-shrink     : 0;
+}
+
+.jp-config-step-content {
+  flex      : 1;
+  padding-top: var(--jp-space-2);
+}
+
+.jp-config-step-title {
+  font-size    : var(--jp-text-base);
+  font-weight  : var(--jp-fw-bold);
+  color        : var(--jp-gray-900);
+  margin-bottom: var(--jp-space-2);
+}
+
+.jp-config-step-desc {
+  font-size  : var(--jp-text-sm);
+  color      : var(--jp-gray-500);
+  line-height: var(--jp-lh-relaxed);
+  margin     : 0;
+}
+
+/* Widget kanan configurator */
+.jp-configurator-widget {
+  background-color: var(--jp-white);
+  border          : var(--jp-border-width) solid var(--jp-border-color);
+  border-radius   : var(--jp-radius-2xl);
+  box-shadow      : var(--jp-shadow-xl);
+  padding         : var(--jp-space-8);
+  position        : relative;
+}
+
+.jp-config-widget-title {
+  font-size    : var(--jp-text-base);
+  font-weight  : var(--jp-fw-semibold);
+  color        : var(--jp-gray-700);
+  margin-bottom: var(--jp-space-4);
+}
+
+.jp-config-options {
+  display   : flex;
+  flex-wrap : wrap;
+  gap       : var(--jp-space-2);
+  margin-bottom: var(--jp-space-6);
+}
+
+.jp-config-option {
+  padding         : var(--jp-space-2) var(--jp-space-4);
+  border          : var(--jp-border-width) solid var(--jp-border-color);
+  border-radius   : var(--jp-radius-full);
+  font-size       : var(--jp-text-sm);
+  font-weight     : var(--jp-fw-medium);
+  color           : var(--jp-gray-600);
+  background      : var(--jp-white);
+  cursor          : pointer;
+  transition      : all var(--jp-transition-fast);
+  user-select     : none;
+}
+
+.jp-config-option:hover,
+.jp-config-option.active {
+  background-color: var(--jp-primary);
+  border-color    : var(--jp-primary);
+  color           : var(--jp-white);
+}
+
+
+/* ══════════════════════════════════════════
+ * 9. WHY US — KEUNGGULAN GRID
+ * ══════════════════════════════════════════ */
+
+.jp-why-grid {
+  display               : grid;
+  grid-template-columns : repeat(4, 1fr);
+  gap                   : var(--jp-space-5);
+}
+
+.jp-why-card {
+  padding         : var(--jp-space-6);
+  background-color: var(--jp-white);
+  border          : var(--jp-border-width) solid var(--jp-border-color);
+  border-radius   : var(--jp-radius-xl);
+  transition      : all var(--jp-transition-base);
+}
+
+.jp-why-card:hover {
+  border-color: var(--jp-primary);
+  box-shadow  : var(--jp-shadow-card-hover);
+  transform   : translateY(-3px);
+}
+
+.jp-why-icon {
+  width           : 52px;
+  height          : 52px;
+  border-radius   : var(--jp-radius-lg);
+  background-color: var(--jp-primary-subtle);
+  display         : flex;
+  align-items     : center;
+  justify-content : center;
+  margin-bottom   : var(--jp-space-4);
+  transition      : background-color var(--jp-transition-base);
+}
+
+.jp-why-card:hover .jp-why-icon {
+  background-color: var(--jp-primary);
+}
+
+.jp-why-icon i {
+  font-size  : var(--jp-text-xl);
+  color      : var(--jp-primary);
+  transition : color var(--jp-transition-base);
+}
+
+.jp-why-card:hover .jp-why-icon i {
+  color : var(--jp-white);
+}
+
+.jp-why-title {
+  font-size    : var(--jp-text-base);
+  font-weight  : var(--jp-fw-bold);
+  color        : var(--jp-gray-900);
+  margin-bottom: var(--jp-space-2);
+}
+
+.jp-why-desc {
+  font-size  : var(--jp-text-sm);
+  color      : var(--jp-gray-500);
+  line-height: var(--jp-lh-relaxed);
+  margin     : 0;
+}
+
+
+/* ══════════════════════════════════════════
+ * 10. TESTIMONIAL GRID
+ * ══════════════════════════════════════════ */
+
+.jp-testimonial-grid {
+  display               : grid;
+  grid-template-columns : repeat(3, 1fr);
+  gap                   : var(--jp-space-5);
+}
+
+.jp-testimonial-card {
+  padding         : var(--jp-space-6);
+  background-color: var(--jp-white);
+  border          : var(--jp-border-width) solid var(--jp-border-color);
+  border-radius   : var(--jp-radius-xl);
+  box-shadow      : var(--jp-shadow-sm);
+  display         : flex;
+  flex-direction  : column;
+  gap             : var(--jp-space-4);
+  transition      : box-shadow var(--jp-transition-base);
+}
+
+.jp-testimonial-card:hover {
+  box-shadow : var(--jp-shadow-card-hover);
+}
+
+.jp-testimonial-quote {
+  font-size  : var(--jp-text-sm);
+  color      : var(--jp-gray-600);
+  line-height: var(--jp-lh-relaxed);
+  flex       : 1;
+  font-style : italic;
+}
+
+.jp-testimonial-author {
+  display    : flex;
+  align-items: center;
+  gap        : var(--jp-space-3);
+  padding-top: var(--jp-space-4);
+  border-top : var(--jp-border-width) solid var(--jp-border-color);
+}
+
+.jp-testimonial-avatar {
+  width           : 40px;
+  height          : 40px;
+  border-radius   : var(--jp-radius-full);
+  background-color: var(--jp-primary);
+  color           : var(--jp-white);
+  display         : flex;
+  align-items     : center;
+  justify-content : center;
+  font-size       : var(--jp-text-sm);
+  font-weight     : var(--jp-fw-bold);
+  flex-shrink     : 0;
+  overflow        : hidden;
+}
+
+.jp-testimonial-avatar img {
+  width      : 100%;
+  height     : 100%;
+  object-fit : cover;
+}
+
+.jp-testimonial-name {
+  font-size  : var(--jp-text-sm);
+  font-weight: var(--jp-fw-semibold);
+  color      : var(--jp-gray-900);
+  margin     : 0;
+}
+
+.jp-testimonial-meta {
+  font-size : var(--jp-text-xs);
+  color     : var(--jp-gray-500);
+  margin    : 0;
+}
+
+.jp-testimonial-product {
+  font-size  : var(--jp-text-xs);
+  color      : var(--jp-primary);
+  font-weight: var(--jp-fw-medium);
+}
+
+
+/* ══════════════════════════════════════════
+ * 11. BLOG GRID
+ * ══════════════════════════════════════════ */
+
+.jp-blog-grid {
+  display               : grid;
+  grid-template-columns : repeat(3, 1fr);
+  gap                   : var(--jp-space-6);
+}
+
+.jp-blog-card {
+  background-color: var(--jp-white);
+  border          : var(--jp-border-width) solid var(--jp-border-color);
+  border-radius   : var(--jp-radius-xl);
+  overflow        : hidden;
+  transition      : box-shadow var(--jp-transition-base),
+                    transform var(--jp-transition-base);
+  display         : flex;
+  flex-direction  : column;
+}
+
+.jp-blog-card:hover {
+  box-shadow: var(--jp-shadow-card-hover);
+  transform : translateY(-3px);
+}
+
+.jp-blog-card-img {
+  overflow    : hidden;
+  aspect-ratio: 16 / 9;
+}
+
+.jp-blog-card-img img {
+  width      : 100%;
+  height     : 100%;
+  object-fit : cover;
+  transition : transform var(--jp-transition-slow);
+}
+
+.jp-blog-card:hover .jp-blog-card-img img {
+  transform : scale(1.05);
+}
+
+.jp-blog-card-body {
+  padding       : var(--jp-space-5);
+  flex          : 1;
+  display       : flex;
+  flex-direction: column;
+  gap           : var(--jp-space-3);
+}
+
+.jp-blog-cat {
+  display       : inline-block;
+  font-size     : var(--jp-text-xs);
+  font-weight   : var(--jp-fw-semibold);
+  color         : var(--jp-primary);
+  text-transform: uppercase;
+  letter-spacing: var(--jp-ls-wider);
+}
+
+.jp-blog-title {
+  font-size         : var(--jp-text-base);
+  font-weight       : var(--jp-fw-bold);
+  color             : var(--jp-gray-900);
+  line-height       : var(--jp-lh-snug);
+  display           : -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow          : hidden;
+  margin            : 0;
+}
+
+.jp-blog-title a { color: var(--jp-gray-900); }
+.jp-blog-title a:hover { color: var(--jp-primary); }
+
+.jp-blog-excerpt {
+  font-size         : var(--jp-text-sm);
+  color             : var(--jp-gray-500);
+  line-height       : var(--jp-lh-relaxed);
+  display           : -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow          : hidden;
+  margin            : 0;
+}
+
+.jp-blog-meta {
+  display    : flex;
+  align-items: center;
+  gap        : var(--jp-space-4);
+  margin-top : auto;
+  padding-top: var(--jp-space-3);
+  border-top : var(--jp-border-width) solid var(--jp-border-color);
+}
+
+.jp-blog-meta span {
+  display    : inline-flex;
+  align-items: center;
+  gap        : var(--jp-space-1);
+  font-size  : var(--jp-text-xs);
+  color      : var(--jp-gray-400);
+}
+
+.jp-blog-meta i { font-size: 11px; }
+
+.jp-blog-read-more {
+  display       : inline-flex;
+  align-items   : center;
+  gap           : var(--jp-space-1);
+  font-size     : var(--jp-text-sm);
+  font-weight   : var(--jp-fw-semibold);
+  color         : var(--jp-primary);
+  text-decoration: none;
+  transition    : gap var(--jp-transition-fast);
+}
+
+.jp-blog-read-more:hover { gap: var(--jp-space-2); color: var(--jp-primary-dark); }
+
+
+/* ══════════════════════════════════════════
+ * 12. NEWSLETTER SECTION
+ * ══════════════════════════════════════════ */
+
+.jp-newsletter {
+  background-color: var(--jp-primary);
+  padding         : var(--jp-space-16) 0;
+  position        : relative;
+  overflow        : hidden;
+}
+
+/* Dekorasi lingkaran blur di belakang */
+.jp-newsletter::before {
+  content          : '';
+  position         : absolute;
+  top              : -80px;
+  right            : -80px;
+  width            : 320px;
+  height           : 320px;
+  background       : rgba(249, 115, 22, 0.15);
+  border-radius    : 50%;
+  pointer-events   : none;
+}
+
+.jp-newsletter::after {
+  content          : '';
+  position         : absolute;
+  bottom           : -80px;
+  left             : -40px;
+  width            : 240px;
+  height           : 240px;
+  background       : rgba(255, 255, 255, 0.05);
+  border-radius    : 50%;
+  pointer-events   : none;
+}
+
+.jp-newsletter-inner {
+  display         : flex;
+  align-items     : center;
+  justify-content : space-between;
+  gap             : var(--jp-space-10);
+  position        : relative;
+  z-index         : 1;
+}
+
+.jp-newsletter-text {
+  flex : 1;
+}
+
+.jp-newsletter-label {
+  display       : inline-flex;
+  align-items   : center;
+  gap           : var(--jp-space-2);
+  font-size     : var(--jp-text-xs);
+  font-weight   : var(--jp-fw-semibold);
+  color         : var(--jp-accent-light);
+  text-transform: uppercase;
+  letter-spacing: var(--jp-ls-widest);
+  margin-bottom : var(--jp-space-3);
+}
+
+.jp-newsletter-title {
+  font-size    : var(--jp-text-3xl);
+  font-weight  : var(--jp-fw-extrabold);
+  color        : var(--jp-white);
+  text-transform: uppercase;
+  line-height  : var(--jp-lh-tight);
+  margin-bottom: var(--jp-space-3);
+}
+
+.jp-newsletter-desc {
+  font-size  : var(--jp-text-sm);
+  color      : rgba(255,255,255,0.70);
+  margin     : 0;
+}
+
+.jp-newsletter-form {
+  flex-shrink : 0;
+  width       : 420px;
+}
+
+.jp-newsletter-input-wrap {
+  display       : flex;
+  gap           : var(--jp-space-2);
+  background    : rgba(255,255,255,0.12);
+  border        : 1px solid rgba(255,255,255,0.20);
+  border-radius : var(--jp-radius-lg);
+  padding       : var(--jp-space-2);
+}
+
+.jp-newsletter-input {
+  flex       : 1;
+  border     : none;
+  background : transparent;
+  padding    : var(--jp-space-2) var(--jp-space-3);
+  font-family: var(--jp-font-primary);
+  font-size  : var(--jp-text-sm);
+  color      : var(--jp-white);
+}
+
+.jp-newsletter-input::placeholder { color: rgba(255,255,255,0.50); }
+.jp-newsletter-input:focus { outline: none; }
+
+.jp-newsletter-note {
+  font-size  : var(--jp-text-xs);
+  color      : rgba(255,255,255,0.50);
+  margin-top : var(--jp-space-3);
+  text-align : center;
+}
+
+.jp-newsletter-note a { color: rgba(255,255,255,0.70); }
+
+
+/* ══════════════════════════════════════════
+ * 13. FOOTER
+ * ══════════════════════════════════════════ */
+
+.jp-footer {
+  background-color: var(--jp-bg-footer);
+}
+
+.jp-footer-top {
+  padding    : var(--jp-space-16) 0 var(--jp-space-12);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.jp-footer-grid {
+  display               : grid;
+  grid-template-columns : 2fr 1fr 1fr 1fr 1.5fr;
+  gap                   : var(--jp-space-10);
+}
+
+.jp-footer-brand img {
+  height       : 36px;
+  width        : auto;
+  margin-bottom: var(--jp-space-4);
+  filter       : brightness(0) invert(1);
+}
+
+.jp-footer-brand-desc {
+  font-size  : var(--jp-text-sm);
+  color      : rgba(255,255,255,0.55);
+  line-height: var(--jp-lh-relaxed);
+  margin-bottom: var(--jp-space-5);
+}
+
+.jp-footer-social {
+  display    : flex;
+  gap        : var(--jp-space-3);
+  margin-bottom: var(--jp-space-5);
+}
+
+.jp-footer-social-link {
+  width           : 36px;
+  height          : 36px;
+  border-radius   : var(--jp-radius-md);
+  background-color: rgba(255,255,255,0.08);
+  border          : 1px solid rgba(255,255,255,0.12);
+  color           : rgba(255,255,255,0.60);
+  display         : flex;
+  align-items     : center;
+  justify-content : center;
+  font-size       : var(--jp-text-sm);
+  text-decoration : none;
+  transition      : all var(--jp-transition-fast);
+}
+
+.jp-footer-social-link:hover {
+  background-color: var(--jp-accent);
+  border-color    : var(--jp-accent);
+  color           : var(--jp-white);
+  transform       : translateY(-2px);
+}
+
+.jp-footer-contact-item {
+  display    : flex;
+  align-items: flex-start;
+  gap        : var(--jp-space-3);
+  font-size  : var(--jp-text-sm);
+  color      : rgba(255,255,255,0.60);
+  margin-bottom: var(--jp-space-3);
+}
+
+.jp-footer-contact-item i {
+  color      : var(--jp-accent);
+  font-size  : var(--jp-text-sm);
+  flex-shrink: 0;
+  margin-top : 2px;
+}
+
+/* Kolom link footer */
+.jp-footer-col-title {
+  font-size     : var(--jp-text-sm);
+  font-weight   : var(--jp-fw-bold);
+  color         : var(--jp-white);
+  text-transform: uppercase;
+  letter-spacing: var(--jp-ls-wider);
+  margin-bottom : var(--jp-space-5);
+}
+
+.jp-footer-links {
+  list-style    : none;
+  padding       : 0;
+  margin        : 0;
+  display       : flex;
+  flex-direction: column;
+  gap           : var(--jp-space-3);
+}
+
+.jp-footer-links a {
+  font-size  : var(--jp-text-sm);
+  color      : rgba(255,255,255,0.55);
+  transition : color var(--jp-transition-fast),
+               padding-left var(--jp-transition-fast);
+}
+
+.jp-footer-links a:hover {
+  color       : var(--jp-white);
+  padding-left: var(--jp-space-2);
+}
+
+/* Footer bottom bar */
+.jp-footer-bottom {
+  padding    : var(--jp-space-6) 0;
+  display    : flex;
+  align-items: center;
+  justify-content: space-between;
+  gap        : var(--jp-space-4);
+  flex-wrap  : wrap;
+}
+
+.jp-footer-copy {
+  font-size : var(--jp-text-sm);
+  color     : rgba(255,255,255,0.40);
+}
+
+.jp-footer-copy a {
+  color : rgba(255,255,255,0.55);
+}
+
+.jp-footer-copy a:hover { color: var(--jp-white); }
+
+/* Payment methods */
+.jp-payment-badges {
+  display    : flex;
+  align-items: center;
+  gap        : var(--jp-space-2);
+  flex-wrap  : wrap;
+}
+
+.jp-payment-badge {
+  padding         : 3px 10px;
+  background-color: rgba(255,255,255,0.08);
+  border          : 1px solid rgba(255,255,255,0.12);
+  border-radius   : var(--jp-radius-sm);
+  font-size       : var(--jp-text-xs);
+  font-weight     : var(--jp-fw-semibold);
+  color           : rgba(255,255,255,0.60);
+  white-space     : nowrap;
+}
+
+
+/* ══════════════════════════════════════════
+ * 14. SHOP PAGE — SIDEBAR + CONTENT
+ * ══════════════════════════════════════════ */
+
+.jp-shop-layout {
+  display               : grid;
+  grid-template-columns : 260px 1fr;
+  gap                   : var(--jp-space-8);
+  align-items           : start;
+}
+
+.jp-shop-sidebar {
+  position   : sticky;
+  top        : calc(var(--jp-navbar-height) + var(--jp-space-6));
+}
+
+.jp-filter-card {
+  background-color: var(--jp-white);
+  border          : var(--jp-border-width) solid var(--jp-border-color);
+  border-radius   : var(--jp-radius-xl);
+  overflow        : hidden;
+  margin-bottom   : var(--jp-space-4);
+}
+
+.jp-filter-header {
+  padding      : var(--jp-space-4) var(--jp-space-5);
+  border-bottom: var(--jp-border-width) solid var(--jp-border-color);
+  display      : flex;
+  align-items  : center;
+  justify-content: space-between;
+  cursor       : pointer;
+}
+
+.jp-filter-title {
+  font-size  : var(--jp-text-sm);
+  font-weight: var(--jp-fw-semibold);
+  color      : var(--jp-gray-900);
+  margin     : 0;
+}
+
+.jp-filter-body {
+  padding : var(--jp-space-4) var(--jp-space-5);
+}
+
+.jp-filter-item {
+  display    : flex;
+  align-items: center;
+  gap        : var(--jp-space-3);
+  padding    : var(--jp-space-2) 0;
+  cursor     : pointer;
+  user-select: none;
+}
+
+.jp-filter-item label {
+  font-size  : var(--jp-text-sm);
+  color      : var(--jp-gray-700);
+  cursor     : pointer;
+  flex       : 1;
+}
+
+.jp-filter-count {
+  font-size       : var(--jp-text-xs);
+  color           : var(--jp-gray-400);
+  background-color: var(--jp-gray-100);
+  padding         : 1px 6px;
+  border-radius   : var(--jp-radius-full);
+}
+
+
+/* ══════════════════════════════════════════
+ * 15. PRODUCT DETAIL LAYOUT
+ * ══════════════════════════════════════════ */
+
+.jp-product-detail-wrap {
+  display               : grid;
+  grid-template-columns : 1fr 1fr;
+  gap                   : var(--jp-space-12);
+  align-items           : start;
+}
+
+.jp-product-gallery {
+  position : sticky;
+  top      : calc(var(--jp-navbar-height) + var(--jp-space-6));
+}
+
+.jp-gallery-main {
+  background-color: var(--jp-gray-50);
+  border          : var(--jp-border-width) solid var(--jp-border-color);
+  border-radius   : var(--jp-radius-xl);
+  overflow        : hidden;
+  aspect-ratio    : 1;
+  display         : flex;
+  align-items     : center;
+  justify-content : center;
+  margin-bottom   : var(--jp-space-3);
+}
+
+.jp-gallery-main img {
+  max-width : 80%;
+  max-height: 80%;
+  object-fit: contain;
+}
+
+.jp-gallery-thumbs {
+  display               : grid;
+  grid-template-columns : repeat(5, 1fr);
+  gap                   : var(--jp-space-2);
+}
+
+.jp-gallery-thumb {
+  background-color: var(--jp-gray-50);
+  border          : var(--jp-border-width-2) solid transparent;
+  border-radius   : var(--jp-radius-md);
+  overflow        : hidden;
+  aspect-ratio    : 1;
+  cursor          : pointer;
+  transition      : border-color var(--jp-transition-fast);
+}
+
+.jp-gallery-thumb.active,
+.jp-gallery-thumb:hover {
+  border-color : var(--jp-primary);
+}
+
+.jp-gallery-thumb img {
+  width      : 100%;
+  height     : 100%;
+  object-fit : contain;
+  padding    : var(--jp-space-2);
+}

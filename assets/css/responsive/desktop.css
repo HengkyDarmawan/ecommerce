@@ -1,0 +1,435 @@
+/**
+ * ============================================================
+ * JAYA PC — DESKTOP CSS
+ * Template Version : 1.0.0
+ * Description      : Responsive tweaks untuk layar desktop.
+ *                    Breakpoint LG: 992px – 1199px
+ *                    Breakpoint XL: 1200px – 1399px
+ *                    Breakpoint XXL: 1400px ke atas
+ *                    File ini hanya berisi PENYESUAIAN dari
+ *                    layout default (yang sudah dirancang
+ *                    untuk desktop 1320px). Tidak perlu
+ *                    banyak override karena layout.css
+ *                    sudah desktop-first.
+ * Dependency       : variables.css, base.css, components.css,
+ *                    layout.css, pages/*.css
+ * ============================================================
+ */
+
+
+/* ══════════════════════════════════════════
+ * LG — 992px hingga 1199px
+ * Laptop standar
+ * ══════════════════════════════════════════ */
+
+@media (min-width: 992px) and (max-width: 1199px) {
+
+  /* ──────────────────────────────────────────
+   * 📐 CONTAINER
+   * ────────────────────────────────────────── */
+
+  .jp-container {
+    max-width     : var(--jp-container-lg);
+    padding-left  : var(--jp-space-6);
+    padding-right : var(--jp-space-6);
+  }
+
+
+  /* ──────────────────────────────────────────
+   * 🧭 NAVBAR
+   * ────────────────────────────────────────── */
+
+  .jp-nav-link {
+    padding   : var(--jp-space-2) var(--jp-space-2);
+    font-size : var(--jp-text-sm);
+  }
+
+  .jp-navbar-search {
+    max-width : 220px;
+  }
+
+  /* Mega dropdown sedikit lebih kecil */
+  .jp-mega-dropdown {
+    min-width : 480px;
+  }
+
+
+  /* ──────────────────────────────────────────
+   * 🖼️ HERO
+   * ────────────────────────────────────────── */
+
+  .jp-hero-slide {
+    min-height : 500px;
+  }
+
+  .jp-hero-title {
+    font-size : var(--jp-text-4xl);
+  }
+
+  .jp-hero-content {
+    max-width : 520px;
+  }
+
+
+  /* ──────────────────────────────────────────
+   * 🗂️ CATEGORY GRID
+   * ────────────────────────────────────────── */
+
+  /* 8 kolom tetap, gap sedikit dikurangi */
+  .jp-category-grid {
+    gap : var(--jp-space-3);
+  }
+
+  .jp-category-card {
+    padding : var(--jp-space-4) var(--jp-space-3);
+  }
+
+  .jp-category-card-img {
+    width  : 52px;
+    height : 52px;
+  }
+
+
+  /* ──────────────────────────────────────────
+   * 🛍️ PRODUCT GRID
+   * ────────────────────────────────────────── */
+
+  /* 4 kolom tetap di LG */
+  .jp-product-grid {
+    grid-template-columns : repeat(4, 1fr);
+    gap                   : var(--jp-space-4);
+  }
+
+  /* 5 kolom → 4 kolom di LG */
+  .jp-product-grid-5 {
+    grid-template-columns : repeat(4, 1fr);
+  }
+
+
+  /* ──────────────────────────────────────────
+   * 💪 WHY US
+   * ────────────────────────────────────────── */
+
+  .jp-why-card {
+    padding : var(--jp-space-5);
+  }
+
+
+  /* ──────────────────────────────────────────
+   * 📧 NEWSLETTER
+   * ────────────────────────────────────────── */
+
+  .jp-newsletter-form {
+    width : 380px;
+  }
+
+
+  /* ──────────────────────────────────────────
+   * 🔗 FOOTER
+   * ────────────────────────────────────────── */
+
+  .jp-footer-grid {
+    grid-template-columns : 1.8fr 1fr 1fr 1fr 1.4fr;
+    gap                   : var(--jp-space-8);
+  }
+
+
+  /* ──────────────────────────────────────────
+   * 🛒 SHOP LAYOUT
+   * ────────────────────────────────────────── */
+
+  .jp-shop-layout {
+    grid-template-columns : 240px 1fr;
+    gap                   : var(--jp-space-6);
+  }
+
+
+  /* ──────────────────────────────────────────
+   * 📦 PRODUCT DETAIL
+   * ────────────────────────────────────────── */
+
+  .jp-product-detail-wrap {
+    gap : var(--jp-space-10);
+  }
+
+} /* end lg */
+
+
+/* ══════════════════════════════════════════
+ * XL — 1200px hingga 1399px
+ * Desktop standar
+ * ══════════════════════════════════════════ */
+
+@media (min-width: 1200px) and (max-width: 1399px) {
+
+  /* ──────────────────────────────────────────
+   * 📐 CONTAINER
+   * ────────────────────────────────────────── */
+
+  .jp-container {
+    max-width : var(--jp-container-xl);
+  }
+
+
+  /* ──────────────────────────────────────────
+   * 🧭 NAVBAR
+   * ────────────────────────────────────────── */
+
+  .jp-navbar-search {
+    max-width : 280px;
+  }
+
+
+  /* ──────────────────────────────────────────
+   * 🖼️ HERO
+   * ────────────────────────────────────────── */
+
+  .jp-hero-slide {
+    min-height : 520px;
+  }
+
+
+  /* ──────────────────────────────────────────
+   * 🛍️ PRODUCT GRID
+   * ────────────────────────────────────────── */
+
+  /* 5 kolom tetap di XL */
+  .jp-product-grid-5 {
+    grid-template-columns : repeat(5, 1fr);
+  }
+
+
+  /* ──────────────────────────────────────────
+   * 🔗 FOOTER
+   * ────────────────────────────────────────── */
+
+  .jp-footer-grid {
+    grid-template-columns : 2fr 1fr 1fr 1fr 1.5fr;
+    gap                   : var(--jp-space-10);
+  }
+
+} /* end xl */
+
+
+/* ══════════════════════════════════════════
+ * XXL — 1400px ke atas
+ * Desktop besar & widescreen
+ * ══════════════════════════════════════════ */
+
+@media (min-width: 1400px) {
+
+  /* ──────────────────────────────────────────
+   * 📐 CONTAINER
+   * ────────────────────────────────────────── */
+
+  .jp-container {
+    max-width     : var(--jp-container-xxl);
+    padding-left  : var(--jp-space-8);
+    padding-right : var(--jp-space-8);
+  }
+
+
+  /* ──────────────────────────────────────────
+   * 🧭 NAVBAR
+   * ────────────────────────────────────────── */
+
+  .jp-nav-link {
+    padding   : var(--jp-space-2) var(--jp-space-4);
+    font-size : var(--jp-text-sm);
+  }
+
+  .jp-navbar-search {
+    max-width : 360px;
+  }
+
+
+  /* ──────────────────────────────────────────
+   * 🖼️ HERO
+   * ────────────────────────────────────────── */
+
+  .jp-hero-slide {
+    min-height : 580px;
+  }
+
+  .jp-hero-title {
+    font-size : var(--jp-text-5xl);
+  }
+
+  .jp-hero-content {
+    max-width : 640px;
+  }
+
+  .jp-hero-stat-number {
+    font-size : var(--jp-text-2xl);
+  }
+
+
+  /* ──────────────────────────────────────────
+   * 🗂️ CATEGORY GRID
+   * ────────────────────────────────────────── */
+
+  .jp-category-grid {
+    gap : var(--jp-space-5);
+  }
+
+  .jp-category-card {
+    padding : var(--jp-space-6) var(--jp-space-5);
+  }
+
+  .jp-category-card-img {
+    width  : 72px;
+    height : 72px;
+  }
+
+
+  /* ──────────────────────────────────────────
+   * 🛍️ PRODUCT GRID
+   * ────────────────────────────────────────── */
+
+  .jp-product-grid {
+    gap : var(--jp-space-6);
+  }
+
+  .jp-product-grid-5 {
+    grid-template-columns : repeat(5, 1fr);
+    gap                   : var(--jp-space-5);
+  }
+
+
+  /* ──────────────────────────────────────────
+   * 🎯 BANNER GRID
+   * ────────────────────────────────────────── */
+
+  .jp-banner-grid {
+    min-height : 460px;
+  }
+
+  .jp-banner-main .jp-banner-title {
+    font-size : var(--jp-text-3xl);
+  }
+
+
+  /* ──────────────────────────────────────────
+   * 💪 WHY US
+   * ────────────────────────────────────────── */
+
+  .jp-why-card {
+    padding : var(--jp-space-8);
+  }
+
+  .jp-why-icon {
+    width  : 60px;
+    height : 60px;
+  }
+
+  .jp-why-icon i {
+    font-size : var(--jp-text-2xl);
+  }
+
+
+  /* ──────────────────────────────────────────
+   * 📧 NEWSLETTER
+   * ────────────────────────────────────────── */
+
+  .jp-newsletter-form {
+    width : 480px;
+  }
+
+  .jp-newsletter-title {
+    font-size : var(--jp-text-3xl);
+  }
+
+
+  /* ──────────────────────────────────────────
+   * 🔗 FOOTER
+   * ────────────────────────────────────────── */
+
+  .jp-footer-grid {
+    grid-template-columns : 2.2fr 1fr 1fr 1fr 1.6fr;
+    gap                   : var(--jp-space-12);
+  }
+
+  .jp-footer-top {
+    padding : var(--jp-space-20) 0 var(--jp-space-16);
+  }
+
+
+  /* ──────────────────────────────────────────
+   * 🛒 SHOP LAYOUT
+   * ────────────────────────────────────────── */
+
+  .jp-shop-layout {
+    grid-template-columns : 280px 1fr;
+    gap                   : var(--jp-space-10);
+  }
+
+
+  /* ──────────────────────────────────────────
+   * 📦 PRODUCT DETAIL
+   * ────────────────────────────────────────── */
+
+  .jp-product-detail-wrap {
+    gap : var(--jp-space-16);
+  }
+
+
+  /* ──────────────────────────────────────────
+   * 🖼️ HERO CONTROLS
+   * ────────────────────────────────────────── */
+
+  .jp-hero-prev {
+    left : var(--jp-space-8);
+  }
+
+  .jp-hero-next {
+    right : var(--jp-space-8);
+  }
+
+} /* end xxl */
+
+
+/* ══════════════════════════════════════════
+ * PRINT STYLES
+ * Sembunyikan elemen non-esensial saat print
+ * ══════════════════════════════════════════ */
+
+@media print {
+
+  .jp-topbar,
+  .jp-navbar,
+  .jp-hero-prev,
+  .jp-hero-next,
+  .jp-hero-indicators,
+  .jp-hero-stats,
+  .jp-brand-marquee,
+  .jp-newsletter,
+  .jp-footer,
+  .jp-back-to-top,
+  .jp-wa-float,
+  .jp-toast-container,
+  .jp-btn-rakit,
+  .jp-navbar-actions {
+    display : none !important;
+  }
+
+  body {
+    font-size : 12pt;
+    color     : #000;
+  }
+
+  .jp-product-card {
+    break-inside  : avoid;
+    box-shadow    : none;
+    border        : 1px solid #ddd;
+  }
+
+  a {
+    color           : #000;
+    text-decoration : none;
+  }
+
+  .jp-product-grid {
+    grid-template-columns : repeat(3, 1fr);
+  }
+
+} /* end print */

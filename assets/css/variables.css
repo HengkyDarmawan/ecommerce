@@ -1,0 +1,266 @@
+/**
+ * ============================================================
+ * JAYA PC — CSS CUSTOM PROPERTIES (DESIGN TOKENS)
+ * Template Version : 1.0.0
+ * Author           : Jaya PC Template
+ * Description      : Semua token desain terpusat di sini.
+ *                    End user cukup edit file ini untuk rebranding.
+ * ============================================================
+ */
+
+:root {
+
+  /* ──────────────────────────────────────────
+   * 🎨 BRAND COLORS
+   * Diambil dari identitas visual Jaya PC
+   * ────────────────────────────────────────── */
+
+  /* Primary — Biru tua brand Jaya PC */
+  --jp-primary          : #1E3A8A;
+  --jp-primary-dark     : #162D6E;
+  --jp-primary-light    : #2D52B8;
+  --jp-primary-subtle   : #EFF3FF;
+
+  /* Accent — Oranye untuk CTA, badge, harga diskon */
+  --jp-accent           : #F97316;
+  --jp-accent-dark      : #EA6C0A;
+  --jp-accent-light     : #FEB272;
+  --jp-accent-subtle    : #FFF7ED;
+
+  /* ──────────────────────────────────────────
+   * 🌈 SEMANTIC COLORS
+   * ────────────────────────────────────────── */
+
+  /* Success — stok tersedia, badge "Terbaru" */
+  --jp-success          : #16A34A;
+  --jp-success-dark     : #15803D;
+  --jp-success-subtle   : #F0FDF4;
+
+  /* Danger — out of stock, error */
+  --jp-danger           : #DC2626;
+  --jp-danger-dark      : #B91C1C;
+  --jp-danger-subtle    : #FEF2F2;
+
+  /* Warning — badge pre-order, low stock */
+  --jp-warning          : #D97706;
+  --jp-warning-dark     : #B45309;
+  --jp-warning-subtle   : #FFFBEB;
+
+  /* Info — tips, notes */
+  --jp-info             : #0284C7;
+  --jp-info-dark        : #0369A1;
+  --jp-info-subtle      : #F0F9FF;
+
+  /* ──────────────────────────────────────────
+   * ⬜ NEUTRAL / GRAYSCALE
+   * ────────────────────────────────────────── */
+
+  --jp-white            : #FFFFFF;
+  --jp-gray-50          : #F8FAFC;
+  --jp-gray-100         : #F1F5F9;
+  --jp-gray-200         : #E2E8F0;
+  --jp-gray-300         : #CBD5E1;
+  --jp-gray-400         : #94A3B8;
+  --jp-gray-500         : #64748B;
+  --jp-gray-600         : #475569;
+  --jp-gray-700         : #334155;
+  --jp-gray-800         : #1E293B;
+  --jp-gray-900         : #0F172A;
+  --jp-black            : #020617;
+
+  /* ──────────────────────────────────────────
+   * 🖼️ BACKGROUND
+   * ────────────────────────────────────────── */
+
+  --jp-bg-body          : #FFFFFF;        /* background utama */
+  --jp-bg-surface       : #F8FAFC;        /* section abu muda */
+  --jp-bg-surface-2     : #F1F5F9;        /* card hover, input bg */
+  --jp-bg-footer        : #0F172A;        /* footer background */
+  --jp-bg-footer-col    : #1E293B;        /* footer column bg */
+  --jp-bg-topbar        : #1E3A8A;        /* topbar background */
+  --jp-bg-overlay       : rgba(15, 23, 42, 0.60); /* modal backdrop */
+
+  /* ──────────────────────────────────────────
+   * ✏️ TYPOGRAPHY
+   * ────────────────────────────────────────── */
+
+  /* Font Family */
+  --jp-font-primary     : 'Inter', sans-serif;
+  --jp-font-display     : 'Inter', sans-serif;
+  --jp-font-mono        : 'JetBrains Mono', 'Courier New', monospace;
+
+  /* Font Size Scale */
+  --jp-text-xs          : 0.75rem;    /* 12px */
+  --jp-text-sm          : 0.875rem;   /* 14px */
+  --jp-text-base        : 1rem;       /* 16px */
+  --jp-text-md          : 1.125rem;   /* 18px */
+  --jp-text-lg          : 1.25rem;    /* 20px */
+  --jp-text-xl          : 1.5rem;     /* 24px */
+  --jp-text-2xl         : 1.875rem;   /* 30px */
+  --jp-text-3xl         : 2.25rem;    /* 36px */
+  --jp-text-4xl         : 3rem;       /* 48px */
+  --jp-text-5xl         : 3.75rem;    /* 60px */
+
+  /* Font Weight */
+  --jp-fw-normal        : 400;
+  --jp-fw-medium        : 500;
+  --jp-fw-semibold      : 600;
+  --jp-fw-bold          : 700;
+  --jp-fw-extrabold     : 800;
+  --jp-fw-black         : 900;
+
+  /* Line Height */
+  --jp-lh-tight         : 1.25;
+  --jp-lh-snug          : 1.375;
+  --jp-lh-normal        : 1.5;
+  --jp-lh-relaxed       : 1.625;
+  --jp-lh-loose         : 2;
+
+  /* Letter Spacing */
+  --jp-ls-tight         : -0.025em;
+  --jp-ls-normal        : 0em;
+  --jp-ls-wide          : 0.05em;
+  --jp-ls-wider         : 0.1em;
+  --jp-ls-widest        : 0.2em;
+
+  /* ──────────────────────────────────────────
+   * 📐 SPACING
+   * ────────────────────────────────────────── */
+
+  --jp-space-1          : 0.25rem;    /* 4px  */
+  --jp-space-2          : 0.5rem;     /* 8px  */
+  --jp-space-3          : 0.75rem;    /* 12px */
+  --jp-space-4          : 1rem;       /* 16px */
+  --jp-space-5          : 1.25rem;    /* 20px */
+  --jp-space-6          : 1.5rem;     /* 24px */
+  --jp-space-8          : 2rem;       /* 32px */
+  --jp-space-10         : 2.5rem;     /* 40px */
+  --jp-space-12         : 3rem;       /* 48px */
+  --jp-space-16         : 4rem;       /* 64px */
+  --jp-space-20         : 5rem;       /* 80px */
+  --jp-space-24         : 6rem;       /* 96px */
+
+  /* Section Padding */
+  --jp-section-py       : 5rem;       /* 80px — padding atas bawah section */
+  --jp-section-py-sm    : 3rem;       /* 48px — section compact */
+
+  /* ──────────────────────────────────────────
+   * 🔲 BORDER
+   * ────────────────────────────────────────── */
+
+  --jp-border-color     : #E2E8F0;
+  --jp-border-color-dark: #334155;
+  --jp-border-width     : 1px;
+  --jp-border-width-2   : 2px;
+
+  /* Border Radius */
+  --jp-radius-sm        : 0.25rem;    /* 4px  */
+  --jp-radius-md        : 0.5rem;     /* 8px  */
+  --jp-radius-lg        : 0.75rem;    /* 12px */
+  --jp-radius-xl        : 1rem;       /* 16px */
+  --jp-radius-2xl       : 1.5rem;     /* 24px */
+  --jp-radius-full      : 9999px;     /* pill */
+
+  /* ──────────────────────────────────────────
+   * 🌫️ SHADOW
+   * ────────────────────────────────────────── */
+
+  --jp-shadow-xs        : 0 1px 2px  rgba(0, 0, 0, 0.05);
+  --jp-shadow-sm        : 0 2px 4px  rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --jp-shadow-md        : 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
+  --jp-shadow-lg        : 0 8px 24px rgba(0, 0, 0, 0.10), 0 4px 8px rgba(0, 0, 0, 0.06);
+  --jp-shadow-xl        : 0 16px 40px rgba(0, 0, 0, 0.12), 0 8px 16px rgba(0, 0, 0, 0.08);
+  --jp-shadow-card      : 0 2px 8px  rgba(30, 58, 138, 0.08);
+  --jp-shadow-card-hover: 0 8px 24px rgba(30, 58, 138, 0.15);
+  --jp-shadow-primary   : 0 4px 16px rgba(30, 58, 138, 0.30);
+  --jp-shadow-accent    : 0 4px 16px rgba(249, 115, 22, 0.30);
+
+  /* ──────────────────────────────────────────
+   * ⚡ TRANSITION & ANIMATION
+   * ────────────────────────────────────────── */
+
+  --jp-transition-fast  : 150ms ease;
+  --jp-transition-base  : 250ms ease;
+  --jp-transition-slow  : 400ms ease;
+  --jp-transition-bounce: 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ──────────────────────────────────────────
+   * 📏 LAYOUT
+   * ────────────────────────────────────────── */
+
+  /* Container max-width mengikuti Bootstrap 5.3 */
+  --jp-container-sm     : 540px;
+  --jp-container-md     : 720px;
+  --jp-container-lg     : 960px;
+  --jp-container-xl     : 1140px;
+  --jp-container-xxl    : 1320px;
+
+  /* Navbar */
+  --jp-topbar-height    : 36px;
+  --jp-navbar-height    : 64px;
+  --jp-navbar-total     : calc(var(--jp-topbar-height) + var(--jp-navbar-height));
+
+  /* Z-index Stack */
+  --jp-z-dropdown       : 1000;
+  --jp-z-sticky         : 1020;
+  --jp-z-fixed          : 1030;
+  --jp-z-offcanvas      : 1045;
+  --jp-z-modal          : 1055;
+  --jp-z-popover        : 1070;
+  --jp-z-toast          : 1090;
+
+  /* ──────────────────────────────────────────
+   * 🛒 ECOMMERCE SPECIFIC
+   * ────────────────────────────────────────── */
+
+  /* Product Card */
+  --jp-card-bg          : #FFFFFF;
+  --jp-card-border      : #E2E8F0;
+  --jp-card-radius      : var(--jp-radius-lg);
+  --jp-card-shadow      : var(--jp-shadow-card);
+  --jp-card-shadow-hover: var(--jp-shadow-card-hover);
+  --jp-card-img-ratio   : 75%;        /* 4:3 aspect ratio gambar produk */
+
+  /* Price Colors */
+  --jp-price-normal     : #0F172A;
+  --jp-price-sale       : #DC2626;
+  --jp-price-original   : #94A3B8;    /* harga coret */
+
+  /* Badge */
+  --jp-badge-new        : #16A34A;    /* TERBARU */
+  --jp-badge-sale       : #DC2626;    /* SALE / DISKON */
+  --jp-badge-hot        : #F97316;    /* HOT / BEST SELLER */
+  --jp-badge-coming     : #7C3AED;    /* COMING SOON */
+  --jp-badge-office     : #0284C7;    /* OFFICE */
+
+  /* Rating Star */
+  --jp-star-filled      : #F59E0B;
+  --jp-star-empty       : #CBD5E1;
+
+  /* ──────────────────────────────────────────
+   * 🔗 OVERRIDE BOOTSTRAP 5.3 VARIABLES
+   * Mapping token JP → BS5 agar konsisten
+   * ────────────────────────────────────────── */
+
+  --bs-primary          : var(--jp-primary);
+  --bs-primary-rgb      : 30, 58, 138;
+  --bs-secondary-rgb    : 100, 116, 139;
+  --bs-body-font-family : var(--jp-font-primary);
+  --bs-body-font-size   : var(--jp-text-base);
+  --bs-body-color       : var(--jp-gray-900);
+  --bs-body-bg          : var(--jp-bg-body);
+  --bs-border-color     : var(--jp-border-color);
+  --bs-border-radius    : var(--jp-radius-md);
+  --bs-border-radius-lg : var(--jp-radius-lg);
+  --bs-border-radius-xl : var(--jp-radius-xl);
+  --bs-box-shadow       : var(--jp-shadow-md);
+  --bs-link-color       : var(--jp-primary);
+  --bs-link-hover-color : var(--jp-primary-dark);
+
+}
+
+/* ──────────────────────────────────────────
+ * ℹ️ CATATAN
+ * Template ini menggunakan WHITE / LIGHT THEME only.
+ * Dark mode tidak digunakan.
+ * ────────────────────────────────────────── */

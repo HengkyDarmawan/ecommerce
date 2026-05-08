@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="id" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>404 — Halaman Tidak Ditemukan | Jaya PC</title>
+  <meta name="description" content="Halaman yang kamu cari tidak ditemukan. Kembali ke Jaya PC dan lanjut belanja komponen PC gaming terbaik.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="https://jayapc.com/favicon.ico" type="image/x-icon">
+  <meta name="theme-color" content="#1E3A8A">
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- CSS Vendors -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- CSS Template -->
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/pages/home.css">
+
+  <!-- CSS Responsive -->
+  <link rel="stylesheet" href="assets/css/responsive/desktop.css">
+  <link rel="stylesheet" href="assets/css/responsive/tablet.css">
+  <link rel="stylesheet" href="assets/css/responsive/mobile.css">
+
+  <style>
+    /* ══════════════════════════════════════════
+     * ERROR PAGE SPECIFIC STYLES
+     * ══════════════════════════════════════════ */
+
+    .jp-error-page {
+      min-height        : 100vh;
+      display           : flex;
+      flex-direction    : column;
+      background-color  : var(--jp-bg-body);
+    }
+
+    .jp-error-main {
+      flex          : 1;
+      display       : flex;
+      align-items   : center;
+      padding       : var(--jp-space-16) 0;
+    }
+
+    .jp-error-wrap {
+      display        : flex;
+      align-items    : center;
+      gap            : var(--jp-space-16);
+      max-width      : 1000px;
+      margin         : 0 auto;
+      padding        : 0 var(--jp-space-6);
+    }
+
+    /* ── Ilustrasi kiri ── */
+    .jp-error-illustration {
+      flex-shrink : 0;
+      position    : relative;
+      width       : 320px;
+    }
+
+    /* Angka besar 404 */
+    .jp-error-code {
+      font-size     : 10rem;
+      font-weight   : var(--jp-fw-black);
+      line-height   : 1;
+      background    : linear-gradient(135deg, var(--jp-primary) 0%, var(--jp-primary-light) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.05em;
+      user-select   : none;
+      position      : relative;
+      z-index       : 2;
+    }
+
+    /* Lingkaran dekorasi */
+    .jp-error-circle-1 {
+      position        : absolute;
+      top             : -20px;
+      right           : -20px;
+      width           : 160px;
+      height          : 160px;
+      border-radius   : 50%;
+      background      : linear-gradient(135deg, var(--jp-accent) 0%, var(--jp-accent-light) 100%);
+      opacity         : 0.12;
+      z-index         : 1;
+      animation       : jp-float 4s ease-in-out infinite;
+    }
+
+    .jp-error-circle-2 {
+      position        : absolute;
+      bottom          : 20px;
+      left            : -30px;
+      width           : 100px;
+      height          : 100px;
+      border-radius   : 50%;
+      background      : var(--jp-primary);
+      opacity         : 0.08;
+      z-index         : 1;
+      animation       : jp-float 6s ease-in-out infinite reverse;
+    }
+
+    /* GPU icon animasi */
+    .jp-error-icon {
+      font-size       : 4rem;
+      color           : var(--jp-primary);
+      opacity         : 0.15;
+      position        : absolute;
+      bottom          : 0;
+      right           : 0;
+      animation       : jp-spin-slow 20s linear infinite;
+    }
+
+    /* Konten kanan */
+    .jp-error-content {
+      flex : 1;
+      min-width : 0;
+    }
+
+    .jp-error-badge {
+      display         : inline-flex;
+      align-items     : center;
+      gap             : var(--jp-space-2);
+      background-color: var(--jp-danger-subtle);
+      border          : 1px solid var(--jp-danger);
+      color           : var(--jp-danger);
+      padding         : var(--jp-space-1) var(--jp-space-4);
+      border-radius   : var(--jp-radius-full);
+      font-size       : var(--jp-text-xs);
+      font-weight     : var(--jp-fw-bold);
+      text-transform  : uppercase;
+      letter-spacing  : var(--jp-ls-wider);
+      margin-bottom   : var(--jp-space-5);
+    }
+
+    .jp-error-title {
+      font-size     : var(--jp-text-4xl);
+      font-weight   : var(--jp-fw-extrabold);
+      color         : var(--jp-gray-900);
+      text-transform: uppercase;
+      letter-spacing: var(--jp-ls-tight);
+      line-height   : var(--jp-lh-tight);
+      margin-bottom : var(--jp-space-4);
+    }
+
+    .jp-error-title .accent {
+      color : var(--jp-primary);
+    }
+
+    .jp-error-desc {
+      font-size    : var(--jp-text-base);
+      color        : var(--jp-gray-500);
+      line-height  : var(--jp-lh-relaxed);
+      margin-bottom: var(--jp-space-8);
+      max-width    : 420px;
+    }
+
+    .jp-error-actions {
+      display   : flex;
+      flex-wrap : wrap;
+      gap       : var(--jp-space-3);
+      margin-bottom: var(--jp-space-8);
+    }
+
+    /* Quick links */
+    .jp-error-links {
+      border-top    : var(--jp-border-width) solid var(--jp-border-color);
+      padding-top   : var(--jp-space-6);
+    }
+
+    .jp-error-links-title {
+      font-size     : var(--jp-text-xs);
+      font-weight   : var(--jp-fw-semibold);
+      color         : var(--jp-gray-400);
+      text-transform: uppercase;
+      letter-spacing: var(--jp-ls-wider);
+      margin-bottom : var(--jp-space-4);
+    }
+
+    .jp-error-link-grid {
+      display               : grid;
+      grid-template-columns : repeat(2, 1fr);
+      gap                   : var(--jp-space-3);
+    }
+
+    .jp-error-link-item {
+      display         : flex;
+      align-items     : center;
+      gap             : var(--jp-space-3);
+      padding         : var(--jp-space-3) var(--jp-space-4);
+      background-color: var(--jp-bg-surface);
+      border          : var(--jp-border-width) solid var(--jp-border-color);
+      border-radius   : var(--jp-radius-lg);
+      text-decoration : none;
+      transition      : all var(--jp-transition-fast);
+      color           : var(--jp-gray-700);
+      font-size       : var(--jp-text-sm);
+      font-weight     : var(--jp-fw-medium);
+    }
+
+    .jp-error-link-item:hover {
+      border-color     : var(--jp-primary);
+      background-color : var(--jp-primary-subtle);
+      color            : var(--jp-primary);
+      transform        : translateY(-2px);
+    }
+
+    .jp-error-link-item i {
+      font-size   : var(--jp-text-base);
+      color       : var(--jp-primary);
+      flex-shrink : 0;
+      width       : 20px;
+      text-align  : center;
+    }
+
+    /* Search di error page */
+    .jp-error-search {
+      position      : relative;
+      margin-bottom : var(--jp-space-6);
+      max-width     : 440px;
+    }
+
+    .jp-error-search input {
+      width           : 100%;
+      height          : 48px;
+      padding         : 0 56px 0 var(--jp-space-5);
+      border          : var(--jp-border-width-2) solid var(--jp-border-color);
+      border-radius   : var(--jp-radius-full);
+      font-family     : var(--jp-font-primary);
+      font-size       : var(--jp-text-sm);
+      color           : var(--jp-gray-900);
+      background-color: var(--jp-white);
+      transition      : border-color var(--jp-transition-fast),
+                        box-shadow var(--jp-transition-fast);
+    }
+
+    .jp-error-search input:focus {
+      border-color : var(--jp-primary);
+      box-shadow   : 0 0 0 3px rgba(30, 58, 138, 0.10);
+      outline      : none;
+    }
+
+    .jp-error-search button {
+      position        : absolute;
+      right           : 6px;
+      top             : 6px;
+      width           : 36px;
+      height          : 36px;
+      border-radius   : var(--jp-radius-full);
+      background-color: var(--jp-primary);
+      border          : none;
+      color           : var(--jp-white);
+      font-size       : var(--jp-text-sm);
+      cursor          : pointer;
+      transition      : background-color var(--jp-transition-fast);
+    }
+
+    .jp-error-search button:hover {
+      background-color : var(--jp-primary-dark);
+    }
+
+    /* Animasi */
+    @keyframes jp-float {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-16px); }
+    }
+
+    @keyframes jp-spin-slow {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 767px) {
+      .jp-error-wrap {
+        flex-direction : column;
+        text-align     : center;
+        gap            : var(--jp-space-8);
+        padding        : 0 var(--jp-space-4);
+      }
+
+      .jp-error-illustration { width: 200px; }
+      .jp-error-code         { font-size: 7rem; }
+      .jp-error-title        { font-size: var(--jp-text-2xl); }
+      .jp-error-actions      { justify-content: center; }
+      .jp-error-desc         { max-width: 100%; }
+      .jp-error-search       { max-width: 100%; }
+
+      .jp-error-link-grid {
+        grid-template-columns : 1fr;
+      }
+    }
+
+    @media (max-width: 575px) {
+      .jp-error-code  { font-size: 5rem; }
+      .jp-error-main  { padding: var(--jp-space-10) 0; }
+    }
+  </style>
+</head>
+
+<body class="jp-error-page">
+
+  <!-- ════════════════════════════════════════
+       NAVBAR RINGKAS
+  ════════════════════════════════════════ -->
+  <nav class="jp-navbar" role="navigation" aria-label="Navigasi utama" id="jpNavbar">
+    <div class="jp-container">
+      <div class="jp-navbar-inner">
+        <a href="index.html" class="jp-navbar-brand" aria-label="Jaya PC — Halaman Utama">
+          <img src="https://jayapc.com/wp-content/uploads/2024/12/logo-color-1.png"
+               alt="Jaya PC" width="120" height="36" loading="eager">
+        </a>
+        <div class="jp-navbar-actions">
+          <a href="shop.html" class="jp-nav-icon-btn" aria-label="Toko">
+            <i class="fa-solid fa-store"></i>
+          </a>
+          <a href="cart.html" class="jp-nav-icon-btn" aria-label="Keranjang">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="jp-nav-badge" data-cart-badge style="display:none">0</span>
+          </a>
+          <a href="pc-builder.html" class="jp-btn-rakit">
+            <i class="fa-solid fa-screwdriver-wrench"></i> Rakit PC
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- ════════════════════════════════════════
+       MAIN ERROR CONTENT
+  ════════════════════════════════════════ -->
+  <main id="jp-main-content" class="jp-error-main" role="main"
+        aria-label="Halaman error 404">
+    <div class="jp-error-wrap">
+
+      <!-- ── Ilustrasi Kiri ── -->
+      <div class="jp-error-illustration" aria-hidden="true">
+        <div class="jp-error-circle-1"></div>
+        <div class="jp-error-circle-2"></div>
+        <div class="jp-error-code">404</div>
+        <i class="jp-error-icon fa-solid fa-microchip"></i>
+      </div>
+
+      <!-- ── Konten Kanan ── -->
+      <div class="jp-error-content">
+
+        <!-- Badge -->
+        <div class="jp-error-badge">
+          <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+          Error 404 — Page Not Found
+        </div>
+
+        <!-- Judul -->
+        <h1 class="jp-error-title">
+          Halaman Tidak<br>
+          <span class="accent">Ditemukan</span>
+        </h1>
+
+        <!-- Deskripsi -->
+        <p class="jp-error-desc">
+          Oops! Halaman yang kamu cari sepertinya sudah dipindah, dihapus,
+          atau mungkin URL-nya salah ketik. Jangan khawatir, masih banyak
+          produk PC gaming terbaik yang bisa kamu temukan di Jaya PC!
+        </p>
+
+        <!-- Search -->
+        <div class="jp-error-search" role="search" aria-label="Cari produk">
+          <input type="search" id="jpErrorSearch"
+                 placeholder="Cari GPU, CPU, RAM, SSD..."
+                 aria-label="Cari produk di Jaya PC">
+          <button type="button" id="jpErrorSearchBtn"
+                  aria-label="Cari">
+            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="jp-error-actions">
+          <a href="index.html" class="jp-btn jp-btn-primary jp-btn-lg"
+             aria-label="Kembali ke halaman utama">
+            <i class="fa-solid fa-house" aria-hidden="true"></i>
+            Ke Beranda
+          </a>
+          <a href="shop.html" class="jp-btn jp-btn-outline-primary jp-btn-lg"
+             aria-label="Lihat semua produk">
+            <i class="fa-solid fa-store" aria-hidden="true"></i>
+            Lihat Produk
+          </a>
+          <button onclick="history.back()" class="jp-btn jp-btn-ghost jp-btn-lg"
+                  type="button" aria-label="Kembali ke halaman sebelumnya">
+            <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+            Kembali
+          </button>
+        </div>
+
+        <!-- Quick links -->
+        <div class="jp-error-links">
+          <p class="jp-error-links-title">Atau langsung ke</p>
+          <div class="jp-error-link-grid">
+            <a href="shop.html?cat=gpu" class="jp-error-link-item">
+              <i class="fa-solid fa-microchip" aria-hidden="true"></i>
+              Graphics Card
+            </a>
+            <a href="shop.html?cat=cpu" class="jp-error-link-item">
+              <i class="fa-solid fa-cpu" aria-hidden="true"></i>
+              Processor
+            </a>
+            <a href="shop.html?cat=ram" class="jp-error-link-item">
+              <i class="fa-solid fa-memory" aria-hidden="true"></i>
+              RAM DDR4 &amp; DDR5
+            </a>
+            <a href="shop.html?cat=storage" class="jp-error-link-item">
+              <i class="fa-solid fa-hard-drive" aria-hidden="true"></i>
+              SSD &amp; HDD
+            </a>
+            <a href="shop.html?cat=prebuilt" class="jp-error-link-item">
+              <i class="fa-solid fa-desktop" aria-hidden="true"></i>
+              Pre-Built PC
+            </a>
+            <a href="shop.html?filter=sale" class="jp-error-link-item"
+               style="border-color:var(--jp-danger-subtle);color:var(--jp-danger);">
+              <i class="fa-solid fa-fire" aria-hidden="true"
+                 style="color:var(--jp-danger);"></i>
+              On Sale — Diskon s/d 50%
+            </a>
+            <a href="pc-builder.html" class="jp-error-link-item"
+               style="border-color:var(--jp-accent);color:var(--jp-accent-dark);">
+              <i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"
+                 style="color:var(--jp-accent);"></i>
+              Rakit PC Configurator
+            </a>
+            <a href="contact.html" class="jp-error-link-item">
+              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+              Hubungi Kami
+            </a>
+          </div>
+        </div>
+
+      </div><!-- /error content -->
+    </div><!-- /error wrap -->
+  </main>
+
+
+  <!-- ════════════════════════════════════════
+       FOOTER MINIMAL
+  ════════════════════════════════════════ -->
+  <footer style="background:var(--jp-bg-footer);padding:var(--jp-space-6) 0;"
+          role="contentinfo">
+    <div class="jp-container">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+        <a href="index.html" aria-label="Jaya PC">
+          <img src="https://jayapc.com/wp-content/uploads/2024/12/logo-color-1.png"
+               alt="Jaya PC"
+               style="height:28px;width:auto;filter:brightness(0) invert(1);">
+        </a>
+        <p style="font-size:var(--jp-text-xs);color:rgba(255,255,255,0.4);margin:0;">
+          &copy; 2025 Jaya PC. Toko PC Gaming &amp; Office Terpercaya Jakarta.
+        </p>
+        <div style="display:flex;gap:var(--jp-space-4);">
+          <a href="https://wa.me/6281280097479"
+             style="color:rgba(255,255,255,0.5);font-size:var(--jp-text-sm);"
+             target="_blank" rel="noopener" aria-label="WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+          <a href="https://instagram.com/jayapc"
+             style="color:rgba(255,255,255,0.5);font-size:var(--jp-text-sm);"
+             target="_blank" rel="noopener" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WA -->
+  <a href="https://wa.me/6281280097479" class="jp-wa-float"
+     target="_blank" rel="noopener" aria-label="Chat WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+
+  <!-- ════════════════════════════════════════
+       JAVASCRIPT
+  ════════════════════════════════════════ -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+
+  <script src="assets/js/components/cart.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  <script>
+  (function($) {
+    $(document).ready(function() {
+      // Search handler
+      function doSearch() {
+        var q = $('#jpErrorSearch').val().trim();
+        if (!q) { $('#jpErrorSearch').focus(); return; }
+        window.location.href = 'shop.html?q=' + encodeURIComponent(q);
+      }
+
+      $('#jpErrorSearchBtn').on('click', doSearch);
+      $('#jpErrorSearch').on('keydown', function(e) {
+        if (e.key === 'Enter') doSearch();
+      });
+
+      // Auto-focus search saat halaman load
+      setTimeout(function() {
+        $('#jpErrorSearch').focus();
+      }, 500);
+    });
+  })(jQuery);
+  </script>
+
+</body>
+</html>

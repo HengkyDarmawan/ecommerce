@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="id" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>Keranjang Belanja — Jaya PC Jakarta</title>
+  <meta name="description" content="Keranjang belanja Jaya PC. Cek produk, terapkan voucher, dan lanjut ke checkout dengan aman.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="https://jayapc.com/favicon.ico" type="image/x-icon">
+  <meta name="theme-color" content="#1E3A8A">
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- CSS Vendors -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- CSS Template -->
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/pages/cart.css">
+  <link rel="stylesheet" href="assets/css/pages/home.css">
+
+  <!-- CSS Responsive -->
+  <link rel="stylesheet" href="assets/css/responsive/desktop.css">
+  <link rel="stylesheet" href="assets/css/responsive/tablet.css">
+  <link rel="stylesheet" href="assets/css/responsive/mobile.css">
+</head>
+
+<body>
+
+  <a href="#jp-main-content" class="skip-to-content">Langsung ke Konten</a>
+  <div class="jp-toast-container" role="region" aria-label="Notifikasi" aria-live="polite"></div>
+
+
+  <!-- ════════════════════════════════════════
+       TOPBAR
+  ════════════════════════════════════════ -->
+  <div class="jp-topbar" role="banner">
+    <div class="jp-container">
+      <div class="jp-topbar-inner">
+        <div class="jp-topbar-marquee" aria-hidden="true">
+          <div class="jp-topbar-marquee-track">
+            <span class="jp-topbar-item"><i class="fa-solid fa-truck-fast"></i> Gratis Ongkir min. <strong>Rp 500.000</strong></span>
+            <span class="jp-topbar-sep">|</span>
+            <span class="jp-topbar-item"><i class="fa-solid fa-shield-halved"></i> Garansi Resmi <strong>Distributor</strong></span>
+            <span class="jp-topbar-sep">|</span>
+            <span class="jp-topbar-item"><i class="fa-solid fa-credit-card"></i> Cicilan 0% hingga 24 bulan</span>
+            <span class="jp-topbar-sep">|</span>
+            <span class="jp-topbar-item"><i class="fa-brands fa-whatsapp"></i> Konsultasi Gratis via <strong>WhatsApp</strong></span>
+            <span class="jp-topbar-sep">|</span>
+            <span class="jp-topbar-item"><i class="fa-solid fa-truck-fast"></i> Gratis Ongkir min. <strong>Rp 500.000</strong></span>
+            <span class="jp-topbar-sep">|</span>
+            <span class="jp-topbar-item"><i class="fa-solid fa-shield-halved"></i> Garansi Resmi <strong>Distributor</strong></span>
+          </div>
+        </div>
+        <div class="jp-topbar-right">
+          <span class="jp-topbar-contact"><i class="fa-solid fa-phone"></i><a href="tel:+6281280097479">0812-8009-7479</a></span>
+          <span class="jp-topbar-contact"><i class="fa-regular fa-clock"></i>Senin–Sabtu 09.00–18.00</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════
+       NAVBAR
+  ════════════════════════════════════════ -->
+  <nav class="jp-navbar" role="navigation" aria-label="Navigasi utama" id="jpNavbar">
+    <div class="jp-container">
+      <div class="jp-navbar-inner">
+        <a href="index.html" class="jp-navbar-brand" aria-label="Jaya PC">
+          <img src="https://jayapc.com/wp-content/uploads/2024/12/logo-color-1.png"
+               alt="Jaya PC" width="120" height="36" loading="eager">
+        </a>
+
+        <!-- Search bar desktop -->
+        <div class="jp-navbar-search" role="search">
+          <i class="fa-solid fa-magnifying-glass jp-navbar-search-icon"></i>
+          <input type="search" placeholder="Cari GPU, CPU, RAM..." aria-label="Cari produk" id="jpNavSearch">
+        </div>
+
+        <div class="jp-navbar-actions">
+          <a href="index.html" class="jp-nav-icon-btn" aria-label="Kembali ke beranda">
+            <i class="fa-solid fa-house"></i>
+          </a>
+          <a href="shop.html" class="jp-nav-icon-btn" aria-label="Toko">
+            <i class="fa-solid fa-store"></i>
+          </a>
+          <a href="wishlist.html" class="jp-nav-icon-btn" aria-label="Wishlist">
+            <i class="fa-regular fa-heart"></i>
+            <span class="jp-nav-badge" data-wishlist-badge style="display:none">0</span>
+          </a>
+          <a href="cart.html" class="jp-nav-icon-btn" aria-label="Keranjang" aria-current="page">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="jp-nav-badge" data-cart-badge style="display:none">0</span>
+          </a>
+          <a href="pc-builder.html" class="jp-btn-rakit">
+            <i class="fa-solid fa-screwdriver-wrench"></i> Rakit PC
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- ════════════════════════════════════════
+       MAIN CONTENT
+  ════════════════════════════════════════ -->
+  <main id="jp-main-content" class="jp-page-main">
+
+    <!-- Breadcrumb -->
+    <div class="jp-breadcrumb-wrap">
+      <div class="jp-container">
+        <ol class="jp-breadcrumb-list">
+          <li class="jp-breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="jp-breadcrumb-item active" aria-current="page">Keranjang Belanja</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Page Header -->
+    <div class="jp-shop-header">
+      <div class="jp-container">
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+          <div>
+            <h1 class="jp-shop-page-title">
+              <i class="fa-solid fa-bag-shopping" aria-hidden="true"
+                 style="color:var(--jp-primary);margin-right:.5rem;"></i>
+              Keranjang Belanja
+            </h1>
+            <p class="jp-shop-page-desc">
+              <span data-summary-count>0 item</span> dalam keranjangmu
+            </p>
+          </div>
+          <a href="shop.html" class="jp-btn jp-btn-outline-primary jp-btn-sm">
+            <i class="fa-solid fa-arrow-left"></i> Lanjut Belanja
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cart Content -->
+    <section class="jp-section jp-section-sm" aria-label="Keranjang belanja">
+      <div class="jp-container">
+        <div class="jp-cart-layout">
+
+          <!-- ── KIRI: Cart Items ── -->
+          <div class="jp-cart-main">
+
+            <!-- Cart Card -->
+            <div class="jp-cart-card">
+              <div class="jp-cart-card-header">
+                <h2 class="jp-cart-card-title">Produk dalam Keranjang</h2>
+                <label class="jp-cart-select-all">
+                  <input type="checkbox" id="jpSelectAll" checked
+                         aria-label="Pilih semua produk">
+                  Pilih Semua
+                </label>
+              </div>
+
+              <!-- Diisi oleh checkout.js renderCartPage() -->
+              <div id="jpCartItemsList" aria-live="polite" aria-label="Daftar produk di keranjang">
+
+                <!-- Fallback jika JS belum load -->
+                <div style="padding:var(--jp-space-10);text-align:center;color:var(--jp-gray-400);">
+                  <i class="fa-solid fa-spinner fa-spin fa-2x" aria-hidden="true"></i>
+                  <p style="margin-top:1rem;">Memuat keranjang...</p>
+                </div>
+
+              </div><!-- /cart items list -->
+            </div><!-- /cart card -->
+
+            <!-- Clear cart -->
+            <div style="display:flex;justify-content:flex-end;margin-top:var(--jp-space-3);">
+              <button class="jp-btn jp-btn-ghost jp-btn-sm" data-jp-clear-cart type="button"
+                      aria-label="Kosongkan semua keranjang">
+                <i class="fa-solid fa-trash" aria-hidden="true"></i>
+                Kosongkan Keranjang
+              </button>
+            </div>
+
+            <!-- Coupon -->
+            <div class="jp-coupon-wrap" style="margin-top:var(--jp-space-5);">
+              <div class="jp-coupon-title">
+                <i class="fa-solid fa-ticket" aria-hidden="true"></i>
+                Punya Kode Voucher?
+              </div>
+              <div class="jp-coupon-input-wrap">
+                <input type="text" id="jpCouponInput" class="jp-coupon-input"
+                       placeholder="Masukkan kode voucher (contoh: JAYAPC10)"
+                       maxlength="20" autocomplete="off" aria-label="Kode voucher">
+                <button class="jp-btn jp-btn-primary" id="jpApplyCoupon" type="button">
+                  Terapkan
+                </button>
+              </div>
+              <div id="jpCouponFeedback" aria-live="polite"></div>
+              <!-- Hint kode voucher -->
+              <p style="margin-top:var(--jp-space-3);font-size:var(--jp-text-xs);color:var(--jp-gray-400);">
+                Coba: <code>JAYAPC10</code> (diskon 10%) &bull;
+                <code>GAJIAN50</code> (50% maks. 500rb) &bull;
+                <code>ONGKIRFREE</code> (gratis ongkir) &bull;
+                <code>HEMAT50K</code> (potongan 50rb)
+              </p>
+            </div>
+
+            <!-- Trust badges bawah cart -->
+            <div style="display:flex;flex-wrap:wrap;gap:var(--jp-space-4);margin-top:var(--jp-space-5);padding:var(--jp-space-5);background:var(--jp-bg-surface);border-radius:var(--jp-radius-xl);border:var(--jp-border-width) solid var(--jp-border-color);">
+              <div class="jp-trust-item" style="padding:0;flex:1;min-width:160px;">
+                <div class="jp-trust-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                <div>
+                  <div class="jp-trust-text-title">Garansi Resmi</div>
+                  <p class="jp-trust-text-desc">Distributor terpercaya</p>
+                </div>
+              </div>
+              <div class="jp-trust-item" style="padding:0;flex:1;min-width:160px;">
+                <div class="jp-trust-icon"><i class="fa-solid fa-truck-fast"></i></div>
+                <div>
+                  <div class="jp-trust-text-title">Pengiriman Cepat</div>
+                  <p class="jp-trust-text-desc">Same-day Jakarta</p>
+                </div>
+              </div>
+              <div class="jp-trust-item" style="padding:0;flex:1;min-width:160px;">
+                <div class="jp-trust-icon"><i class="fa-solid fa-rotate"></i></div>
+                <div>
+                  <div class="jp-trust-text-title">Retur 3 Hari</div>
+                  <p class="jp-trust-text-desc">Jika produk cacat</p>
+                </div>
+              </div>
+              <div class="jp-trust-item" style="padding:0;flex:1;min-width:160px;">
+                <div class="jp-trust-icon"><i class="fa-solid fa-credit-card"></i></div>
+                <div>
+                  <div class="jp-trust-text-title">Cicilan 0%</div>
+                  <p class="jp-trust-text-desc">Via kartu kredit</p>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /cart main -->
+
+
+          <!-- ── KANAN: Order Summary ── -->
+          <div class="jp-cart-sidebar">
+            <div class="jp-order-summary">
+
+              <div class="jp-order-summary-header">
+                <h2 class="jp-order-summary-title">Ringkasan Pesanan</h2>
+              </div>
+
+              <div class="jp-order-summary-body">
+
+                <!-- Subtotal -->
+                <div class="jp-summary-row">
+                  <span class="jp-summary-label">Subtotal (<span data-summary-count>0 item</span>)</span>
+                  <span class="jp-summary-value" data-summary-subtotal>Rp 0</span>
+                </div>
+
+                <!-- Diskon voucher -->
+                <div class="jp-summary-row">
+                  <span class="jp-summary-label">
+                    <i class="fa-solid fa-ticket" aria-hidden="true"
+                       style="color:var(--jp-success);font-size:var(--jp-text-xs);"></i>
+                    Diskon Voucher
+                  </span>
+                  <span class="jp-summary-value discount" data-summary-discount>-</span>
+                </div>
+
+                <!-- Ongkos kirim -->
+                <div class="jp-summary-row">
+                  <span class="jp-summary-label">
+                    <i class="fa-solid fa-truck" aria-hidden="true"
+                       style="color:var(--jp-primary);font-size:var(--jp-text-xs);"></i>
+                    Ongkos Kirim
+                    <span style="font-size:10px;color:var(--jp-success);display:block;">
+                      Gratis untuk pembelian ≥ Rp 500.000
+                    </span>
+                  </span>
+                  <span class="jp-summary-value" data-summary-shipping>Rp 25.000</span>
+                </div>
+
+                <hr class="jp-summary-divider">
+
+                <!-- Total -->
+                <div class="jp-summary-total-row">
+                  <span class="jp-summary-total-label">Total</span>
+                  <span class="jp-summary-total-price" data-summary-total>Rp 0</span>
+                </div>
+
+                <!-- Note pajak -->
+                <p style="font-size:var(--jp-text-xs);color:var(--jp-gray-400);margin-top:var(--jp-space-2);margin-bottom:0;">
+                  Sudah termasuk PPN 11%
+                </p>
+
+              </div>
+
+              <!-- Trust badges mini -->
+              <div class="jp-order-summary-body" style="padding-top:0;">
+                <div class="jp-summary-trust">
+                  <div class="jp-summary-trust-item">
+                    <i class="fa-solid fa-lock" aria-hidden="true"></i>
+                    Pembayaran 100% aman &amp; terenkripsi
+                  </div>
+                  <div class="jp-summary-trust-item">
+                    <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+                    Garansi resmi distributor
+                  </div>
+                  <div class="jp-summary-trust-item">
+                    <i class="fa-solid fa-rotate" aria-hidden="true"></i>
+                    Retur 3 hari jika produk cacat
+                  </div>
+                </div>
+              </div>
+
+              <div class="jp-order-summary-footer">
+                <!-- Tombol Checkout -->
+                <button class="jp-btn jp-btn-accent jp-btn-block jp-btn-lg"
+                        id="jpCheckoutBtn" type="button"
+                        aria-label="Lanjut ke checkout">
+                  <i class="fa-solid fa-lock" aria-hidden="true"></i>
+                  Lanjut ke Checkout
+                </button>
+
+                <!-- Atau WA -->
+                <a href="https://wa.me/6281280097479?text=Halo%20Jaya%20PC%2C%20saya%20mau%20order"
+                   class="jp-btn jp-btn-wa jp-btn-block"
+                   style="margin-top:var(--jp-space-3);"
+                   target="_blank" rel="noopener"
+                   aria-label="Order via WhatsApp">
+                  <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+                  Order via WhatsApp
+                </a>
+
+                <!-- Payment methods -->
+                <div style="margin-top:var(--jp-space-4);">
+                  <p style="font-size:var(--jp-text-xs);color:var(--jp-gray-400);text-align:center;margin-bottom:var(--jp-space-2);">
+                    Metode Pembayaran
+                  </p>
+                  <div class="jp-payment-badges" style="justify-content:center;">
+                    <span class="jp-payment-badge">BCA</span>
+                    <span class="jp-payment-badge">Mandiri</span>
+                    <span class="jp-payment-badge">BNI</span>
+                    <span class="jp-payment-badge">GoPay</span>
+                    <span class="jp-payment-badge">OVO</span>
+                    <span class="jp-payment-badge">DANA</span>
+                    <span class="jp-payment-badge">COD</span>
+                    <span class="jp-payment-badge">Cicilan 0%</span>
+                  </div>
+                </div>
+
+              </div>
+            </div><!-- /order summary -->
+
+            <!-- Rekomendasi tambahan -->
+            <div style="margin-top:var(--jp-space-5);padding:var(--jp-space-5);background:var(--jp-primary-subtle);border-radius:var(--jp-radius-xl);border:var(--jp-border-width) solid var(--jp-primary);">
+              <p style="font-size:var(--jp-text-sm);font-weight:var(--jp-fw-semibold);color:var(--jp-primary);margin-bottom:var(--jp-space-3);">
+                <i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i>
+                Perlu komponen lain?
+              </p>
+              <p style="font-size:var(--jp-text-xs);color:var(--jp-gray-600);margin-bottom:var(--jp-space-3);">
+                Konsultasikan PC build-mu ke tim ahli kami. Gratis!
+              </p>
+              <a href="pc-builder.html" class="jp-btn jp-btn-primary jp-btn-sm jp-btn-block">
+                <i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i>
+                Cek PC Configurator
+              </a>
+            </div>
+
+          </div><!-- /cart sidebar -->
+
+        </div><!-- /cart layout -->
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         PRODUK YANG MUNGKIN KAMU SUKA
+    ══════════════════════════════════════ -->
+    <section class="jp-section-surface jp-section-sm" aria-labelledby="jpRecomTitle">
+      <div class="jp-container">
+        <div class="jp-section-header">
+          <div class="jp-section-header-left">
+            <div class="jp-section-label">Rekomendasi</div>
+            <h2 class="jp-section-title" id="jpRecomTitle">
+              Produk yang Mungkin <span class="accent">Kamu Suka</span>
+            </h2>
+          </div>
+          <div class="jp-section-header-right">
+            <a href="shop.html" class="jp-see-all">
+              Lihat Semua <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="jp-product-grid" role="list" aria-label="Rekomendasi produk">
+
+          <!-- Card 1 -->
+          <div class="jp-product-card-wrap" role="listitem">
+            <article class="jp-product-card">
+              <div class="jp-product-card-img">
+                <a href="product-detail.html?id=rtx4070-super">
+                  <img src="https://images.unsplash.com/photo-1622473590773-f588134b6ce7?w=400&q=80&auto=format&fit=crop"
+                       alt="RTX 4070 Super 12GB" loading="lazy" width="300" height="225">
+                </a>
+                <div class="jp-product-card-badges">
+                  <span class="jp-badge jp-badge-hot">Best Seller</span>
+                </div>
+                <button class="jp-product-card-wishlist"
+                  data-jp-wishlist="rtx4070-super"
+                  data-name="RTX 4070 Super 12GB GDDR6X"
+                  data-price="7200000"
+                  data-image="https://images.unsplash.com/photo-1622473590773-f588134b6ce7?w=400&q=80"
+                  data-brand="NVIDIA GeForce" aria-label="Tambah ke wishlist">
+                  <i class="fa-regular fa-heart"></i>
+                </button>
+              </div>
+              <div class="jp-product-card-body">
+                <span class="jp-product-card-brand">NVIDIA GeForce</span>
+                <h3 class="jp-product-card-name">
+                  <a href="product-detail.html?id=rtx4070-super">RTX 4070 Super 12GB GDDR6X</a>
+                </h3>
+                <div class="jp-product-card-specs">
+                  <span class="jp-spec-chip">12GB GDDR6X</span>
+                  <span class="jp-spec-chip">7168 Cores</span>
+                </div>
+                <div class="jp-product-card-price">
+                  <div class="jp-price jp-price-sale">Rp 7.200.000</div>
+                  <div class="jp-price-original">Rp 8.500.000</div>
+                  <div class="jp-rating mt-2">
+                    <div class="jp-rating-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <span class="jp-rating-count">(203)</span>
+                  </div>
+                </div>
+              </div>
+              <div class="jp-product-card-footer">
+                <button class="jp-btn-cart" data-jp-add-cart
+                  data-id="rtx4070-super" data-name="RTX 4070 Super 12GB GDDR6X"
+                  data-price="7200000" data-brand="NVIDIA GeForce">
+                  <i class="fa-solid fa-bag-shopping"></i> Beli
+                </button>
+              </div>
+            </article>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="jp-product-card-wrap" role="listitem">
+            <article class="jp-product-card">
+              <div class="jp-product-card-img">
+                <a href="product-detail.html?id=ryzen7-7800x3d">
+                  <img src="https://images.unsplash.com/photo-1591488320449-011701bb6704?w=400&q=80&auto=format&fit=crop"
+                       alt="Ryzen 7 7800X3D" loading="lazy" width="300" height="225">
+                </a>
+                <div class="jp-product-card-badges">
+                  <span class="jp-badge jp-badge-new">Terbaru</span>
+                </div>
+                <button class="jp-product-card-wishlist"
+                  data-jp-wishlist="ryzen7-7800x3d"
+                  data-name="AMD Ryzen 7 7800X3D 8-Core AM5"
+                  data-price="4200000"
+                  data-image="https://images.unsplash.com/photo-1591488320449-011701bb6704?w=400&q=80"
+                  data-brand="AMD" aria-label="Tambah ke wishlist">
+                  <i class="fa-regular fa-heart"></i>
+                </button>
+              </div>
+              <div class="jp-product-card-body">
+                <span class="jp-product-card-brand">AMD</span>
+                <h3 class="jp-product-card-name">
+                  <a href="product-detail.html?id=ryzen7-7800x3d">AMD Ryzen 7 7800X3D 8-Core AM5</a>
+                </h3>
+                <div class="jp-product-card-specs">
+                  <span class="jp-spec-chip">8 Core</span>
+                  <span class="jp-spec-chip">5.0GHz</span>
+                  <span class="jp-spec-chip">3D V-Cache</span>
+                </div>
+                <div class="jp-product-card-price">
+                  <div class="jp-price">Rp 4.200.000</div>
+                  <div class="jp-rating mt-2">
+                    <div class="jp-rating-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <span class="jp-rating-count">(156)</span>
+                  </div>
+                </div>
+              </div>
+              <div class="jp-product-card-footer">
+                <button class="jp-btn-cart" data-jp-add-cart
+                  data-id="ryzen7-7800x3d" data-name="AMD Ryzen 7 7800X3D 8-Core AM5"
+                  data-price="4200000" data-brand="AMD">
+                  <i class="fa-solid fa-bag-shopping"></i> Beli
+                </button>
+              </div>
+            </article>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="jp-product-card-wrap" role="listitem">
+            <article class="jp-product-card">
+              <div class="jp-product-card-img">
+                <a href="product-detail.html?id=corsair-rm1000x">
+                  <img src="https://images.unsplash.com/photo-1593640495253-23196b27a87f?w=400&q=80&auto=format&fit=crop"
+                       alt="Corsair RM1000x 1000W Gold" loading="lazy" width="300" height="225">
+                </a>
+                <button class="jp-product-card-wishlist"
+                  data-jp-wishlist="corsair-rm1000x"
+                  data-name="Corsair RM1000x 1000W 80+ Gold"
+                  data-price="2800000"
+                  data-image="https://images.unsplash.com/photo-1593640495253-23196b27a87f?w=400&q=80"
+                  data-brand="Corsair" aria-label="Tambah ke wishlist">
+                  <i class="fa-regular fa-heart"></i>
+                </button>
+              </div>
+              <div class="jp-product-card-body">
+                <span class="jp-product-card-brand">Corsair</span>
+                <h3 class="jp-product-card-name">
+                  <a href="product-detail.html?id=corsair-rm1000x">Corsair RM1000x 1000W 80+ Gold</a>
+                </h3>
+                <div class="jp-product-card-specs">
+                  <span class="jp-spec-chip">1000W</span>
+                  <span class="jp-spec-chip">80+ Gold</span>
+                  <span class="jp-spec-chip">Full Modular</span>
+                </div>
+                <div class="jp-product-card-price">
+                  <div class="jp-price">Rp 2.800.000</div>
+                  <div class="jp-rating mt-2">
+                    <div class="jp-rating-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+                    <span class="jp-rating-count">(78)</span>
+                  </div>
+                </div>
+              </div>
+              <div class="jp-product-card-footer">
+                <button class="jp-btn-cart" data-jp-add-cart
+                  data-id="corsair-rm1000x" data-name="Corsair RM1000x 1000W 80+ Gold"
+                  data-price="2800000" data-brand="Corsair">
+                  <i class="fa-solid fa-bag-shopping"></i> Beli
+                </button>
+              </div>
+            </article>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="jp-product-card-wrap" role="listitem">
+            <article class="jp-product-card">
+              <div class="jp-product-card-img">
+                <a href="product-detail.html?id=noctua-nhd15">
+                  <img src="https://images.unsplash.com/photo-1562976540-1502c2145186?w=400&q=80&auto=format&fit=crop"
+                       alt="Noctua NH-D15 CPU Cooler" loading="lazy" width="300" height="225">
+                </a>
+                <div class="jp-product-card-badges">
+                  <span class="jp-badge jp-badge-value">Value Pick</span>
+                </div>
+                <button class="jp-product-card-wishlist"
+                  data-jp-wishlist="noctua-nhd15"
+                  data-name="Noctua NH-D15 Dual Tower CPU Cooler"
+                  data-price="1450000"
+                  data-image="https://images.unsplash.com/photo-1562976540-1502c2145186?w=400&q=80"
+                  data-brand="Noctua" aria-label="Tambah ke wishlist">
+                  <i class="fa-regular fa-heart"></i>
+                </button>
+              </div>
+              <div class="jp-product-card-body">
+                <span class="jp-product-card-brand">Noctua</span>
+                <h3 class="jp-product-card-name">
+                  <a href="product-detail.html?id=noctua-nhd15">Noctua NH-D15 Dual Tower CPU Cooler</a>
+                </h3>
+                <div class="jp-product-card-specs">
+                  <span class="jp-spec-chip">Dual Tower</span>
+                  <span class="jp-spec-chip">LGA1700</span>
+                  <span class="jp-spec-chip">AM5</span>
+                </div>
+                <div class="jp-product-card-price">
+                  <div class="jp-price">Rp 1.450.000</div>
+                  <div class="jp-rating mt-2">
+                    <div class="jp-rating-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <span class="jp-rating-count">(91)</span>
+                  </div>
+                </div>
+              </div>
+              <div class="jp-product-card-footer">
+                <button class="jp-btn-cart" data-jp-add-cart
+                  data-id="noctua-nhd15" data-name="Noctua NH-D15 Dual Tower CPU Cooler"
+                  data-price="1450000" data-brand="Noctua">
+                  <i class="fa-solid fa-bag-shopping"></i> Beli
+                </button>
+              </div>
+            </article>
+          </div>
+
+        </div><!-- /product grid -->
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════ -->
+  <footer class="jp-footer" role="contentinfo">
+    <div class="jp-footer-top">
+      <div class="jp-container">
+        <div class="jp-footer-grid">
+          <div>
+            <a href="index.html">
+              <img src="https://jayapc.com/wp-content/uploads/2024/12/logo-color-1.png"
+                   alt="Jaya PC" style="height:36px;width:auto;margin-bottom:1rem;filter:brightness(0) invert(1);">
+            </a>
+            <p class="jp-footer-brand-desc">Toko PC gaming dan office terpercaya di Jakarta. Komponen original, garansi resmi, harga terbaik sejak 2020.</p>
+            <div class="jp-footer-social">
+              <a href="https://wa.me/6281280097479" class="jp-footer-social-link" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+              <a href="#" class="jp-footer-social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#" class="jp-footer-social-link" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+          </div>
+          <nav aria-label="Komponen PC">
+            <div class="jp-footer-col-title">Komponen PC</div>
+            <ul class="jp-footer-links">
+              <li><a href="shop.html?cat=gpu">Graphics Card</a></li>
+              <li><a href="shop.html?cat=cpu">Processor</a></li>
+              <li><a href="shop.html?cat=ram">RAM DDR4 &amp; DDR5</a></li>
+              <li><a href="shop.html?cat=storage">SSD &amp; HDD</a></li>
+            </ul>
+          </nav>
+          <nav aria-label="Pre-Built">
+            <div class="jp-footer-col-title">Pre-Built &amp; Office</div>
+            <ul class="jp-footer-links">
+              <li><a href="shop.html?cat=gaming-pc">Gaming Point</a></li>
+              <li><a href="shop.html?cat=aio">All-in-One PC</a></li>
+              <li><a href="shop.html?cat=networking">Networking</a></li>
+            </ul>
+          </nav>
+          <nav aria-label="Layanan">
+            <div class="jp-footer-col-title">Layanan</div>
+            <ul class="jp-footer-links">
+              <li><a href="contact.html">Help &amp; Support</a></li>
+              <li><a href="#">Lacak Pesanan</a></li>
+              <li><a href="#">Info Garansi</a></li>
+              <li><a href="about.html">Tentang Jaya PC</a></li>
+            </ul>
+          </nav>
+          <div>
+            <div class="jp-footer-col-title">Hubungi Kami</div>
+            <ul class="jp-footer-links">
+              <li><a href="tel:+6281280097479"><i class="fa-solid fa-phone"></i> 0812-8009-7479</a></li>
+              <li><a href="https://wa.me/6281280097479" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a></li>
+              <li><a href="mailto:info@jayapc.com"><i class="fa-solid fa-envelope"></i> info@jayapc.com</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="jp-container">
+      <div class="jp-footer-bottom">
+        <p class="jp-footer-copy">&copy; 2025 Jaya PC. Semua hak dilindungi.</p>
+        <div class="jp-payment-badges">
+          <span class="jp-payment-badge">BCA</span>
+          <span class="jp-payment-badge">Mandiri</span>
+          <span class="jp-payment-badge">GoPay</span>
+          <span class="jp-payment-badge">OVO</span>
+          <span class="jp-payment-badge">COD</span>
+          <span class="jp-payment-badge">0% Cicilan</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating buttons -->
+  <a href="https://wa.me/6281280097479" class="jp-wa-float" target="_blank" rel="noopener" aria-label="Chat WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+  <button class="jp-back-to-top" type="button" aria-label="Kembali ke atas">
+    <i class="fa-solid fa-chevron-up"></i>
+  </button>
+
+
+  <!-- ════════════════════════════════════════
+       JAVASCRIPT
+  ════════════════════════════════════════ -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+
+  <script src="assets/js/components/toast.js"></script>
+  <script src="assets/js/components/cart.js"></script>
+  <script src="assets/js/components/wishlist.js"></script>
+  <script src="assets/js/components/navbar.js"></script>
+  <script src="assets/js/components/search.js"></script>
+
+  <script src="assets/js/pages/checkout.js"></script>
+  <script src="assets/js/main.js"></script>
+
+</body>
+</html>
